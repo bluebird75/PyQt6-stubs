@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [unreleased]
 
+### PyQt6-stubs in progress
+
 ### Added
 * [#179](https://github.com/python-qt-tools/PyQt5-stubs/pull/179) update to PyQt5 5.15.6
 * [#176](https://github.com/python-qt-tools/PyQt5-stubs/pull/176) update to PyQt5 5.15.5
