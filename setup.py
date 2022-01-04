@@ -38,20 +38,19 @@ long_description = read('README.md')
 
 
 setup(
-    name="PyQt5-stubs",
-    url="https://github.com/python-qt-tools/PyQt5-stubs",
+    name="PyQt6-stubs",
+    url="https://github.com/bluebird75/PyQt6-stubs",
     author="Stefan Lehmann",
-    maintainer="Kyle Altendorf, Bryce Beagle, Florian Bruhin",
-    maintainer_email="sda@fstab.net",
-    description="PEP561 stub files for the PyQt5 framework",
+    maintainer="Kyle Altendorf, Bryce Beagle, Florian Bruhin, Philippe Fre;y",
+    maintainer_email="phil.fremy@free.fr",
+    description="PEP561 stub files for the PyQt6 framework",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version=find_version('PyQt5-stubs', '__init__.pyi'),
-    python_requires=">= 3.5",
+    version=find_version('PyQt6-stubs', '__init__.pyi'),
+    python_requires=">= 3.6",
     package_data={"PyQt5-stubs": ['*.pyi']},
     packages=["PyQt5-stubs"],
     extras_require={
-        "build": ["docker==4.2.0"],
         "dev": ["mypy", "pytest"],
     },
     classifiers=[

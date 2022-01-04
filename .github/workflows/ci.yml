@@ -3,16 +3,12 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v*
   pull_request:
     branches:
       - "*"
-  schedule:
-    # Daily at 06:14.  This is just an arbitrary time to stagger
-    # relative to other daily builds in any given organization.
-    - cron: '14 6 * * *'
 
 jobs:
   test:
@@ -22,12 +18,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - name: Linux
-            runs-on: ubuntu-latest
-            tox: linux
-          - name: macOS
-            runs-on: macos-latest
-            tox: macos
           - name: Windows
             runs-on: windows-latest
             tox: windows
@@ -35,18 +25,6 @@ jobs:
           - name: CPython 3.6
             tox: py36
             action: 3.6
-          - name: CPython 3.7
-            tox: py37
-            action: 3.7
-          - name: CPython 3.8
-            tox: py38
-            action: 3.8
-          - name: CPython 3.9
-            tox: py39
-            action: 3.9
-          - name: CPython 3.10
-            tox: py310
-            action: '3.10'
     steps:
       - uses: actions/checkout@v2
       - name: Set up ${{ matrix.python.name }}
@@ -55,13 +33,6 @@ jobs:
           python-version: '${{ matrix.python.action }}.0-alpha - ${{ matrix.python.action }}.X'
           architecture: x64
       - uses: twisted/python-info-action@v1.0.1
-      - name: Install Linux Qt5 dependencies
-        if: matrix.os.name == 'Linux'
-        run: |
-          sudo apt-get update --yes
-          sudo apt-get install --yes libgl1
-          # Required to stubtest QtMultimedia
-          sudo apt-get install --yes libpulse-mainloop-glib0
       - name: Install
         run: |
           pip install --upgrade pip setuptools wheel
