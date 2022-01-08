@@ -48,8 +48,8 @@ setup(
     long_description_content_type="text/markdown",
     version=find_version('PyQt6-stubs', '__init__.pyi'),
     python_requires=">= 3.6",
-    package_data={"PyQt5-stubs": ['*.pyi']},
-    packages=["PyQt5-stubs"],
+    package_data={"PyQt6-stubs": ['*.pyi']},
+    packages=["PyQt6-stubs"],
     extras_require={
         "dev": ["mypy", "pytest"],
     },
