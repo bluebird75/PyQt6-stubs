@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets
+from PyQt6 import QtWidgets
 
 a = QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Ok  # type: QtWidgets.QDialogButtonBox.StandardButtons
 b = QtWidgets.QDialogButtonBox.Ok | 0  # type: int

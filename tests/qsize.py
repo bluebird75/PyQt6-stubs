@@ -1,4 +1,4 @@
-from PyQt5 import QtCore
+from PyQt6 import QtCore
 
 # QSize tests
 qs1 = QtCore.QSize(1,2)
