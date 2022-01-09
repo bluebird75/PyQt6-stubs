@@ -45,7 +45,7 @@ setup(
     description="PEP561 stub files for the PyQt5 framework",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version=find_version('PyQt5-stubs', '__init__.pyi'),
+    version=find_version('PyQt6-stubs', '__init__.pyi'),
     package_data={"PyQt5-stubs": ['*.pyi']},
     packages=["PyQt5-stubs"],
     tests_require=["PyQt5==5.14.*"],
