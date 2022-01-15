@@ -306,10 +306,6 @@ class QBluetoothLocalDevice(QtCore.QObject):
         Paired = ... # type: QBluetoothLocalDevice.Pairing
         AuthorizedPaired = ... # type: QBluetoothLocalDevice.Pairing
 
-    Unpaired = ...  # type: QBluetoothLocalDevice.Pairing
-    Paired = ...  # type: QBluetoothLocalDevice.Pairing
-    AuthorizedPaired = ...  # type: QBluetoothLocalDevice.Pairing
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -342,13 +338,6 @@ class QBluetoothServer(QtCore.QObject):
         InputOutputError = ... # type: QBluetoothServer.Error
         ServiceAlreadyRegisteredError = ... # type: QBluetoothServer.Error
         UnsupportedProtocolError = ... # type: QBluetoothServer.Error
-
-    NoError = ...  # type: QBluetoothServer.Error
-    UnknownError = ...  # type: QBluetoothServer.Error
-    PoweredOffError = ...  # type: QBluetoothServer.Error
-    InputOutputError = ...  # type: QBluetoothServer.Error
-    ServiceAlreadyRegisteredError = ...  # type: QBluetoothServer.Error
-    UnsupportedProtocolError = ...  # type: QBluetoothServer.Error
 
     def __init__(self, serverType: 'QBluetoothServiceInfo.Protocol', parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -384,12 +373,6 @@ class QBluetoothServiceDiscoveryAgent(QtCore.QObject):
         PoweredOffError = ... # type: QBluetoothServiceDiscoveryAgent.Error
         InvalidBluetoothAdapterError = ... # type: QBluetoothServiceDiscoveryAgent.Error
         UnknownError = ... # type: QBluetoothServiceDiscoveryAgent.Error
-
-    NoError = ...  # type: QBluetoothServiceDiscoveryAgent.Error
-    InputOutputError = ...  # type: QBluetoothServiceDiscoveryAgent.Error
-    PoweredOffError = ...  # type: QBluetoothServiceDiscoveryAgent.Error
-    InvalidBluetoothAdapterError = ...  # type: QBluetoothServiceDiscoveryAgent.Error
-    UnknownError = ...  # type: QBluetoothServiceDiscoveryAgent.Error
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
@@ -442,25 +425,6 @@ class QBluetoothServiceInfo(PyQt6.sip.simplewrapper):
         ServiceName = ... # type: QBluetoothServiceInfo.AttributeId
         ServiceDescription = ... # type: QBluetoothServiceInfo.AttributeId
         ServiceProvider = ... # type: QBluetoothServiceInfo.AttributeId
-
-    ServiceRecordHandle = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceClassIds = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceRecordState = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceId = ...  # type: QBluetoothServiceInfo.AttributeId
-    ProtocolDescriptorList = ...  # type: QBluetoothServiceInfo.AttributeId
-    BrowseGroupList = ...  # type: QBluetoothServiceInfo.AttributeId
-    LanguageBaseAttributeIdList = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceInfoTimeToLive = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceAvailability = ...  # type: QBluetoothServiceInfo.AttributeId
-    BluetoothProfileDescriptorList = ...  # type: QBluetoothServiceInfo.AttributeId
-    DocumentationUrl = ...  # type: QBluetoothServiceInfo.AttributeId
-    ClientExecutableUrl = ...  # type: QBluetoothServiceInfo.AttributeId
-    IconUrl = ...  # type: QBluetoothServiceInfo.AttributeId
-    AdditionalProtocolDescriptorList = ...  # type: QBluetoothServiceInfo.AttributeId
-    PrimaryLanguageBase = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceName = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceDescription = ...  # type: QBluetoothServiceInfo.AttributeId
-    ServiceProvider = ...  # type: QBluetoothServiceInfo.AttributeId
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -522,14 +486,6 @@ class QBluetoothSocket(QtCore.QIODevice):
         ClosingState = ... # type: QBluetoothSocket.SocketState
         ListeningState = ... # type: QBluetoothSocket.SocketState
 
-    UnconnectedState = ...  # type: QBluetoothSocket.SocketState
-    ServiceLookupState = ...  # type: QBluetoothSocket.SocketState
-    ConnectingState = ...  # type: QBluetoothSocket.SocketState
-    ConnectedState = ...  # type: QBluetoothSocket.SocketState
-    BoundState = ...  # type: QBluetoothSocket.SocketState
-    ClosingState = ...  # type: QBluetoothSocket.SocketState
-    ListeningState = ...  # type: QBluetoothSocket.SocketState
-
     @typing.overload
     def __init__(self, socketType: QBluetoothServiceInfo.Protocol, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -540,7 +496,7 @@ class QBluetoothSocket(QtCore.QIODevice):
     def doDeviceDiscovery(self, service: QBluetoothServiceInfo, openMode: QtCore.QIODeviceBase.OpenModeFlag) -> None: ...
     def setSocketError(self, error: 'QBluetoothSocket.SocketError') -> None: ...
     def setSocketState(self, state: 'QBluetoothSocket.SocketState') -> None: ...
-    def writeData(self, data: bytes) -> int: ...
+    def writeData(self, data: bytes) -> int: ...  # type: ignore[override]
     def readData(self, maxlen: int) -> bytes: ...
     def stateChanged(self, state: 'QBluetoothSocket.SocketState') -> None: ...
     def errorOccurred(self, error: 'QBluetoothSocket.SocketError') -> None: ...

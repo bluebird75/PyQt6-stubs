@@ -98,9 +98,6 @@ class QAudioDecoder(QtCore.QObject):
         AccessDeniedError = ... # type: QAudioDecoder.Error
         NotSupportedError = ... # type: QAudioDecoder.Error
 
-    StoppedState = ...  # type: QAudioDecoder.State
-    DecodingState = ...  # type: QAudioDecoder.State
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     def formatChanged(self, format: 'QAudioFormat') -> None: ...
@@ -204,11 +201,6 @@ class QAudioFormat(PyQt6.sip.simplewrapper):
         BottomFrontCenter = ... # type: QAudioFormat.AudioChannelPosition
         BottomFrontLeft = ... # type: QAudioFormat.AudioChannelPosition
         BottomFrontRight = ... # type: QAudioFormat.AudioChannelPosition
-
-    Unknown = ...  # type: QAudioFormat.SampleType
-    SignedInt = ...  # type: QAudioFormat.SampleType
-    UnSignedInt = ...  # type: QAudioFormat.SampleType
-    Float = ...  # type: QAudioFormat.SampleType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -981,8 +973,6 @@ class QSoundEffect(QtCore.QObject):
     class Loop(enum.Enum):
         Infinite = ... # type: QSoundEffect.Loop
 
-    Infinite = ...  # type: QSoundEffect.Loop
-
     @typing.overload
     def __init__(self, audioDevice: QAudioDevice, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -1042,11 +1032,6 @@ class QVideoFrame(PyQt6.sip.simplewrapper):
         def __init__(self) -> None: ...
         @typing.overload
         def __init__(self, a0: 'QVideoFrame.PaintOptions') -> None: ...
-
-    ProgressiveFrame = ...  # type: QVideoFrame.FieldType
-    TopField = ...  # type: QVideoFrame.FieldType
-    BottomField = ...  # type: QVideoFrame.FieldType
-    InterlacedFrame = ...  # type: QVideoFrame.FieldType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1128,9 +1113,6 @@ class QVideoFrameFormat(PyQt6.sip.simplewrapper):
         Format_AYUV = ... # type: QVideoFrameFormat.PixelFormat
         Format_AYUV_Premultiplied = ... # type: QVideoFrameFormat.PixelFormat
         Format_SamplerRect = ... # type: QVideoFrameFormat.PixelFormat
-
-    TopToBottom = ...  # type: QVideoSurfaceFormat.Direction
-    BottomToTop = ...  # type: QVideoSurfaceFormat.Direction
 
     @typing.overload
     def __init__(self) -> None: ...

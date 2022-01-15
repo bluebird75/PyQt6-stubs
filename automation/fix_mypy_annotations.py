@@ -18,7 +18,8 @@ def prepare_files() -> Dict[str, List[int]]:
             print(f"Ignoring file {stub_file}")
             continue
 
-        file_to_fix = os.path.join("PyQt6-stubs", stub_file)
+        pyqt6_stubs_dir = pathlib.Path(__file__).parent.parent / 'PyQt6-stubs'
+        file_to_fix = os.path.join(pyqt6_stubs_dir, stub_file)
 
         result = mypy_api.run([file_to_fix])[0]
         if result.startswith("Success"):
