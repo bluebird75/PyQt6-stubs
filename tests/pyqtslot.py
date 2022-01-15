@@ -32,7 +32,7 @@ class MyObj(QObject):
         called['func_2str'] = True
 
 
-app = QCoreApplication(['program', '-platform', 'offscreen'])
+# app = QCoreApplication(['program', '-platform', 'offscreen'])
 
 o = MyObj()
 o.sig_with_none.connect(o.func_none)
