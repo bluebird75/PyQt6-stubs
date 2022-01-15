@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
 # 
-# This file is part of PyQt5.
+# This file is part of PyQt6.
 # 
 # This file may be used under the terms of the GNU General Public License
 # version 3.0 as published by the Free Software Foundation and appearing in
@@ -22,13 +22,13 @@
 
 import typing
 
-from PyQt5 import sip
-from PyQt5 import QtWidgets
-from PyQt5 import QtWebKit
-from PyQt5 import QtPrintSupport
-from PyQt5 import QtNetwork as QtNetwork_
-from PyQt5 import QtGui
-from PyQt5 import QtCore
+from PyQt6 import sip
+from PyQt6 import QtWidgets
+from PyQt6 import QtWebKit
+from PyQt6 import QtPrintSupport
+from PyQt6 import QtNetwork as QtNetwork_
+from PyQt6 import QtGui
+from PyQt6 import QtCore
 
 # Support for QDate, QDateTime and QTime.
 import datetime
