@@ -452,12 +452,6 @@ class QAbstractItemDelegate(QtCore.QObject):
         SubmitModelCache = ... # type: QAbstractItemDelegate.EndEditHint
         RevertModelCache = ... # type: QAbstractItemDelegate.EndEditHint
 
-    NoHint = ...  # type: QAbstractItemDelegate.EndEditHint
-    EditNextItem = ...  # type: QAbstractItemDelegate.EndEditHint
-    EditPreviousItem = ...  # type: QAbstractItemDelegate.EndEditHint
-    SubmitModelCache = ...  # type: QAbstractItemDelegate.EndEditHint
-    RevertModelCache = ...  # type: QAbstractItemDelegate.EndEditHint
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     sizeHintChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -523,10 +517,6 @@ class QAbstractScrollArea(QFrame):
         AdjustIgnored = ... # type: QAbstractScrollArea.SizeAdjustPolicy
         AdjustToContentsOnFirstShow = ... # type: QAbstractScrollArea.SizeAdjustPolicy
         AdjustToContents = ... # type: QAbstractScrollArea.SizeAdjustPolicy
-
-    AdjustIgnored = ...  # type: QAbstractScrollArea.SizeAdjustPolicy
-    AdjustToContentsOnFirstShow = ...  # type: QAbstractScrollArea.SizeAdjustPolicy
-    AdjustToContents = ...  # type: QAbstractScrollArea.SizeAdjustPolicy
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -797,15 +787,6 @@ class QAbstractSlider(QWidget):
         SliderToMinimum = ... # type: QAbstractSlider.SliderAction
         SliderToMaximum = ... # type: QAbstractSlider.SliderAction
         SliderMove = ... # type: QAbstractSlider.SliderAction
-
-    SliderNoAction = ...  # type: QAbstractSlider.SliderAction
-    SliderSingleStepAdd = ...  # type: QAbstractSlider.SliderAction
-    SliderSingleStepSub = ...  # type: QAbstractSlider.SliderAction
-    SliderPageStepAdd = ...  # type: QAbstractSlider.SliderAction
-    SliderPageStepSub = ...  # type: QAbstractSlider.SliderAction
-    SliderToMinimum = ...  # type: QAbstractSlider.SliderAction
-    SliderToMaximum = ...  # type: QAbstractSlider.SliderAction
-    SliderMove = ...  # type: QAbstractSlider.SliderAction
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -1143,13 +1124,6 @@ class QBoxLayout(QLayout):
         Down = ... # type: QBoxLayout.Direction
         Up = ... # type: QBoxLayout.Direction
 
-    LeftToRight = ...  # type: QBoxLayout.Direction
-    RightToLeft = ...  # type: QBoxLayout.Direction
-    TopToBottom = ...  # type: QBoxLayout.Direction
-    BottomToTop = ...  # type: QBoxLayout.Direction
-    Down = ...  # type: QBoxLayout.Direction
-    Up = ...  # type: QBoxLayout.Direction
-
     def __init__(self, direction: 'QBoxLayout.Direction', parent: typing.Optional[QWidget] = ...) -> None: ...
 
     def insertItem(self, index: int, a1: QLayoutItem) -> None: ...
@@ -1244,11 +1218,6 @@ class QCalendarWidget(QWidget):
         SingleLetterDayNames = ... # type: QCalendarWidget.HorizontalHeaderFormat
         ShortDayNames = ... # type: QCalendarWidget.HorizontalHeaderFormat
         LongDayNames = ... # type: QCalendarWidget.HorizontalHeaderFormat
-
-    NoHorizontalHeader = ...  # type: QCalendarWidget.HorizontalHeaderFormat
-    SingleLetterDayNames = ...  # type: QCalendarWidget.HorizontalHeaderFormat
-    ShortDayNames = ...  # type: QCalendarWidget.HorizontalHeaderFormat
-    LongDayNames = ...  # type: QCalendarWidget.HorizontalHeaderFormat
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -1456,14 +1425,6 @@ class QComboBox(QWidget):
         InsertAfterCurrent = ... # type: QComboBox.InsertPolicy
         InsertBeforeCurrent = ... # type: QComboBox.InsertPolicy
         InsertAlphabetically = ... # type: QComboBox.InsertPolicy
-
-    NoInsert = ...  # type: QComboBox.InsertPolicy
-    InsertAtTop = ...  # type: QComboBox.InsertPolicy
-    InsertAtCurrent = ...  # type: QComboBox.InsertPolicy
-    InsertAtBottom = ...  # type: QComboBox.InsertPolicy
-    InsertAfterCurrent = ...  # type: QComboBox.InsertPolicy
-    InsertBeforeCurrent = ...  # type: QComboBox.InsertPolicy
-    InsertAlphabetically = ...  # type: QComboBox.InsertPolicy
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -2285,10 +2246,6 @@ class QCompleter(QtCore.QObject):
         UnfilteredPopupCompletion = ... # type: QCompleter.CompletionMode
         InlineCompletion = ... # type: QCompleter.CompletionMode
 
-    PopupCompletion = ...  # type: QCompleter.CompletionMode
-    UnfilteredPopupCompletion = ...  # type: QCompleter.CompletionMode
-    InlineCompletion = ...  # type: QCompleter.CompletionMode
-
     @typing.overload
     def __init__(self, model: QtCore.QAbstractItemModel, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -2340,9 +2297,6 @@ class QDataWidgetMapper(QtCore.QObject):
     class SubmitPolicy(enum.Enum):
         AutoSubmit = ... # type: QDataWidgetMapper.SubmitPolicy
         ManualSubmit = ... # type: QDataWidgetMapper.SubmitPolicy
-
-    AutoSubmit = ...  # type: QDataWidgetMapper.SubmitPolicy
-    ManualSubmit = ...  # type: QDataWidgetMapper.SubmitPolicy
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -2956,9 +2910,6 @@ class QGesture(QtCore.QObject):
         CancelNone = ... # type: QGesture.GestureCancelPolicy
         CancelAllInContext = ... # type: QGesture.GestureCancelPolicy
 
-    CancelNone = ...  # type: QGesture.GestureCancelPolicy
-    CancelAllInContext = ...  # type: QGesture.GestureCancelPolicy
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     def gestureCancelPolicy(self) -> 'QGesture.GestureCancelPolicy': ...
@@ -3025,12 +2976,6 @@ class QSwipeGesture(QGesture):
         Right = ... # type: QSwipeGesture.SwipeDirection
         Up = ... # type: QSwipeGesture.SwipeDirection
         Down = ... # type: QSwipeGesture.SwipeDirection
-
-    NoDirection = ...  # type: QSwipeGesture.SwipeDirection
-    Left = ...  # type: QSwipeGesture.SwipeDirection
-    Right = ...  # type: QSwipeGesture.SwipeDirection
-    Up = ...  # type: QSwipeGesture.SwipeDirection
-    Down = ...  # type: QSwipeGesture.SwipeDirection
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -3652,6 +3597,7 @@ class QGraphicsItem(PyQt6.sip.wrapper):
     @typing.overload
     def update(self, ax: float, ay: float, width: float, height: float) -> None: ...
     def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: typing.Optional[QWidget] = ...) -> None: ...
+    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...  # type: ignore[override]
     def opaqueArea(self) -> QtGui.QPainterPath: ...
     def isObscuredBy(self, item: 'QGraphicsItem') -> bool: ...
     def collidingItems(self, mode: QtCore.Qt.ItemSelectionMode = ...) -> typing.List['QGraphicsItem']: ...
@@ -3842,10 +3788,6 @@ class QGraphicsPixmapItem(QGraphicsItem):
         BoundingRectShape = ... # type: QGraphicsPixmapItem.ShapeMode
         HeuristicMaskShape = ... # type: QGraphicsPixmapItem.ShapeMode
 
-    MaskShape = ...  # type: QGraphicsPixmapItem.ShapeMode
-    BoundingRectShape = ...  # type: QGraphicsPixmapItem.ShapeMode
-    HeuristicMaskShape = ...  # type: QGraphicsPixmapItem.ShapeMode
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QGraphicsItem] = ...) -> None: ...
     @typing.overload
@@ -3856,7 +3798,7 @@ class QGraphicsPixmapItem(QGraphicsItem):
     def type(self) -> int: ...
     def opaqueArea(self) -> QtGui.QPainterPath: ...
     def isObscuredBy(self, item: QGraphicsItem) -> bool: ...
-    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...
+    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...  # type: ignore[override]
     def contains(self, point: QtCore.QPointF) -> bool: ...
     def shape(self) -> QtGui.QPainterPath: ...
     def boundingRect(self) -> QtCore.QRectF: ...
@@ -3881,7 +3823,7 @@ class QGraphicsSimpleTextItem(QAbstractGraphicsShapeItem):
     def type(self) -> int: ...
     def opaqueArea(self) -> QtGui.QPainterPath: ...
     def isObscuredBy(self, item: QGraphicsItem) -> bool: ...
-    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...
+    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...  # type: ignore[override]
     def contains(self, point: QtCore.QPointF) -> bool: ...
     def shape(self) -> QtGui.QPainterPath: ...
     def boundingRect(self) -> QtCore.QRectF: ...
@@ -3967,7 +3909,7 @@ class QGraphicsTextItem(QGraphicsObject):
     def type(self) -> int: ...
     def opaqueArea(self) -> QtGui.QPainterPath: ...
     def isObscuredBy(self, item: QGraphicsItem) -> bool: ...
-    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...
+    def paint(self, painter: QtGui.QPainter, option: 'QStyleOptionGraphicsItem', widget: QWidget) -> None: ...  # type: ignore[override]
     def contains(self, point: QtCore.QPointF) -> bool: ...
     def shape(self) -> QtGui.QPainterPath: ...
     def boundingRect(self) -> QtCore.QRectF: ...
@@ -4341,10 +4283,6 @@ class QGraphicsSceneContextMenuEvent(QGraphicsSceneEvent):
         Keyboard = ... # type: QGraphicsSceneContextMenuEvent.Reason
         Other = ... # type: QGraphicsSceneContextMenuEvent.Reason
 
-    Mouse = ...  # type: QGraphicsSceneContextMenuEvent.Reason
-    Keyboard = ...  # type: QGraphicsSceneContextMenuEvent.Reason
-    Other = ...  # type: QGraphicsSceneContextMenuEvent.Reason
-
     def reason(self) -> 'QGraphicsSceneContextMenuEvent.Reason': ...
     def modifiers(self) -> QtCore.Qt.KeyboardModifier: ...
     def screenPos(self) -> QtCore.QPoint: ...
@@ -4713,12 +4651,6 @@ class QHeaderView(QAbstractItemView):
         ResizeToContents = ... # type: QHeaderView.ResizeMode
         Custom = ... # type: QHeaderView.ResizeMode
 
-    Interactive = ...  # type: QHeaderView.ResizeMode
-    Fixed = ...  # type: QHeaderView.ResizeMode
-    Stretch = ...  # type: QHeaderView.ResizeMode
-    ResizeToContents = ...  # type: QHeaderView.ResizeMode
-    Custom = ...  # type: QHeaderView.ResizeMode
-
     def __init__(self, orientation: QtCore.Qt.Orientation, parent: typing.Optional[QWidget] = ...) -> None: ...
 
     def sortIndicatorClearableChanged(self, clearable: bool) -> None: ...
@@ -4742,7 +4674,7 @@ class QHeaderView(QAbstractItemView):
     def sectionsMovable(self) -> bool: ...
     def setSectionsMovable(self, movable: bool) -> None: ...
     def initStyleOptionForIndex(self, option: 'QStyleOptionHeader', logicalIndex: int) -> None: ...
-    def initStyleOption(self, option: 'QStyleOptionHeader') -> None: ...
+    def initStyleOption(self, option: 'QStyleOptionHeader') -> None: ...  # type: ignore[override]
     def sortIndicatorChanged(self, logicalIndex: int, order: QtCore.Qt.SortOrder) -> None: ...
     def sectionEntered(self, logicalIndex: int) -> None: ...
     def setOffsetToLastSection(self) -> None: ...
@@ -5105,11 +5037,6 @@ class QLCDNumber(QFrame):
         Oct = ... # type: QLCDNumber.Mode
         Bin = ... # type: QLCDNumber.Mode
 
-    Hex = ...  # type: QLCDNumber.Mode
-    Dec = ...  # type: QLCDNumber.Mode
-    Oct = ...  # type: QLCDNumber.Mode
-    Bin = ...  # type: QLCDNumber.Mode
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
     @typing.overload
@@ -5157,11 +5084,6 @@ class QLineEdit(QWidget):
         NoEcho = ... # type: QLineEdit.EchoMode
         Password = ... # type: QLineEdit.EchoMode
         PasswordEchoOnEdit = ... # type: QLineEdit.EchoMode
-
-    Normal = ...  # type: QLineEdit.EchoMode
-    NoEcho = ...  # type: QLineEdit.EchoMode
-    Password = ...  # type: QLineEdit.EchoMode
-    PasswordEchoOnEdit = ...  # type: QLineEdit.EchoMode
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
@@ -5296,10 +5218,6 @@ class QListView(QAbstractItemView):
         Free = ... # type: QListView.Movement
         Snap = ... # type: QListView.Movement
 
-    Static = ...  # type: QListView.Movement
-    Free = ...  # type: QListView.Movement
-    Snap = ...  # type: QListView.Movement
-
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
     def itemAlignment(self) -> QtCore.Qt.AlignmentFlag: ...
@@ -5375,9 +5293,6 @@ class QListWidgetItem(PyQt6.sip.wrapper):
     class ItemType(enum.IntEnum):
         Type = ... # type: QListWidgetItem.ItemType
         UserType = ... # type: QListWidgetItem.ItemType
-
-    Type = ...  # type: QListWidgetItem.ItemType
-    UserType = ...  # type: QListWidgetItem.ItemType
 
     @typing.overload
     def __init__(self, parent: typing.Optional['QListWidget'] = ..., type: int = ...) -> None: ...
@@ -5733,7 +5648,7 @@ class QMenu(QWidget):
     def actionAt(self, a0: QtCore.QPoint) -> QtGui.QAction: ...
     def actionGeometry(self, a0: QtGui.QAction) -> QtCore.QRect: ...
     def sizeHint(self) -> QtCore.QSize: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def exec(self) -> QtGui.QAction: ...
     @typing.overload
     def exec(self, p: QtCore.QPoint, action: typing.Optional[QtGui.QAction] = ...) -> QtGui.QAction: ...
@@ -5954,9 +5869,6 @@ class QPlainTextEdit(QAbstractScrollArea):
         NoWrap = ... # type: QPlainTextEdit.LineWrapMode
         WidgetWidth = ... # type: QPlainTextEdit.LineWrapMode
 
-    NoWrap = ...  # type: QPlainTextEdit.LineWrapMode
-    WidgetWidth = ...  # type: QPlainTextEdit.LineWrapMode
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
     @typing.overload
@@ -6047,7 +5959,7 @@ class QPlainTextEdit(QAbstractScrollArea):
     def loadResource(self, type: int, name: QtCore.QUrl) -> typing.Any: ...
     def ensureCursorVisible(self) -> None: ...
     def toPlainText(self) -> str: ...
-    @typing.overload
+    @typing.overload  # type: ignore[override]
     def find(self, exp: str, options: QtGui.QTextDocument.FindFlag = ...) -> bool: ...
     @typing.overload
     def find(self, exp: QtCore.QRegularExpression, options: QtGui.QTextDocument.FindFlag = ...) -> bool: ...
@@ -6102,9 +6014,6 @@ class QProgressBar(QWidget):
     class Direction(enum.Enum):
         TopToBottom = ... # type: QProgressBar.Direction
         BottomToTop = ... # type: QProgressBar.Direction
-
-    TopToBottom = ...  # type: QProgressBar.Direction
-    BottomToTop = ...  # type: QProgressBar.Direction
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -6239,9 +6148,6 @@ class QRubberBand(QWidget):
     class Shape(enum.Enum):
         Line = ... # type: QRubberBand.Shape
         Rectangle = ... # type: QRubberBand.Shape
-
-    Line = ...  # type: QRubberBand.Shape
-    Rectangle = ...  # type: QRubberBand.Shape
 
     def __init__(self, a0: 'QRubberBand.Shape', parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -6411,10 +6317,6 @@ class QScrollerProperties(PyQt6.sip.simplewrapper):
         OvershootAlwaysOff = ... # type: QScrollerProperties.OvershootPolicy
         OvershootAlwaysOn = ... # type: QScrollerProperties.OvershootPolicy
 
-    OvershootWhenScrollable = ...  # type: QScrollerProperties.OvershootPolicy
-    OvershootAlwaysOff = ...  # type: QScrollerProperties.OvershootPolicy
-    OvershootAlwaysOn = ...  # type: QScrollerProperties.OvershootPolicy
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -6519,13 +6421,6 @@ class QSlider(QAbstractSlider):
         TicksBelow = ... # type: QSlider.TickPosition
         TicksRight = ... # type: QSlider.TickPosition
         TicksBothSides = ... # type: QSlider.TickPosition
-
-    NoTicks = ...  # type: QSlider.TickPosition
-    TicksAbove = ...  # type: QSlider.TickPosition
-    TicksLeft = ...  # type: QSlider.TickPosition
-    TicksBelow = ...  # type: QSlider.TickPosition
-    TicksRight = ...  # type: QSlider.TickPosition
-    TicksBothSides = ...  # type: QSlider.TickPosition
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
@@ -6697,9 +6592,6 @@ class QStackedLayout(QLayout):
         StackOne = ... # type: QStackedLayout.StackingMode
         StackAll = ... # type: QStackedLayout.StackingMode
 
-    StackOne = ...  # type: QStackedLayout.StackingMode
-    StackAll = ...  # type: QStackedLayout.StackingMode
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -6722,7 +6614,7 @@ class QStackedLayout(QLayout):
     def sizeHint(self) -> QtCore.QSize: ...
     def addItem(self, item: QLayoutItem) -> None: ...
     def count(self) -> int: ...
-    def widget(self, a0: int) -> QWidget: ...
+    def widget(self, a0: int) -> QWidget: ...  # type: ignore[override]
     def currentIndex(self) -> int: ...
     def currentWidget(self) -> QWidget: ...
     def insertWidget(self, index: int, w: QWidget) -> int: ...
@@ -6838,33 +6730,6 @@ class QStyleOption(PyQt6.sip.simplewrapper):
         SO_GraphicsItem = ... # type: QStyleOption.OptionType
         SO_SizeGrip = ... # type: QStyleOption.OptionType
         SO_CustomBase = ... # type: QStyleOption.OptionType
-
-    SO_Default = ...  # type: QStyleOption.OptionType
-    SO_FocusRect = ...  # type: QStyleOption.OptionType
-    SO_Button = ...  # type: QStyleOption.OptionType
-    SO_Tab = ...  # type: QStyleOption.OptionType
-    SO_MenuItem = ...  # type: QStyleOption.OptionType
-    SO_Frame = ...  # type: QStyleOption.OptionType
-    SO_ProgressBar = ...  # type: QStyleOption.OptionType
-    SO_ToolBox = ...  # type: QStyleOption.OptionType
-    SO_Header = ...  # type: QStyleOption.OptionType
-    SO_DockWidget = ...  # type: QStyleOption.OptionType
-    SO_ViewItem = ...  # type: QStyleOption.OptionType
-    SO_TabWidgetFrame = ...  # type: QStyleOption.OptionType
-    SO_TabBarBase = ...  # type: QStyleOption.OptionType
-    SO_RubberBand = ...  # type: QStyleOption.OptionType
-    SO_ToolBar = ...  # type: QStyleOption.OptionType
-    SO_Complex = ...  # type: QStyleOption.OptionType
-    SO_Slider = ...  # type: QStyleOption.OptionType
-    SO_SpinBox = ...  # type: QStyleOption.OptionType
-    SO_ToolButton = ...  # type: QStyleOption.OptionType
-    SO_ComboBox = ...  # type: QStyleOption.OptionType
-    SO_TitleBar = ...  # type: QStyleOption.OptionType
-    SO_GroupBox = ...  # type: QStyleOption.OptionType
-    SO_ComplexCustomBase = ...  # type: QStyleOption.OptionType
-    SO_GraphicsItem = ...  # type: QStyleOption.OptionType
-    SO_SizeGrip = ...  # type: QStyleOption.OptionType
-    SO_CustomBase = ...  # type: QStyleOption.OptionType
 
     direction = ... # type: QtCore.Qt.LayoutDirection
     fontMetrics = ... # type: QtGui.QFontMetrics
@@ -7428,10 +7293,6 @@ class QStyleHintReturn(PyQt6.sip.simplewrapper):
         SH_Mask = ... # type: QStyleHintReturn.HintReturnType
         SH_Variant = ... # type: QStyleHintReturn.HintReturnType
 
-    SH_Default = ...  # type: QStyleHintReturn.HintReturnType
-    SH_Mask = ...  # type: QStyleHintReturn.HintReturnType
-    SH_Variant = ...  # type: QStyleHintReturn.HintReturnType
-
     type = ... # type: int
     version = ... # type: int
 
@@ -7596,12 +7457,6 @@ class QSystemTrayIcon(QtCore.QObject):
         Trigger = ... # type: QSystemTrayIcon.ActivationReason
         MiddleClick = ... # type: QSystemTrayIcon.ActivationReason
 
-    Unknown = ...  # type: QSystemTrayIcon.ActivationReason
-    Context = ...  # type: QSystemTrayIcon.ActivationReason
-    DoubleClick = ...  # type: QSystemTrayIcon.ActivationReason
-    Trigger = ...  # type: QSystemTrayIcon.ActivationReason
-    MiddleClick = ...  # type: QSystemTrayIcon.ActivationReason
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -7651,15 +7506,6 @@ class QTabBar(QWidget):
         TriangularSouth = ... # type: QTabBar.Shape
         TriangularWest = ... # type: QTabBar.Shape
         TriangularEast = ... # type: QTabBar.Shape
-
-    RoundedNorth = ...  # type: QTabBar.Shape
-    RoundedSouth = ...  # type: QTabBar.Shape
-    RoundedWest = ...  # type: QTabBar.Shape
-    RoundedEast = ...  # type: QTabBar.Shape
-    TriangularNorth = ...  # type: QTabBar.Shape
-    TriangularSouth = ...  # type: QTabBar.Shape
-    TriangularWest = ...  # type: QTabBar.Shape
-    TriangularEast = ...  # type: QTabBar.Shape
 
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
@@ -7851,9 +7697,6 @@ class QTableWidgetItem(PyQt6.sip.wrapper):
     class ItemType(enum.Enum):
         Type = ... # type: QTableWidgetItem.ItemType
         UserType = ... # type: QTableWidgetItem.ItemType
-
-    Type = ...  # type: QTableWidgetItem.ItemType
-    UserType = ...  # type: QTableWidgetItem.ItemType
 
     @typing.overload
     def __init__(self, type: int = ...) -> None: ...
@@ -8392,10 +8235,6 @@ class QToolButton(QAbstractButton):
         MenuButtonPopup = ... # type: QToolButton.ToolButtonPopupMode
         InstantPopup = ... # type: QToolButton.ToolButtonPopupMode
 
-    DelayedPopup = ...  # type: QToolButton.ToolButtonPopupMode
-    MenuButtonPopup = ...  # type: QToolButton.ToolButtonPopupMode
-    InstantPopup = ...  # type: QToolButton.ToolButtonPopupMode
-
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
 
     def checkStateSet(self) -> None: ...
@@ -8566,9 +8405,6 @@ class QTreeWidgetItem(PyQt6.sip.wrapper):
     class ItemType(enum.IntEnum):
         Type = ... # type: QTreeWidgetItem.ItemType
         UserType = ... # type: QTreeWidgetItem.ItemType
-
-    Type = ...  # type: QTreeWidgetItem.ItemType
-    UserType = ...  # type: QTreeWidgetItem.ItemType
 
     @typing.overload
     def __init__(self, parent: 'QTreeWidgetItem', after: 'QTreeWidgetItem', type: int = ...) -> None: ...
