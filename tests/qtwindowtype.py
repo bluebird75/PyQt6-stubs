@@ -40,7 +40,7 @@ def test_on_one_flag_class() -> None:
 	assert_type_of_value_oneFlag(oneFlagValue1 | oneFlagValue2)
 	assert_type_of_value_oneFlag(oneFlagValue1 & oneFlagValue2)
 	assert_type_of_value_oneFlag(oneFlagValue1 ^ oneFlagValue2)
-	assert_type_of_value_oneFlag(~oneFlagValue1)
+	assert_type_of_value_oneFlag(~oneFlagValue1)				# type: ignore
 	assert_type_of_value_int(oneFlagValue1 + oneFlagValue2)
 	assert_type_of_value_int(oneFlagValue1 - oneFlagValue2)
 	assert_type_of_value_int(oneFlagValue1 * oneFlagValue2)
