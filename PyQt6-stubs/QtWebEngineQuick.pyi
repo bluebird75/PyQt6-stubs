@@ -25,11 +25,8 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QtCore
 from PyQt6 import QtWebEngineCore
-from PyQt6 import QtQml
-
-# Support for QDate, QDateTime and QTime.
-import datetime
 
 # Convenient type aliases.
 PYQT_SLOT = typing.Union[typing.Callable[..., None], QtCore.pyqtBoundSignal]

@@ -1,6 +1,6 @@
 from typing import Dict, List, Set, Tuple
 from collections import defaultdict
-import os, re
+import os, re, pathlib
 from mypy import api as mypy_api
 
 reNameNotDefined = re.compile(r'Name "(.+)" is not defined')
