@@ -25,6 +25,8 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QOpenGLWindow
+from PyQt6 import QOpenGLFramebufferObject
 from PyQt6 import QtCore
 
 # Support for QDate, QDateTime and QTime.

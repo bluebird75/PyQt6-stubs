@@ -25,6 +25,7 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QtGui
 from PyQt6 import QtCore
 from PyQt6 import Qt3DRender
 from PyQt6 import Qt3DCore

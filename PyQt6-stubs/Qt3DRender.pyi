@@ -25,6 +25,7 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QRenderAspect.RenderType
 from PyQt6 import QtOpenGL
 from PyQt6 import QtGui
 from PyQt6 import QtCore

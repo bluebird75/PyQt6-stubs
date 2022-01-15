@@ -25,6 +25,10 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QVideoSurfaceFormat
+from PyQt6 import QVideoFrame.FieldType
+from PyQt6 import QAudioFormat.SampleType
+from PyQt6 import QAudioDecoder.State
 from PyQt6 import QtNetwork
 from PyQt6 import QtGui
 from PyQt6 import QtCore

@@ -25,6 +25,8 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QtGui
+from PyQt6 import QtCore
 from PyQt6 import QtWidgets
 
 # Support for QDate, QDateTime and QTime.
