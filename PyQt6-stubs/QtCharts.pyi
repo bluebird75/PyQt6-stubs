@@ -1392,8 +1392,8 @@ class QPolarChart(QChart):
 
     @staticmethod
     def axisPolarOrientation(axis: QAbstractAxis) -> 'QPolarChart.PolarOrientation': ...
-    def axes(self, polarOrientation: 'QPolarChart.PolarOrientation' = ..., series: typing.Optional[QAbstractSeries] = ...) -> typing.List[QAbstractAxis]: ...
-    def addAxis(self, axis: QAbstractAxis, polarOrientation: 'QPolarChart.PolarOrientation') -> None: ...
+    def axes(self, polarOrientation: 'QPolarChart.PolarOrientation' = ..., series: typing.Optional[QAbstractSeries] = ...) -> typing.List[QAbstractAxis]: ...  # type: ignore[override]
+    def addAxis(self, axis: QAbstractAxis, polarOrientation: 'QPolarChart.PolarOrientation') -> None: ...  # type: ignore[override]
 
 
 class QScatterSeries(QXYSeries):

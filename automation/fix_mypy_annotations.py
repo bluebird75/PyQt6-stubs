@@ -28,6 +28,7 @@ def prepare_files() -> Dict[str, List[int]]:
             lines = handle.readlines()
 
         for line in result.split("\n"):
+            fix_done = False
             try:
                 line_nbr = int(line.split(":", 2)[1])
             except IndexError:
@@ -41,27 +42,33 @@ def prepare_files() -> Dict[str, List[int]]:
 
             mo = reNameNotDefined.match(error_msg)
             if mo:
-                nameMissing = mo.groups(0)
+                nameMissing = mo.group(1)
+                if '.' in nameMissing:
+                    # this is a sub-import, don't fix it blindly
+                    continue
                 if (stub_file, nameMissing) in importFixed:
                     continue
 
-                print('Fixing: ' + line)
+                fix_done = True
                 for idx, l in enumerate(lines):
                     if l.startswith('from PyQt6 import'):
                         lines[idx] = ('from PyQt6 import %s\n' % nameMissing) + lines[idx]
                         importFixed.add((stub_file, nameMissing))
                         break
-
-            continue
-
-            if error_msg == 'Overload does not consistently use the "@staticmethod" decorator on all function signatures.':
+            elif error_msg == 'Overload does not consistently use the "@staticmethod" decorator on all function signatures.':
+                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[misc]\n"
             elif "Signature of" in error_msg and "incompatible with supertype" in error_msg:
+                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[override]\n"
             elif " is incompatible with supertype " in error_msg or " incompatible with return type " in error_msg:
+                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[override]\n"
             elif " will never be matched: signature " in error_msg:
+                fix_done = True
                 annotations[stub_file.replace(".pyi", "")].append(line_nbr)
+
+            print('Fixing: ' + line)
 
         with open(file_to_fix, "w", encoding="utf-8") as w_handle:
             w_handle.writelines(lines)

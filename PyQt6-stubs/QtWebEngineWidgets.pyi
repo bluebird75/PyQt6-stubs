@@ -25,6 +25,7 @@ import typing
 
 import PyQt6.sip
 
+from PyQt6 import QtGui
 from PyQt6 import QtWebChannel
 from PyQt6 import QtWidgets
 from PyQt6 import QtWebEngineCore

@@ -25,7 +25,6 @@ import typing
 
 import PyQt6.sip
 
-from PyQt6 import QRenderAspect.RenderType
 from PyQt6 import QtOpenGL
 from PyQt6 import QtGui
 from PyQt6 import QtCore
@@ -1426,11 +1425,6 @@ class QRayCasterHit(PyQt6.sip.simplewrapper):
         PointHit = ... # type: QRayCasterHit.HitType
         EntityHit = ... # type: QRayCasterHit.HitType
 
-    TriangleHit = ...  # type: QRayCasterHit.HitType
-    LineHit = ...  # type: QRayCasterHit.HitType
-    PointHit = ...  # type: QRayCasterHit.HitType
-    EntityHit = ...  # type: QRayCasterHit.HitType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -1459,9 +1453,6 @@ class QRenderAspect(Qt3DCore.QAbstractAspect):
         Automatic = ... # type: QRenderAspect.SubmissionType
         Manual = ... # type: QRenderAspect.SubmissionType
 
-    Synchronous = ...  # type: QRenderAspect.RenderType
-    Threaded = ...  # type: QRenderAspect.RenderType
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -1480,12 +1471,6 @@ class QRenderCapabilities(QtCore.QObject):
         Vulkan = ... # type: QRenderCapabilities.API
         DirectX = ... # type: QRenderCapabilities.API
         RHI = ... # type: QRenderCapabilities.API
-
-    OpenGL = ...  # type: QRenderCapabilities.API
-    OpenGLES = ...  # type: QRenderCapabilities.API
-    Vulkan = ...  # type: QRenderCapabilities.API
-    DirectX = ...  # type: QRenderCapabilities.API
-    RHI = ...  # type: QRenderCapabilities.API
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -1573,9 +1558,6 @@ class QRenderSettings(Qt3DCore.QComponent):
         OnDemand = ... # type: QRenderSettings.RenderPolicy
         Always = ... # type: QRenderSettings.RenderPolicy
 
-    OnDemand = ...  # type: QRenderSettings.RenderPolicy
-    Always = ...  # type: QRenderSettings.RenderPolicy
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     renderPolicyChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1640,26 +1622,6 @@ class QRenderTargetOutput(Qt3DCore.QNode):
         Stencil = ... # type: QRenderTargetOutput.AttachmentPoint
         DepthStencil = ... # type: QRenderTargetOutput.AttachmentPoint
 
-    Color0 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color1 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color2 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color3 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color4 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color5 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color6 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color7 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color8 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color9 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color10 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color11 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color12 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color13 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color14 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Color15 = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Depth = ...  # type: QRenderTargetOutput.AttachmentPoint
-    Stencil = ...  # type: QRenderTargetOutput.AttachmentPoint
-    DepthStencil = ...  # type: QRenderTargetOutput.AttachmentPoint
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     faceChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1686,6 +1648,7 @@ class QRenderTargetSelector('QFrameGraphNode'):
     def setTarget(self, target: 'QRenderTarget') -> None: ...
     def target(self) -> 'QRenderTarget': ...
 
+
 class QSceneLoader(Qt3DCore.QComponent):
 
     class ComponentType(enum.Enum):
@@ -1701,11 +1664,6 @@ class QSceneLoader(Qt3DCore.QComponent):
         Loading = ... # type: QSceneLoader.Status
         Ready = ... # type: QSceneLoader.Status
         Error = ... # type: QSceneLoader.Status
-
-    None_ = ...  # type: QSceneLoader.Status
-    Loading = ...  # type: QSceneLoader.Status
-    Ready = ...  # type: QSceneLoader.Status
-    Error = ...  # type: QSceneLoader.Status
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1756,9 +1714,6 @@ class QSetFence('QFrameGraphNode'):
     class HandleType(enum.Enum):
         NoHandle = ... # type: QSetFence.HandleType
         OpenGLFenceId = ... # type: QSetFence.HandleType
-
-    NoHandle = ...  # type: QSetFence.HandleType
-    OpenGLFenceId = ...  # type: QSetFence.HandleType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1829,10 +1784,6 @@ class QShaderImage(Qt3DCore.QNode):
         WriteOnly = ... # type: QShaderImage.Access
         ReadWrite = ... # type: QShaderImage.Access
 
-    ReadOnly = ...  # type: QShaderImage.Access
-    WriteOnly = ...  # type: QShaderImage.Access
-    ReadWrite = ...  # type: QShaderImage.Access
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     formatChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1872,13 +1823,6 @@ class QShaderProgram(Qt3DCore.QNode):
         TessellationEvaluation = ... # type: QShaderProgram.ShaderType
         Geometry = ... # type: QShaderProgram.ShaderType
         Compute = ... # type: QShaderProgram.ShaderType
-
-    Vertex = ...  # type: QShaderProgram.ShaderType
-    Fragment = ...  # type: QShaderProgram.ShaderType
-    TessellationControl = ...  # type: QShaderProgram.ShaderType
-    TessellationEvaluation = ...  # type: QShaderProgram.ShaderType
-    Geometry = ...  # type: QShaderProgram.ShaderType
-    Compute = ...  # type: QShaderProgram.ShaderType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1962,13 +1906,6 @@ class QSortPolicy('QFrameGraphNode'):
         FrontToBack = ... # type: QSortPolicy.SortType
         Texture = ... # type: QSortPolicy.SortType
         Uniform = ... # type: QSortPolicy.SortType
-
-    StateChangeCost = ...  # type: QSortPolicy.SortType
-    BackToFront = ...  # type: QSortPolicy.SortType
-    Material = ...  # type: QSortPolicy.SortType
-    FrontToBack = ...  # type: QSortPolicy.SortType
-    Texture = ...  # type: QSortPolicy.SortType
-    Uniform = ...  # type: QSortPolicy.SortType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -2096,9 +2033,6 @@ class QSubtreeEnabler('QFrameGraphNode'):
     class Enablement(enum.Enum):
         Persistent = ... # type: QSubtreeEnabler.Enablement
         SingleShot = ... # type: QSubtreeEnabler.Enablement
-
-    Persistent = ...  # type: QSubtreeEnabler.Enablement
-    SingleShot = ...  # type: QSubtreeEnabler.Enablement
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -2270,11 +2204,6 @@ class QTextureImage('QAbstractTextureImage'):
         Ready = ... # type: QTextureImage.Status
         Error = ... # type: QTextureImage.Status
 
-    None_ = ...  # type: QTextureImage.Status
-    Loading = ...  # type: QTextureImage.Status
-    Ready = ...  # type: QTextureImage.Status
-    Error = ...  # type: QTextureImage.Status
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     mirroredChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -2336,11 +2265,6 @@ class QTextureWrapMode(QtCore.QObject):
         ClampToEdge = ... # type: QTextureWrapMode.WrapMode
         ClampToBorder = ... # type: QTextureWrapMode.WrapMode
 
-    Repeat = ...  # type: QTextureWrapMode.WrapMode
-    MirroredRepeat = ...  # type: QTextureWrapMode.WrapMode
-    ClampToEdge = ...  # type: QTextureWrapMode.WrapMode
-    ClampToBorder = ...  # type: QTextureWrapMode.WrapMode
-
     @typing.overload
     def __init__(self, wrapMode: 'QTextureWrapMode.WrapMode' = ..., parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -2372,9 +2296,6 @@ class QWaitFence('QFrameGraphNode'):
     class HandleType(enum.Enum):
         NoHandle = ... # type: QWaitFence.HandleType
         OpenGLFenceId = ... # type: QWaitFence.HandleType
-
-    NoHandle = ...  # type: QWaitFence.HandleType
-    OpenGLFenceId = ...  # type: QWaitFence.HandleType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
