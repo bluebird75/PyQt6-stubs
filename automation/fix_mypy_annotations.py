@@ -12,8 +12,8 @@ def prepare_files() -> Dict[str, List[int]]:
     # Apply the quick fixes from mypy:
     annotations: Dict[str, List[int]] = defaultdict(list)
 
-    for stub_file in os.listdir("PyQt6-stubs"):
-    # for stub_file in ['Qt3DAnimation.pyi']:
+    # for stub_file in os.listdir("PyQt6-stubs"):
+    for stub_file in ['QtSql.pyi']:
         if stub_file.startswith("__"):
             print(f"Ignoring file {stub_file}")
             continue
@@ -49,26 +49,32 @@ def prepare_files() -> Dict[str, List[int]]:
                 if (stub_file, nameMissing) in importFixed:
                     continue
 
-                fix_done = True
                 for idx, l in enumerate(lines):
                     if l.startswith('from PyQt6 import'):
                         lines[idx] = ('from PyQt6 import %s\n' % nameMissing) + lines[idx]
                         importFixed.add((stub_file, nameMissing))
                         break
+                fix_done = True
             elif error_msg == 'Overload does not consistently use the "@staticmethod" decorator on all function signatures.':
-                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[misc]\n"
+                fix_done = True
             elif "Signature of" in error_msg and "incompatible with supertype" in error_msg:
-                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[override]\n"
+                fix_done = True
             elif " is incompatible with supertype " in error_msg or " incompatible with return type " in error_msg:
-                fix_done = True
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[override]\n"
-            elif " will never be matched: signature " in error_msg:
                 fix_done = True
+            elif " will never be matched: signature " in error_msg:
                 annotations[stub_file.replace(".pyi", "")].append(line_nbr)
+                fix_done = True
+            elif 'Unused "type: ignore" comment' in error_msg:
+                codeline = lines[line_nbr - 1]
+                codeline = codeline[:codeline.index('#')]+'\n'
+                lines[line_nbr - 1] = codeline
+                fix_done = True
 
-            print('Fixing: ' + line)
+            if fix_done:
+                print('Fixing: ' + line)
 
         with open(file_to_fix, "w", encoding="utf-8") as w_handle:
             w_handle.writelines(lines)
