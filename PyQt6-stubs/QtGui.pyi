@@ -25,8 +25,6 @@ import typing
 
 import PyQt6.sip
 
-from PyQt6 import QOpenGLWindow
-from PyQt6 import QOpenGLFramebufferObject
 from PyQt6 import QtCore
 
 # Support for QDate, QDateTime and QTime.
@@ -281,19 +279,6 @@ class QPaintDevice(PyQt6.sip.simplewrapper):
         PdmDevicePixelRatio = ... # type: QPaintDevice.PaintDeviceMetric
         PdmDevicePixelRatioScaled = ... # type: QPaintDevice.PaintDeviceMetric
 
-    PdmWidth = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmHeight = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmWidthMM = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmHeightMM = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmNumColors = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmDepth = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmDpiX = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmDpiY = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmPhysicalDpiX = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmPhysicalDpiY = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmDevicePixelRatio = ...  # type: QPaintDevice.PaintDeviceMetric
-    PdmDevicePixelRatioScaled = ...  # type: QPaintDevice.PaintDeviceMetric
-
     def __init__(self) -> None: ...
 
     @staticmethod
@@ -334,7 +319,7 @@ class QPixmap(QPaintDevice):
 
     def deviceIndependentSize(self) -> QtCore.QSizeF: ...
     def setDevicePixelRatio(self, scaleFactor: float) -> None: ...
-    def devicePixelRatio(self) -> float: ...  # type: ignore[override]
+    def devicePixelRatio(self) -> float: ...  
     def swap(self, other: 'QPixmap') -> None: ...
     @typing.overload
     def scroll(self, dx: int, dy: int, rect: QtCore.QRect) -> 'QRegion': ...
@@ -430,13 +415,6 @@ class QColor(PyQt6.sip.simplewrapper):
         Cmyk = ... # type: QColor.Spec
         Hsl = ... # type: QColor.Spec
         ExtendedRgb = ... # type: QColor.Spec
-
-    Invalid = ...  # type: QColor.Spec
-    Rgb = ...  # type: QColor.Spec
-    Hsv = ...  # type: QColor.Spec
-    Cmyk = ...  # type: QColor.Spec
-    Hsl = ...  # type: QColor.Spec
-    ExtendedRgb = ...  # type: QColor.Spec
 
     @typing.overload
     def __init__(self, color: QtCore.Qt.GlobalColor) -> None: ...
@@ -966,11 +944,6 @@ class QGradient(PyQt6.sip.simplewrapper):
         ObjectBoundingMode = ... # type: QGradient.CoordinateMode
         ObjectMode = ... # type: QGradient.CoordinateMode
 
-    LogicalMode = ...  # type: QGradient.CoordinateMode
-    StretchToDeviceMode = ...  # type: QGradient.CoordinateMode
-    ObjectBoundingMode = ...  # type: QGradient.CoordinateMode
-    ObjectMode = ...  # type: QGradient.CoordinateMode
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -1124,12 +1097,6 @@ class QColorSpace(PyQt6.sip.simplewrapper):
         AdobeRgb = ... # type: QColorSpace.NamedColorSpace
         DisplayP3 = ... # type: QColorSpace.NamedColorSpace
         ProPhotoRgb = ... # type: QColorSpace.NamedColorSpace
-
-    SRgb = ...  # type: QColorSpace.NamedColorSpace
-    SRgbLinear = ...  # type: QColorSpace.NamedColorSpace
-    AdobeRgb = ...  # type: QColorSpace.NamedColorSpace
-    DisplayP3 = ...  # type: QColorSpace.NamedColorSpace
-    ProPhotoRgb = ...  # type: QColorSpace.NamedColorSpace
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1374,10 +1341,6 @@ class QContextMenuEvent(QInputEvent):
         Mouse = ... # type: QContextMenuEvent.Reason
         Keyboard = ... # type: QContextMenuEvent.Reason
         Other = ... # type: QContextMenuEvent.Reason
-
-    Mouse = ...  # type: QContextMenuEvent.Reason
-    Keyboard = ...  # type: QContextMenuEvent.Reason
-    Other = ...  # type: QContextMenuEvent.Reason
 
     @typing.overload
     def __init__(self, reason: 'QContextMenuEvent.Reason', pos: QtCore.QPoint, globalPos: QtCore.QPoint, modifiers: QtCore.Qt.KeyboardModifier = ...) -> None: ...
@@ -1821,7 +1784,7 @@ class QFileSystemModel(QtCore.QAbstractItemModel):
     def fetchMore(self, parent: QtCore.QModelIndex) -> None: ...
     def canFetchMore(self, parent: QtCore.QModelIndex) -> bool: ...
     def hasChildren(self, parent: QtCore.QModelIndex = ...) -> bool: ...
-    def parent(self, child: QtCore.QModelIndex) -> QtCore.QModelIndex: ...
+    def parent(self, child: QtCore.QModelIndex) -> QtCore.QModelIndex: ...  # type: ignore[override]  # type: ignore[override]
     @typing.overload
     def index(self, row: int, column: int, parent: QtCore.QModelIndex = ...) -> QtCore.QModelIndex: ...
     @typing.overload
@@ -1903,20 +1866,6 @@ class QFont(PyQt6.sip.simplewrapper):
         Cursive = ... # type: QFont.StyleHint
         Monospace = ... # type: QFont.StyleHint
         Fantasy = ... # type: QFont.StyleHint
-
-    Helvetica = ...  # type: QFont.StyleHint
-    SansSerif = ...  # type: QFont.StyleHint
-    Times = ...  # type: QFont.StyleHint
-    Serif = ...  # type: QFont.StyleHint
-    Courier = ...  # type: QFont.StyleHint
-    TypeWriter = ...  # type: QFont.StyleHint
-    OldEnglish = ...  # type: QFont.StyleHint
-    Decorative = ...  # type: QFont.StyleHint
-    System = ...  # type: QFont.StyleHint
-    AnyStyle = ...  # type: QFont.StyleHint
-    Cursive = ...  # type: QFont.StyleHint
-    Monospace = ...  # type: QFont.StyleHint
-    Fantasy = ...  # type: QFont.StyleHint
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -2537,11 +2486,6 @@ class QIcon(PyQt6.sip.wrapper):
         Active = ... # type: QIcon.Mode
         Selected = ... # type: QIcon.Mode
 
-    Normal = ...  # type: QIcon.Mode
-    Disabled = ...  # type: QIcon.Mode
-    Active = ...  # type: QIcon.Mode
-    Selected = ...  # type: QIcon.Mode
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -2687,9 +2631,6 @@ class QImage(QPaintDevice):
         InvertRgb = ... # type: QImage.InvertMode
         InvertRgba = ... # type: QImage.InvertMode
 
-    InvertRgb = ...  # type: QImage.InvertMode
-    InvertRgba = ...  # type: QImage.InvertMode
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -2733,7 +2674,7 @@ class QImage(QPaintDevice):
     def toPixelFormat(format: 'QImage.Format') -> 'QPixelFormat': ...
     def pixelFormat(self) -> 'QPixelFormat': ...
     def setDevicePixelRatio(self, scaleFactor: float) -> None: ...
-    def devicePixelRatio(self) -> float: ...  # type: ignore[override]
+    def devicePixelRatio(self) -> float: ...  
     def swap(self, other: 'QImage') -> None: ...
     def bitPlaneCount(self) -> int: ...
     def setColorCount(self, a0: int) -> None: ...
@@ -2898,12 +2839,6 @@ class QImageReader(PyQt6.sip.simplewrapper):
         UnsupportedFormatError = ... # type: QImageReader.ImageReaderError
         InvalidDataError = ... # type: QImageReader.ImageReaderError
 
-    UnknownError = ...  # type: QImageReader.ImageReaderError
-    FileNotFoundError = ...  # type: QImageReader.ImageReaderError
-    DeviceError = ...  # type: QImageReader.ImageReaderError
-    UnsupportedFormatError = ...  # type: QImageReader.ImageReaderError
-    InvalidDataError = ...  # type: QImageReader.ImageReaderError
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -2978,11 +2913,6 @@ class QImageWriter(PyQt6.sip.simplewrapper):
         DeviceError = ... # type: QImageWriter.ImageWriterError
         UnsupportedFormatError = ... # type: QImageWriter.ImageWriterError
         InvalidImageError = ... # type: QImageWriter.ImageWriterError
-
-    UnknownError = ...  # type: QImageWriter.ImageWriterError
-    DeviceError = ...  # type: QImageWriter.ImageWriterError
-    UnsupportedFormatError = ...  # type: QImageWriter.ImageWriterError
-    InvalidImageError = ...  # type: QImageWriter.ImageWriterError
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -3198,9 +3128,6 @@ class QKeySequence(PyQt6.sip.simplewrapper):
         NativeText = ... # type: QKeySequence.SequenceFormat
         PortableText = ... # type: QKeySequence.SequenceFormat
 
-    NativeText = ...  # type: QKeySequence.SequenceFormat
-    PortableText = ...  # type: QKeySequence.SequenceFormat
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -3332,10 +3259,6 @@ class QMovie(QtCore.QObject):
         Paused = ... # type: QMovie.MovieState
         Running = ... # type: QMovie.MovieState
 
-    NotRunning = ...  # type: QMovie.MovieState
-    Paused = ...  # type: QMovie.MovieState
-    Running = ...  # type: QMovie.MovieState
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -3399,9 +3322,6 @@ class QSurface(PyQt6.sip.simplewrapper):
         Window = ... # type: QSurface.SurfaceClass
         Offscreen = ... # type: QSurface.SurfaceClass
 
-    Window = ...  # type: QSurface.SurfaceClass
-    Offscreen = ...  # type: QSurface.SurfaceClass
-
     @typing.overload
     def __init__(self, type: 'QSurface.SurfaceClass') -> None: ...
     @typing.overload
@@ -3443,9 +3363,6 @@ class QOpenGLContext(QtCore.QObject):
     class OpenGLModuleType(enum.Enum):
         LibGL = ... # type: QOpenGLContext.OpenGLModuleType
         LibGLES = ... # type: QOpenGLContext.OpenGLModuleType
-
-    LibGL = ...  # type: QOpenGLContext.OpenGLModuleType
-    LibGLES = ...  # type: QOpenGLContext.OpenGLModuleType
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -3736,10 +3653,6 @@ class QPageSize(PyQt6.sip.simplewrapper):
         Envelope10 = ... # type: QPageSize.PageSizeId
         LastPageSize = ... # type: QPageSize.PageSizeId
 
-    NoAttachment = ...  # type: QOpenGLFramebufferObject.Attachment
-    CombinedDepthStencil = ...  # type: QOpenGLFramebufferObject.Attachment
-    Depth = ...  # type: QOpenGLFramebufferObject.Attachment
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -3754,37 +3667,37 @@ class QPageSize(PyQt6.sip.simplewrapper):
     def rectPixels(self, resolution: int) -> QtCore.QRect: ...
     def rectPoints(self) -> QtCore.QRect: ...
     def rect(self, units: 'QPageSize.Unit') -> QtCore.QRectF: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def sizePixels(self, resolution: int) -> QtCore.QSize: ...
     @typing.overload
     @staticmethod
     def sizePixels(pageSizeId: 'QPageSize.PageSizeId', resolution: int) -> QtCore.QSize: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def sizePoints(self) -> QtCore.QSize: ...
     @typing.overload
     @staticmethod
     def sizePoints(pageSizeId: 'QPageSize.PageSizeId') -> QtCore.QSize: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def size(self, units: 'QPageSize.Unit') -> QtCore.QSizeF: ...
     @typing.overload
     @staticmethod
     def size(pageSizeId: 'QPageSize.PageSizeId', units: 'QPageSize.Unit') -> QtCore.QSizeF: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def definitionUnits(self) -> 'QPageSize.Unit': ...
     @typing.overload
     @staticmethod
     def definitionUnits(pageSizeId: 'QPageSize.PageSizeId') -> 'QPageSize.Unit': ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def definitionSize(self) -> QtCore.QSizeF: ...
     @typing.overload
     @staticmethod
     def definitionSize(pageSizeId: 'QPageSize.PageSizeId') -> QtCore.QSizeF: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def windowsId(self) -> int: ...
     @typing.overload
     @staticmethod
     def windowsId(pageSizeId: 'QPageSize.PageSizeId') -> int: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def id(self) -> 'QPageSize.PageSizeId': ...
     @typing.overload
     @staticmethod
@@ -3795,12 +3708,12 @@ class QPageSize(PyQt6.sip.simplewrapper):
     @typing.overload
     @staticmethod
     def id(windowsId: int) -> 'QPageSize.PageSizeId': ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def name(self) -> str: ...
     @typing.overload
     @staticmethod
     def name(pageSizeId: 'QPageSize.PageSizeId') -> str: ...
-    @typing.overload
+    @typing.overload  # type: ignore[misc]
     def key(self) -> str: ...
     @typing.overload
     @staticmethod
@@ -3979,7 +3892,7 @@ class QWindow(QtCore.QObject, QSurface):
     def modality(self) -> QtCore.Qt.WindowModality: ...
     def isModal(self) -> bool: ...
     def isTopLevel(self) -> bool: ...
-    def setParent(self, parent: 'QWindow') -> None: ...
+    def setParent(self, parent: 'QWindow') -> None: ...  # type: ignore[override]
     def parent(self, mode: 'QWindow.AncestorMode' = ...) -> 'QWindow': ...
     def winId(self) -> PyQt6.sip.voidptr: ...
     def create(self) -> None: ...
@@ -3988,7 +3901,7 @@ class QWindow(QtCore.QObject, QSurface):
     def setSurfaceType(self, surfaceType: QSurface.SurfaceType) -> None: ...
 
 
-class QPaintDeviceWindow(QWindow, QPaintDevice):  # type: ignore[misc]
+class QPaintDeviceWindow(QWindow, QPaintDevice):  
 
     def event(self, event: QtCore.QEvent) -> bool: ...
     def exposeEvent(self, a0: QExposeEvent) -> None: ...
@@ -4009,10 +3922,6 @@ class QTextItem(PyQt6.sip.simplewrapper):
         Overline = ... # type: QTextItem.RenderFlag
         Underline = ... # type: QTextItem.RenderFlag
         StrikeOut = ... # type: QTextItem.RenderFlag
-
-    NoPartialUpdate = ...  # type: QOpenGLWindow.UpdateBehavior
-    PartialUpdateBlit = ...  # type: QOpenGLWindow.UpdateBehavior
-    PartialUpdateBlend = ...  # type: QOpenGLWindow.UpdateBehavior
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -4328,7 +4237,7 @@ class QPainter(PyQt6.sip.simplewrapper):
     @typing.overload
     def fillRect(self, a0: QtCore.QRect, color: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient]) -> None: ...
     @typing.overload
-    def fillRect(self, x: int, y: int, w: int, h: int, b: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient]) -> None: ...
+    def fillRect(self, x: int, y: int, w: int, h: int, b: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient]) -> None: ...  # type: ignore[misc]
     @typing.overload
     def fillRect(self, x: int, y: int, w: int, h: int, c: QtCore.Qt.GlobalColor) -> None: ...
     @typing.overload
@@ -4424,15 +4333,15 @@ class QPainter(PyQt6.sip.simplewrapper):
     @typing.overload
     def drawArc(self, x: int, y: int, w: int, h: int, a: int, alen: int) -> None: ...
     @typing.overload
-    def drawConvexPolygon(self, point: QtCore.QPointF, *a1) -> None: ...
+    def drawConvexPolygon(self, point: QtCore.QPointF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawConvexPolygon(self, poly: 'QPolygonF') -> None: ...
     @typing.overload
-    def drawConvexPolygon(self, point: QtCore.QPoint, *a1) -> None: ...
+    def drawConvexPolygon(self, point: QtCore.QPoint, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawConvexPolygon(self, poly: 'QPolygon') -> None: ...
     @typing.overload
-    def drawPolygon(self, point: QtCore.QPointF, *a1) -> None: ...
+    def drawPolygon(self, point: QtCore.QPointF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawPolygon(self, points: 'QPolygonF', fillRule: QtCore.Qt.FillRule = ...) -> None: ...
     # @typing.overload
@@ -4440,11 +4349,11 @@ class QPainter(PyQt6.sip.simplewrapper):
     @typing.overload
     def drawPolygon(self, points: 'QPolygon', fillRule: QtCore.Qt.FillRule = ...) -> None: ...
     @typing.overload
-    def drawPolyline(self, point: QtCore.QPointF, *a1) -> None: ...
+    def drawPolyline(self, point: QtCore.QPointF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawPolyline(self, polyline: 'QPolygonF') -> None: ...
     @typing.overload
-    def drawPolyline(self, point: QtCore.QPoint, *a1) -> None: ...
+    def drawPolyline(self, point: QtCore.QPoint, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawPolyline(self, polyline: 'QPolygon') -> None: ...
     @typing.overload
@@ -4458,7 +4367,7 @@ class QPainter(PyQt6.sip.simplewrapper):
     @typing.overload
     def drawEllipse(self, center: QtCore.QPoint, rx: int, ry: int) -> None: ...
     @typing.overload
-    def drawRects(self, rect: QtCore.QRectF, *a1) -> None: ...
+    def drawRects(self, rect: QtCore.QRectF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawRects(self, rectangles: typing.Iterable[QtCore.QRectF]) -> None: ...
     @typing.overload
@@ -4470,7 +4379,7 @@ class QPainter(PyQt6.sip.simplewrapper):
     @typing.overload
     def drawLines(self, lines: typing.Iterable[QtCore.QLineF]) -> None: ...
     @typing.overload
-    def drawLines(self, pointPair: QtCore.QPointF, *a1) -> None: ...
+    def drawLines(self, pointPair: QtCore.QPointF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawLines(self, pointPairs: typing.Iterable[QtCore.QPointF]) -> None: ...
     @typing.overload
@@ -4482,15 +4391,15 @@ class QPainter(PyQt6.sip.simplewrapper):
     # @typing.overload
     # def drawLines(self, pointPairs: typing.Iterable[QtCore.QPoint]) -> None: ...
     @typing.overload
-    def drawLines(self, pointPair: QtCore.QPoint, *a1) -> None: ...
+    def drawLines(self, pointPair: QtCore.QPoint, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawLines(self, pointPairs: typing.Iterable[QtCore.QPoint]) -> None: ...
     @typing.overload
-    def drawPoints(self, point: QtCore.QPointF, *a1) -> None: ...
+    def drawPoints(self, point: QtCore.QPointF, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawPoints(self, points: 'QPolygonF') -> None: ...
     @typing.overload
-    def drawPoints(self, point: QtCore.QPoint, *a1) -> None: ...
+    def drawPoints(self, point: QtCore.QPoint, *a1) -> None: ...    # type: ignore[no-untyped-def] # generatedoverride signature is clearly wrong
     @typing.overload
     def drawPoints(self, points: 'QPolygon') -> None: ...
     def drawPath(self, path: 'QPainterPath') -> None: ...
@@ -4753,20 +4662,12 @@ class QPalette(PyQt6.sip.simplewrapper):
         All = ... # type: QPalette.ColorGroup
         Normal = ... # type: QPalette.ColorGroup
 
-    Active = ...  # type: QPalette.ColorGroup
-    Disabled = ...  # type: QPalette.ColorGroup
-    Inactive = ...  # type: QPalette.ColorGroup
-    NColorGroups = ...  # type: QPalette.ColorGroup
-    Current = ...  # type: QPalette.ColorGroup
-    All = ...  # type: QPalette.ColorGroup
-    Normal = ...  # type: QPalette.ColorGroup
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
     def __init__(self, button: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient]) -> None: ...
     @typing.overload
-    def __init__(self, button: QtCore.Qt.GlobalColor) -> None: ...
+    def __init__(self, button: QtCore.Qt.GlobalColor) -> None: ...  # type: ignore[misc]
     @typing.overload
     def __init__(self, button: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient], background: typing.Union[QColor, QtCore.Qt.GlobalColor, int, QGradient]) -> None: ...
     @typing.overload
@@ -4969,16 +4870,6 @@ class QPixelFormat(PyQt6.sip.simplewrapper):
         YUV = ... # type: QPixelFormat.ColorModel
         Alpha = ... # type: QPixelFormat.ColorModel
 
-    RGB = ...  # type: QPixelFormat.ColorModel
-    BGR = ...  # type: QPixelFormat.ColorModel
-    Indexed = ...  # type: QPixelFormat.ColorModel
-    Grayscale = ...  # type: QPixelFormat.ColorModel
-    CMYK = ...  # type: QPixelFormat.ColorModel
-    HSL = ...  # type: QPixelFormat.ColorModel
-    HSV = ...  # type: QPixelFormat.ColorModel
-    YUV = ...  # type: QPixelFormat.ColorModel
-    Alpha = ...  # type: QPixelFormat.ColorModel
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -5154,10 +5045,10 @@ class QPolygon(PyQt6.sip.simplewrapper):
     def united(self, r: 'QPolygon') -> 'QPolygon': ...
     def containsPoint(self, pt: QtCore.QPoint, fillRule: QtCore.Qt.FillRule) -> bool: ...
     @typing.overload
-    def putPoints(self, index: int, firstx: int, firsty: int, *a3) -> None: ...
+    def putPoints(self, index: int, firstx: int, firsty: int, *a3: int) -> None: ...
     @typing.overload
     def putPoints(self, index: int, nPoints: int, fromPolygon: 'QPolygon', from_: int = ...) -> None: ...
-    def setPoints(self, firstx: int, firsty: int, *a2) -> None: ...
+    def setPoints(self, firstx: int, firsty: int, *a2: int) -> None: ...
     @typing.overload
     def setPoint(self, index: int, x: int, y: int) -> None: ...
     @typing.overload
@@ -5395,9 +5286,6 @@ class QRegion(PyQt6.sip.simplewrapper):
         Rectangle = ... # type: QRegion.RegionType
         Ellipse = ... # type: QRegion.RegionType
 
-    Rectangle = ...  # type: QRegion.RegionType
-    Ellipse = ...  # type: QRegion.RegionType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -5544,11 +5432,6 @@ class QSessionManager(QtCore.QObject):
         RestartImmediately = ... # type: QSessionManager.RestartHint
         RestartNever = ... # type: QSessionManager.RestartHint
 
-    RestartIfRunning = ...  # type: QSessionManager.RestartHint
-    RestartAnyway = ...  # type: QSessionManager.RestartHint
-    RestartImmediately = ...  # type: QSessionManager.RestartHint
-    RestartNever = ...  # type: QSessionManager.RestartHint
-
     def requestPhase2(self) -> None: ...
     def isPhase2(self) -> bool: ...
     @typing.overload
@@ -5683,9 +5566,6 @@ class QStandardItem(PyQt6.sip.wrapper):
         Type = ... # type: QStandardItem.ItemType
         UserType = ... # type: QStandardItem.ItemType
 
-    Type = ...  # type: QStandardItem.ItemType
-    UserType = ...  # type: QStandardItem.ItemType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -5795,9 +5675,6 @@ class QStaticText(PyQt6.sip.simplewrapper):
     class PerformanceHint(enum.Enum):
         ModerateCaching = ... # type: QStaticText.PerformanceHint
         AggressiveCaching = ... # type: QStaticText.PerformanceHint
-
-    ModerateCaching = ...  # type: QStaticText.PerformanceHint
-    AggressiveCaching = ...  # type: QStaticText.PerformanceHint
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -6002,9 +5879,6 @@ class QTextCursor(PyQt6.sip.simplewrapper):
     class MoveMode(enum.Enum):
         MoveAnchor = ... # type: QTextCursor.MoveMode
         KeepAnchor = ... # type: QTextCursor.MoveMode
-
-    MoveAnchor = ...  # type: QTextCursor.MoveMode
-    KeepAnchor = ...  # type: QTextCursor.MoveMode
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -6297,10 +6171,6 @@ class QTextLength(PyQt6.sip.simplewrapper):
         FixedLength = ... # type: QTextLength.Type
         PercentageLength = ... # type: QTextLength.Type
 
-    VariableLength = ...  # type: QTextLength.Type
-    FixedLength = ...  # type: QTextLength.Type
-    PercentageLength = ...  # type: QTextLength.Type
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -6534,14 +6404,6 @@ class QTextCharFormat(QTextFormat):
         AlignBottom = ... # type: QTextCharFormat.VerticalAlignment
         AlignBaseline = ... # type: QTextCharFormat.VerticalAlignment
 
-    AlignNormal = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignSuperScript = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignSubScript = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignMiddle = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignTop = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignBottom = ...  # type: QTextCharFormat.VerticalAlignment
-    AlignBaseline = ...  # type: QTextCharFormat.VerticalAlignment
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -6630,12 +6492,6 @@ class QTextBlockFormat(QTextFormat):
         MinimumHeight = ... # type: QTextBlockFormat.LineHeightTypes
         LineDistanceHeight = ... # type: QTextBlockFormat.LineHeightTypes
 
-    SingleHeight = ...  # type: QTextBlockFormat.LineHeightTypes
-    ProportionalHeight = ...  # type: QTextBlockFormat.LineHeightTypes
-    FixedHeight = ...  # type: QTextBlockFormat.LineHeightTypes
-    MinimumHeight = ...  # type: QTextBlockFormat.LineHeightTypes
-    LineDistanceHeight = ...  # type: QTextBlockFormat.LineHeightTypes
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -6685,15 +6541,6 @@ class QTextListFormat(QTextFormat):
         ListUpperAlpha = ... # type: QTextListFormat.Style
         ListLowerRoman = ... # type: QTextListFormat.Style
         ListUpperRoman = ... # type: QTextListFormat.Style
-
-    ListDisc = ...  # type: QTextListFormat.Style
-    ListCircle = ...  # type: QTextListFormat.Style
-    ListSquare = ...  # type: QTextListFormat.Style
-    ListDecimal = ...  # type: QTextListFormat.Style
-    ListLowerAlpha = ...  # type: QTextListFormat.Style
-    ListUpperAlpha = ...  # type: QTextListFormat.Style
-    ListLowerRoman = ...  # type: QTextListFormat.Style
-    ListUpperRoman = ...  # type: QTextListFormat.Style
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -6748,10 +6595,6 @@ class QTextFrameFormat(QTextFormat):
         InFlow = ... # type: QTextFrameFormat.Position
         FloatLeft = ... # type: QTextFrameFormat.Position
         FloatRight = ... # type: QTextFrameFormat.Position
-
-    InFlow = ...  # type: QTextFrameFormat.Position
-    FloatLeft = ...  # type: QTextFrameFormat.Position
-    FloatRight = ...  # type: QTextFrameFormat.Position
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -6962,9 +6805,6 @@ class QTextLine(PyQt6.sip.simplewrapper):
     class Edge(enum.Enum):
         Leading = ... # type: QTextLine.Edge
         Trailing = ... # type: QTextLine.Edge
-
-    Leading = ...  # type: QTextLine.Edge
-    Trailing = ...  # type: QTextLine.Edge
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -7261,13 +7101,6 @@ class QTransform(PyQt6.sip.simplewrapper):
         TxShear = ... # type: QTransform.TransformationType
         TxProject = ... # type: QTransform.TransformationType
 
-    TxNone = ...  # type: QTransform.TransformationType
-    TxTranslate = ...  # type: QTransform.TransformationType
-    TxScale = ...  # type: QTransform.TransformationType
-    TxRotate = ...  # type: QTransform.TransformationType
-    TxShear = ...  # type: QTransform.TransformationType
-    TxProject = ...  # type: QTransform.TransformationType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -7436,10 +7269,6 @@ class QValidator(QtCore.QObject):
         Intermediate = ... # type: QValidator.State
         Acceptable = ... # type: QValidator.State
 
-    Invalid = ...  # type: QValidator.State
-    Intermediate = ...  # type: QValidator.State
-    Acceptable = ...  # type: QValidator.State
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     changed: typing.ClassVar[QtCore.pyqtSignal]
@@ -7470,9 +7299,6 @@ class QDoubleValidator(QValidator):
     class Notation(enum.Enum):
         StandardNotation = ... # type: QDoubleValidator.Notation
         ScientificNotation = ... # type: QDoubleValidator.Notation
-
-    StandardNotation = ...  # type: QDoubleValidator.Notation
-    ScientificNotation = ...  # type: QDoubleValidator.Notation
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...

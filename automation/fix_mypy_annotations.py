@@ -13,7 +13,7 @@ def prepare_files() -> Dict[str, List[int]]:
     annotations: Dict[str, List[int]] = defaultdict(list)
 
     # for stub_file in os.listdir("PyQt6-stubs"):
-    for stub_file in ['QtSql.pyi']:
+    for stub_file in ['QtGui.pyi']:
         if stub_file.startswith("__"):
             print(f"Ignoring file {stub_file}")
             continue
@@ -65,13 +65,15 @@ def prepare_files() -> Dict[str, List[int]]:
             elif " is incompatible with supertype " in error_msg or " incompatible with return type " in error_msg:
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[override]\n"
                 fix_done = True
-            elif " will never be matched: signature " in error_msg:
-                annotations[stub_file.replace(".pyi", "")].append(line_nbr)
-                fix_done = True
             elif 'Unused "type: ignore" comment' in error_msg:
                 codeline = lines[line_nbr - 1]
                 codeline = codeline[:codeline.index('#')]+'\n'
                 lines[line_nbr - 1] = codeline
+                fix_done = True
+            elif "Overloaded function signature" in error_msg and\
+                    "will never be matched: signature" in error_msg and \
+                    "parameter type(s) are the same or broader" in error_msg:
+                lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[misc]\n"
                 fix_done = True
 
             if fix_done:
