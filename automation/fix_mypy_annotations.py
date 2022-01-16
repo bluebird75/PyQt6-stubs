@@ -12,8 +12,7 @@ def prepare_files() -> Dict[str, List[int]]:
     # Apply the quick fixes from mypy:
     annotations: Dict[str, List[int]] = defaultdict(list)
 
-    # for stub_file in os.listdir("PyQt6-stubs"):
-    for stub_file in ['QtGui.pyi']:
+    for stub_file in os.listdir("PyQt6-stubs"):
         if stub_file.startswith("__"):
             print(f"Ignoring file {stub_file}")
             continue
@@ -55,6 +54,17 @@ def prepare_files() -> Dict[str, List[int]]:
                         lines[idx] = ('from PyQt6 import %s\n' % nameMissing) + lines[idx]
                         importFixed.add((stub_file, nameMissing))
                         break
+                else:
+                    # we could not find a 'from PyQt6 import' line
+                    for idx, l in enumerate(lines):
+                        if l.startswith('import PyQt6'):
+                            lines[idx] = ('from PyQt6 import %s\n' % nameMissing) + lines[idx]
+                            importFixed.add((stub_file, nameMissing))
+                            break
+                    else:
+                        # not fixed...
+                        continue
+
                 fix_done = True
             elif error_msg == 'Overload does not consistently use the "@staticmethod" decorator on all function signatures.':
                 lines[line_nbr - 1] = lines[line_nbr - 1][:-1] + "  # type: ignore[misc]\n"

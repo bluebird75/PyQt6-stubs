@@ -521,7 +521,7 @@ class QRotationFilter(QSensorFilter):
     @typing.overload
     def __init__(self, a0: 'QRotationFilter') -> None: ...
 
-    def filter(self, reading: QRotationReading) -> bool: ...
+    def filter(self, reading: QRotationReading) -> bool: ...  # type: ignore[override]
 
 
 class QRotationSensor(QSensor):

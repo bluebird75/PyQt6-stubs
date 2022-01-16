@@ -21,6 +21,7 @@
 
 
 import enum
+import sys
 import typing
 
 import PyQt6.sip
@@ -1453,7 +1454,7 @@ class QKeyCombination(PyQt6.sip.simplewrapper):
     def key(self) -> Qt.Key: ...
     def keyboardModifiers(self) -> Qt.KeyboardModifier: ...
 
-    def convertFromPlainText(self, plain: str, mode: QtCore.Qt.WhiteSpaceMode = ...) -> str: ...
+    def convertFromPlainText(self, plain: str, mode: Qt.WhiteSpaceMode = ...) -> str: ...
     def mightBeRichText(self, a0: str) -> bool: ...
 
 class QObject(PyQt6.sip.wrapper):
@@ -1538,9 +1539,6 @@ class QAbstractAnimation(QObject):
         Forward = ... # type: QAbstractAnimation.Direction
         Backward = ... # type: QAbstractAnimation.Direction
 
-    Forward = ...  # type: QAbstractAnimation.Direction
-    Backward = ...  # type: QAbstractAnimation.Direction
-
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
 
     def updateDirection(self, direction: 'QAbstractAnimation.Direction') -> None: ...
@@ -1553,10 +1551,10 @@ class QAbstractAnimation(QObject):
     def resume(self) -> None: ...
     def pause(self) -> None: ...
     def start(self, policy: 'QAbstractAnimation.DeletionPolicy' = ...) -> None: ...
-    directionChanged: typing.ClassVar[QtCore.pyqtSignal]
-    currentLoopChanged: typing.ClassVar[QtCore.pyqtSignal]
-    stateChanged: typing.ClassVar[QtCore.pyqtSignal]
-    finished: typing.ClassVar[QtCore.pyqtSignal]
+    directionChanged: typing.ClassVar[pyqtSignal]
+    currentLoopChanged: typing.ClassVar[pyqtSignal]
+    stateChanged: typing.ClassVar[pyqtSignal]
+    finished: typing.ClassVar[pyqtSignal]
     def totalDuration(self) -> int: ...
     def duration(self) -> int: ...
     def currentLoop(self) -> int: ...
@@ -1681,10 +1679,10 @@ class QAbstractItemModel(QObject):
     def beginMoveColumns(self, sourceParent: QModelIndex, sourceFirst: int, sourceLast: int, destinationParent: QModelIndex, destinationColumn: int) -> bool: ...
     def endMoveRows(self) -> None: ...
     def beginMoveRows(self, sourceParent: QModelIndex, sourceFirst: int, sourceLast: int, destinationParent: QModelIndex, destinationRow: int) -> bool: ...
-    columnsMoved: typing.ClassVar[QtCore.pyqtSignal]
-    columnsAboutToBeMoved: typing.ClassVar[QtCore.pyqtSignal]
-    rowsMoved: typing.ClassVar[QtCore.pyqtSignal]
-    rowsAboutToBeMoved: typing.ClassVar[QtCore.pyqtSignal]
+    columnsMoved: typing.ClassVar[pyqtSignal]
+    columnsAboutToBeMoved: typing.ClassVar[pyqtSignal]
+    rowsMoved: typing.ClassVar[pyqtSignal]
+    rowsAboutToBeMoved: typing.ClassVar[pyqtSignal]
     def createIndex(self, row: int, column: int, object: typing.Any = ...) -> QModelIndex: ...
     def roleNames(self) -> typing.Dict[int, 'QByteArray']: ...
     def supportedDragActions(self) -> Qt.DropAction: ...
@@ -1707,19 +1705,19 @@ class QAbstractItemModel(QObject):
     def encodeData(self, indexes: typing.Iterable[QModelIndex], stream: 'QDataStream') -> None: ...
     def revert(self) -> None: ...
     def submit(self) -> bool: ...
-    modelReset: typing.ClassVar[QtCore.pyqtSignal]
-    modelAboutToBeReset: typing.ClassVar[QtCore.pyqtSignal]
-    columnsRemoved: typing.ClassVar[QtCore.pyqtSignal]
-    columnsAboutToBeRemoved: typing.ClassVar[QtCore.pyqtSignal]
-    columnsInserted: typing.ClassVar[QtCore.pyqtSignal]
-    columnsAboutToBeInserted: typing.ClassVar[QtCore.pyqtSignal]
-    rowsRemoved: typing.ClassVar[QtCore.pyqtSignal]
-    rowsAboutToBeRemoved: typing.ClassVar[QtCore.pyqtSignal]
-    rowsInserted: typing.ClassVar[QtCore.pyqtSignal]
-    rowsAboutToBeInserted: typing.ClassVar[QtCore.pyqtSignal]
-    layoutChanged: typing.ClassVar[QtCore.pyqtSignal]
-    layoutAboutToBeChanged: typing.ClassVar[QtCore.pyqtSignal]
-    headerDataChanged: typing.ClassVar[QtCore.pyqtSignal]
+    modelReset: typing.ClassVar[pyqtSignal]
+    modelAboutToBeReset: typing.ClassVar[pyqtSignal]
+    columnsRemoved: typing.ClassVar[pyqtSignal]
+    columnsAboutToBeRemoved: typing.ClassVar[pyqtSignal]
+    columnsInserted: typing.ClassVar[pyqtSignal]
+    columnsAboutToBeInserted: typing.ClassVar[pyqtSignal]
+    rowsRemoved: typing.ClassVar[pyqtSignal]
+    rowsAboutToBeRemoved: typing.ClassVar[pyqtSignal]
+    rowsInserted: typing.ClassVar[pyqtSignal]
+    rowsAboutToBeInserted: typing.ClassVar[pyqtSignal]
+    layoutChanged: typing.ClassVar[pyqtSignal]
+    layoutAboutToBeChanged: typing.ClassVar[pyqtSignal]
+    headerDataChanged: typing.ClassVar[pyqtSignal]
     dataChanged: typing.ClassVar[pyqtSignal]
     def span(self, index: QModelIndex) -> 'QSize': ...
     def match(self, start: QModelIndex, role: int, value: typing.Any, hits: int = ..., flags: Qt.MatchFlag = ...) -> typing.List[QModelIndex]: ...
@@ -1759,7 +1757,7 @@ class QAbstractTableModel(QAbstractItemModel):
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
 
     def sibling(self, row: int, column: int, idx: QModelIndex) -> QModelIndex: ...
-    def parent(self) -> QObject: ...
+    def parent(self) -> QObject: ...  # type: ignore[override]
     def flags(self, index: QModelIndex) -> Qt.ItemFlag: ...
     def dropMimeData(self, data: 'QMimeData', action: Qt.DropAction, row: int, column: int, parent: QModelIndex) -> bool: ...
     def index(self, row: int, column: int, parent: QModelIndex = ...) -> QModelIndex: ...
@@ -1770,7 +1768,7 @@ class QAbstractListModel(QAbstractItemModel):
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
 
     def sibling(self, row: int, column: int, idx: QModelIndex) -> QModelIndex: ...
-    def parent(self) -> QObject: ...
+    def parent(self) -> QObject: ...  # type: ignore[override]
     def flags(self, index: QModelIndex) -> Qt.ItemFlag: ...
     def dropMimeData(self, data: 'QMimeData', action: Qt.DropAction, row: int, column: int, parent: QModelIndex) -> bool: ...
     def index(self, row: int, column: int = ..., parent: QModelIndex = ...) -> QModelIndex: ...
@@ -2194,12 +2192,6 @@ class QCalendar(PyQt6.sip.simplewrapper):
         Jalali = ... # type: QCalendar.System
         IslamicCivil = ... # type: QCalendar.System
 
-    Gregorian = ...  # type: QCalendar.System
-    Julian = ...  # type: QCalendar.System
-    Milankovic = ...  # type: QCalendar.System
-    Jalali = ...  # type: QCalendar.System
-    IslamicCivil = ...  # type: QCalendar.System
-
     Unspecified = ... # type: int
 
     class YearMonthDay(PyQt6.sip.simplewrapper):
@@ -2275,22 +2267,6 @@ class QCborError(PyQt6.sip.simplewrapper):
         UnsupportedType = ... # type: QCborError.Code
         NoError = ... # type: QCborError.Code
 
-    UnknownError = ...  # type: QCborError.Code
-    AdvancePastEnd = ...  # type: QCborError.Code
-    InputOutputError = ...  # type: QCborError.Code
-    GarbageAtEnd = ...  # type: QCborError.Code
-    EndOfFile = ...  # type: QCborError.Code
-    UnexpectedBreak = ...  # type: QCborError.Code
-    UnknownType = ...  # type: QCborError.Code
-    IllegalType = ...  # type: QCborError.Code
-    IllegalNumber = ...  # type: QCborError.Code
-    IllegalSimpleType = ...  # type: QCborError.Code
-    InvalidUtf8String = ...  # type: QCborError.Code
-    DataTooLarge = ...  # type: QCborError.Code
-    NestingTooDeep = ...  # type: QCborError.Code
-    UnsupportedType = ...  # type: QCborError.Code
-    NoError = ...  # type: QCborError.Code
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -2323,22 +2299,6 @@ class QCborStreamReader(PyQt6.sip.simplewrapper):
         Float = ... # type: QCborStreamReader.Type
         Double = ... # type: QCborStreamReader.Type
         Invalid = ... # type: QCborStreamReader.Type
-
-    UnsignedInteger = ...  # type: QCborStreamReader.Type
-    NegativeInteger = ...  # type: QCborStreamReader.Type
-    ByteString = ...  # type: QCborStreamReader.Type
-    ByteArray = ...  # type: QCborStreamReader.Type
-    TextString = ...  # type: QCborStreamReader.Type
-    String = ...  # type: QCborStreamReader.Type
-    Array = ...  # type: QCborStreamReader.Type
-    Map = ...  # type: QCborStreamReader.Type
-    Tag = ...  # type: QCborStreamReader.Type
-    SimpleType = ...  # type: QCborStreamReader.Type
-    HalfFloat = ...  # type: QCborStreamReader.Type
-    Float16 = ...  # type: QCborStreamReader.Type
-    Float = ...  # type: QCborStreamReader.Type
-    Double = ...  # type: QCborStreamReader.Type
-    Invalid = ...  # type: QCborStreamReader.Type
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -2504,9 +2464,6 @@ class QCommandLineParser(PyQt6.sip.simplewrapper):
         ParseAsCompactedShortOptions = ... # type: QCommandLineParser.SingleDashWordOptionMode
         ParseAsLongOptions = ... # type: QCommandLineParser.SingleDashWordOptionMode
 
-    ParseAsCompactedShortOptions = ...  # type: QCommandLineParser.SingleDashWordOptionMode
-    ParseAsLongOptions = ...  # type: QCommandLineParser.SingleDashWordOptionMode
-
     def __init__(self) -> None: ...
 
     def setOptionsAfterPositionalArgumentsMode(self, mode: 'QCommandLineParser.OptionsAfterPositionalArgumentsMode') -> None: ...
@@ -2646,8 +2603,6 @@ class QCoreApplication(QObject):
     def processEvents(flags: 'QEventLoop.ProcessEventsFlag', maxtime: int) -> None: ...
     @staticmethod
     def exec() -> int: ...
-    @staticmethod
-    def exec_() -> int: ...
     @staticmethod
     def instance() -> typing.Optional['QCoreApplication']: ...
     @staticmethod
@@ -2823,155 +2778,6 @@ class QEvent(PyQt6.sip.wrapper):
         User = ... # type: QEvent.Type
         MaxUser = ... # type: QEvent.Type
 
-    None_ = ...  # type: QEvent.Type
-    Timer = ...  # type: QEvent.Type
-    MouseButtonPress = ...  # type: QEvent.Type
-    MouseButtonRelease = ...  # type: QEvent.Type
-    MouseButtonDblClick = ...  # type: QEvent.Type
-    MouseMove = ...  # type: QEvent.Type
-    KeyPress = ...  # type: QEvent.Type
-    KeyRelease = ...  # type: QEvent.Type
-    FocusIn = ...  # type: QEvent.Type
-    FocusOut = ...  # type: QEvent.Type
-    Enter = ...  # type: QEvent.Type
-    Leave = ...  # type: QEvent.Type
-    Paint = ...  # type: QEvent.Type
-    Move = ...  # type: QEvent.Type
-    Resize = ...  # type: QEvent.Type
-    Show = ...  # type: QEvent.Type
-    Hide = ...  # type: QEvent.Type
-    Close = ...  # type: QEvent.Type
-    ParentChange = ...  # type: QEvent.Type
-    ParentAboutToChange = ...  # type: QEvent.Type
-    ThreadChange = ...  # type: QEvent.Type
-    WindowActivate = ...  # type: QEvent.Type
-    WindowDeactivate = ...  # type: QEvent.Type
-    ShowToParent = ...  # type: QEvent.Type
-    HideToParent = ...  # type: QEvent.Type
-    Wheel = ...  # type: QEvent.Type
-    WindowTitleChange = ...  # type: QEvent.Type
-    WindowIconChange = ...  # type: QEvent.Type
-    ApplicationWindowIconChange = ...  # type: QEvent.Type
-    ApplicationFontChange = ...  # type: QEvent.Type
-    ApplicationLayoutDirectionChange = ...  # type: QEvent.Type
-    ApplicationPaletteChange = ...  # type: QEvent.Type
-    PaletteChange = ...  # type: QEvent.Type
-    Clipboard = ...  # type: QEvent.Type
-    MetaCall = ...  # type: QEvent.Type
-    SockAct = ...  # type: QEvent.Type
-    WinEventAct = ...  # type: QEvent.Type
-    DeferredDelete = ...  # type: QEvent.Type
-    DragEnter = ...  # type: QEvent.Type
-    DragMove = ...  # type: QEvent.Type
-    DragLeave = ...  # type: QEvent.Type
-    Drop = ...  # type: QEvent.Type
-    ChildAdded = ...  # type: QEvent.Type
-    ChildPolished = ...  # type: QEvent.Type
-    ChildRemoved = ...  # type: QEvent.Type
-    PolishRequest = ...  # type: QEvent.Type
-    Polish = ...  # type: QEvent.Type
-    LayoutRequest = ...  # type: QEvent.Type
-    UpdateRequest = ...  # type: QEvent.Type
-    UpdateLater = ...  # type: QEvent.Type
-    ContextMenu = ...  # type: QEvent.Type
-    InputMethod = ...  # type: QEvent.Type
-    TabletMove = ...  # type: QEvent.Type
-    LocaleChange = ...  # type: QEvent.Type
-    LanguageChange = ...  # type: QEvent.Type
-    LayoutDirectionChange = ...  # type: QEvent.Type
-    TabletPress = ...  # type: QEvent.Type
-    TabletRelease = ...  # type: QEvent.Type
-    OkRequest = ...  # type: QEvent.Type
-    IconDrag = ...  # type: QEvent.Type
-    FontChange = ...  # type: QEvent.Type
-    EnabledChange = ...  # type: QEvent.Type
-    ActivationChange = ...  # type: QEvent.Type
-    StyleChange = ...  # type: QEvent.Type
-    IconTextChange = ...  # type: QEvent.Type
-    ModifiedChange = ...  # type: QEvent.Type
-    MouseTrackingChange = ...  # type: QEvent.Type
-    WindowBlocked = ...  # type: QEvent.Type
-    WindowUnblocked = ...  # type: QEvent.Type
-    WindowStateChange = ...  # type: QEvent.Type
-    ToolTip = ...  # type: QEvent.Type
-    WhatsThis = ...  # type: QEvent.Type
-    StatusTip = ...  # type: QEvent.Type
-    ActionChanged = ...  # type: QEvent.Type
-    ActionAdded = ...  # type: QEvent.Type
-    ActionRemoved = ...  # type: QEvent.Type
-    FileOpen = ...  # type: QEvent.Type
-    Shortcut = ...  # type: QEvent.Type
-    ShortcutOverride = ...  # type: QEvent.Type
-    WhatsThisClicked = ...  # type: QEvent.Type
-    ToolBarChange = ...  # type: QEvent.Type
-    ApplicationActivate = ...  # type: QEvent.Type
-    ApplicationActivated = ...  # type: QEvent.Type
-    ApplicationDeactivate = ...  # type: QEvent.Type
-    ApplicationDeactivated = ...  # type: QEvent.Type
-    QueryWhatsThis = ...  # type: QEvent.Type
-    EnterWhatsThisMode = ...  # type: QEvent.Type
-    LeaveWhatsThisMode = ...  # type: QEvent.Type
-    ZOrderChange = ...  # type: QEvent.Type
-    HoverEnter = ...  # type: QEvent.Type
-    HoverLeave = ...  # type: QEvent.Type
-    HoverMove = ...  # type: QEvent.Type
-    GraphicsSceneMouseMove = ...  # type: QEvent.Type
-    GraphicsSceneMousePress = ...  # type: QEvent.Type
-    GraphicsSceneMouseRelease = ...  # type: QEvent.Type
-    GraphicsSceneMouseDoubleClick = ...  # type: QEvent.Type
-    GraphicsSceneContextMenu = ...  # type: QEvent.Type
-    GraphicsSceneHoverEnter = ...  # type: QEvent.Type
-    GraphicsSceneHoverMove = ...  # type: QEvent.Type
-    GraphicsSceneHoverLeave = ...  # type: QEvent.Type
-    GraphicsSceneHelp = ...  # type: QEvent.Type
-    GraphicsSceneDragEnter = ...  # type: QEvent.Type
-    GraphicsSceneDragMove = ...  # type: QEvent.Type
-    GraphicsSceneDragLeave = ...  # type: QEvent.Type
-    GraphicsSceneDrop = ...  # type: QEvent.Type
-    GraphicsSceneWheel = ...  # type: QEvent.Type
-    GraphicsSceneResize = ...  # type: QEvent.Type
-    GraphicsSceneMove = ...  # type: QEvent.Type
-    KeyboardLayoutChange = ...  # type: QEvent.Type
-    DynamicPropertyChange = ...  # type: QEvent.Type
-    TabletEnterProximity = ...  # type: QEvent.Type
-    TabletLeaveProximity = ...  # type: QEvent.Type
-    NonClientAreaMouseMove = ...  # type: QEvent.Type
-    NonClientAreaMouseButtonPress = ...  # type: QEvent.Type
-    NonClientAreaMouseButtonRelease = ...  # type: QEvent.Type
-    NonClientAreaMouseButtonDblClick = ...  # type: QEvent.Type
-    MacSizeChange = ...  # type: QEvent.Type
-    ContentsRectChange = ...  # type: QEvent.Type
-    CursorChange = ...  # type: QEvent.Type
-    ToolTipChange = ...  # type: QEvent.Type
-    GrabMouse = ...  # type: QEvent.Type
-    UngrabMouse = ...  # type: QEvent.Type
-    GrabKeyboard = ...  # type: QEvent.Type
-    UngrabKeyboard = ...  # type: QEvent.Type
-    StateMachineSignal = ...  # type: QEvent.Type
-    StateMachineWrapped = ...  # type: QEvent.Type
-    TouchBegin = ...  # type: QEvent.Type
-    TouchUpdate = ...  # type: QEvent.Type
-    TouchEnd = ...  # type: QEvent.Type
-    RequestSoftwareInputPanel = ...  # type: QEvent.Type
-    CloseSoftwareInputPanel = ...  # type: QEvent.Type
-    WinIdChange = ...  # type: QEvent.Type
-    Gesture = ...  # type: QEvent.Type
-    GestureOverride = ...  # type: QEvent.Type
-    FocusAboutToChange = ...  # type: QEvent.Type
-    ScrollPrepare = ...  # type: QEvent.Type
-    Scroll = ...  # type: QEvent.Type
-    Expose = ...  # type: QEvent.Type
-    InputMethodQuery = ...  # type: QEvent.Type
-    OrientationChange = ...  # type: QEvent.Type
-    TouchCancel = ...  # type: QEvent.Type
-    PlatformPanel = ...  # type: QEvent.Type
-    ApplicationStateChange = ...  # type: QEvent.Type
-    ReadOnlyChange = ...  # type: QEvent.Type
-    PlatformSurface = ...  # type: QEvent.Type
-    TabletTrackingChange = ...  # type: QEvent.Type
-    User = ...  # type: QEvent.Type
-    MaxUser = ...  # type: QEvent.Type
-
     @typing.overload
     def __init__(self, type: 'QEvent.Type') -> None: ...
     @typing.overload
@@ -3048,22 +2854,6 @@ class QCryptographicHash(PyQt6.sip.simplewrapper):
         Blake2s_224 = ... # type: QCryptographicHash.Algorithm
         Blake2s_256 = ... # type: QCryptographicHash.Algorithm
 
-    Md4 = ...  # type: QCryptographicHash.Algorithm
-    Md5 = ...  # type: QCryptographicHash.Algorithm
-    Sha1 = ...  # type: QCryptographicHash.Algorithm
-    Sha224 = ...  # type: QCryptographicHash.Algorithm
-    Sha256 = ...  # type: QCryptographicHash.Algorithm
-    Sha384 = ...  # type: QCryptographicHash.Algorithm
-    Sha512 = ...  # type: QCryptographicHash.Algorithm
-    Sha3_224 = ...  # type: QCryptographicHash.Algorithm
-    Sha3_256 = ...  # type: QCryptographicHash.Algorithm
-    Sha3_384 = ...  # type: QCryptographicHash.Algorithm
-    Sha3_512 = ...  # type: QCryptographicHash.Algorithm
-    Keccak_224 = ...  # type: QCryptographicHash.Algorithm
-    Keccak_256 = ...  # type: QCryptographicHash.Algorithm
-    Keccak_384 = ...  # type: QCryptographicHash.Algorithm
-    Keccak_512 = ...  # type: QCryptographicHash.Algorithm
-
     def __init__(self, method: 'QCryptographicHash.Algorithm') -> None: ...
 
     @staticmethod
@@ -3132,39 +2922,6 @@ class QDataStream(QIODeviceBase):
         Qt_6_0 = ... # type: QDataStream.Version
         Qt_6_1 = ... # type: QDataStream.Version
         Qt_6_2 = ... # type: QDataStream.Version
-
-    Qt_1_0 = ...  # type: QDataStream.Version
-    Qt_2_0 = ...  # type: QDataStream.Version
-    Qt_2_1 = ...  # type: QDataStream.Version
-    Qt_3_0 = ...  # type: QDataStream.Version
-    Qt_3_1 = ...  # type: QDataStream.Version
-    Qt_3_3 = ...  # type: QDataStream.Version
-    Qt_4_0 = ...  # type: QDataStream.Version
-    Qt_4_1 = ...  # type: QDataStream.Version
-    Qt_4_2 = ...  # type: QDataStream.Version
-    Qt_4_3 = ...  # type: QDataStream.Version
-    Qt_4_4 = ...  # type: QDataStream.Version
-    Qt_4_5 = ...  # type: QDataStream.Version
-    Qt_4_6 = ...  # type: QDataStream.Version
-    Qt_4_7 = ...  # type: QDataStream.Version
-    Qt_4_8 = ...  # type: QDataStream.Version
-    Qt_4_9 = ...  # type: QDataStream.Version
-    Qt_5_0 = ...  # type: QDataStream.Version
-    Qt_5_1 = ...  # type: QDataStream.Version
-    Qt_5_2 = ...  # type: QDataStream.Version
-    Qt_5_3 = ...  # type: QDataStream.Version
-    Qt_5_4 = ...  # type: QDataStream.Version
-    Qt_5_5 = ...  # type: QDataStream.Version
-    Qt_5_6 = ...  # type: QDataStream.Version
-    Qt_5_7 = ...  # type: QDataStream.Version
-    Qt_5_8 = ...  # type: QDataStream.Version
-    Qt_5_9 = ...  # type: QDataStream.Version
-    Qt_5_10 = ...  # type: QDataStream.Version
-    Qt_5_11 = ...  # type: QDataStream.Version
-    Qt_5_12 = ...  # type: QDataStream.Version
-    Qt_5_13 = ...  # type: QDataStream.Version
-    Qt_5_14 = ...  # type: QDataStream.Version
-    Qt_5_15 = ...  # type: QDataStream.Version
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -3237,9 +2994,6 @@ class QDataStream(QIODeviceBase):
 
 
 class QDate(PyQt6.sip.simplewrapper):
-
-    DateFormat = ...  # type: QDate.MonthNameType
-    StandaloneFormat = ...  # type: QDate.MonthNameType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -3382,9 +3136,6 @@ class QDateTime(PyQt6.sip.simplewrapper):
         First = ... # type: QDateTime.YearRange
         Last = ... # type: QDateTime.YearRange
 
-    First = ...  # type: QDateTime.YearRange
-    Last = ...  # type: QDateTime.YearRange
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -3468,8 +3219,6 @@ class QDeadlineTimer(PyQt6.sip.simplewrapper):
 
     class ForeverConstant(enum.Enum):
         Forever = ... # type: QDeadlineTimer.ForeverConstant
-
-    Forever = ...  # type: QDeadlineTimer.ForeverConstant
 
     @typing.overload
     def __init__(self, type: Qt.TimerType = ...) -> None: ...
@@ -3720,55 +3469,6 @@ class QEasingCurve(PyQt6.sip.simplewrapper):
         TCBSpline = ... # type: QEasingCurve.Type
         Custom = ... # type: QEasingCurve.Type
 
-    Linear = ...  # type: QEasingCurve.Type
-    InQuad = ...  # type: QEasingCurve.Type
-    OutQuad = ...  # type: QEasingCurve.Type
-    InOutQuad = ...  # type: QEasingCurve.Type
-    OutInQuad = ...  # type: QEasingCurve.Type
-    InCubic = ...  # type: QEasingCurve.Type
-    OutCubic = ...  # type: QEasingCurve.Type
-    InOutCubic = ...  # type: QEasingCurve.Type
-    OutInCubic = ...  # type: QEasingCurve.Type
-    InQuart = ...  # type: QEasingCurve.Type
-    OutQuart = ...  # type: QEasingCurve.Type
-    InOutQuart = ...  # type: QEasingCurve.Type
-    OutInQuart = ...  # type: QEasingCurve.Type
-    InQuint = ...  # type: QEasingCurve.Type
-    OutQuint = ...  # type: QEasingCurve.Type
-    InOutQuint = ...  # type: QEasingCurve.Type
-    OutInQuint = ...  # type: QEasingCurve.Type
-    InSine = ...  # type: QEasingCurve.Type
-    OutSine = ...  # type: QEasingCurve.Type
-    InOutSine = ...  # type: QEasingCurve.Type
-    OutInSine = ...  # type: QEasingCurve.Type
-    InExpo = ...  # type: QEasingCurve.Type
-    OutExpo = ...  # type: QEasingCurve.Type
-    InOutExpo = ...  # type: QEasingCurve.Type
-    OutInExpo = ...  # type: QEasingCurve.Type
-    InCirc = ...  # type: QEasingCurve.Type
-    OutCirc = ...  # type: QEasingCurve.Type
-    InOutCirc = ...  # type: QEasingCurve.Type
-    OutInCirc = ...  # type: QEasingCurve.Type
-    InElastic = ...  # type: QEasingCurve.Type
-    OutElastic = ...  # type: QEasingCurve.Type
-    InOutElastic = ...  # type: QEasingCurve.Type
-    OutInElastic = ...  # type: QEasingCurve.Type
-    InBack = ...  # type: QEasingCurve.Type
-    OutBack = ...  # type: QEasingCurve.Type
-    InOutBack = ...  # type: QEasingCurve.Type
-    OutInBack = ...  # type: QEasingCurve.Type
-    InBounce = ...  # type: QEasingCurve.Type
-    OutBounce = ...  # type: QEasingCurve.Type
-    InOutBounce = ...  # type: QEasingCurve.Type
-    OutInBounce = ...  # type: QEasingCurve.Type
-    InCurve = ...  # type: QEasingCurve.Type
-    OutCurve = ...  # type: QEasingCurve.Type
-    SineCurve = ...  # type: QEasingCurve.Type
-    CosineCurve = ...  # type: QEasingCurve.Type
-    BezierSpline = ...  # type: QEasingCurve.Type
-    TCBSpline = ...  # type: QEasingCurve.Type
-    Custom = ...  # type: QEasingCurve.Type
-
     @typing.overload
     def __init__(self, type: 'QEasingCurve.Type' = ...) -> None: ...
     @typing.overload
@@ -3799,12 +3499,6 @@ class QElapsedTimer(PyQt6.sip.simplewrapper):
         TickCounter = ... # type: QElapsedTimer.ClockType
         MachAbsoluteTime = ... # type: QElapsedTimer.ClockType
         PerformanceCounter = ... # type: QElapsedTimer.ClockType
-
-    SystemTime = ...  # type: QElapsedTimer.ClockType
-    MonotonicClock = ...  # type: QElapsedTimer.ClockType
-    TickCounter = ...  # type: QElapsedTimer.ClockType
-    MachAbsoluteTime = ...  # type: QElapsedTimer.ClockType
-    PerformanceCounter = ...  # type: QElapsedTimer.ClockType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -4104,8 +3798,8 @@ class QFileSystemWatcher(QObject):
     @typing.overload
     def __init__(self, paths: typing.Iterable[str], parent: typing.Optional[QObject] = ...) -> None: ...
 
-    fileChanged: typing.ClassVar[QtCore.pyqtSignal]
-    directoryChanged: typing.ClassVar[QtCore.pyqtSignal]
+    fileChanged: typing.ClassVar[pyqtSignal]
+    directoryChanged: typing.ClassVar[pyqtSignal]
     def removePaths(self, files: typing.Iterable[str]) -> typing.List[str]: ...
     def removePath(self, file: str) -> bool: ...
     def files(self) -> typing.List[str]: ...
@@ -4192,15 +3886,15 @@ class QItemSelectionModel(QObject):
     @typing.overload
     def __init__(self, model: QAbstractItemModel, parent: QObject) -> None: ...
 
-    modelChanged: typing.ClassVar[QtCore.pyqtSignal]
+    modelChanged: typing.ClassVar[pyqtSignal]
     def setModel(self, model: QAbstractItemModel) -> None: ...
     def selectedColumns(self, row: int = ...) -> typing.List[QModelIndex]: ...
     def selectedRows(self, column: int = ...) -> typing.List[QModelIndex]: ...
     def hasSelection(self) -> bool: ...
     def emitSelectionChanged(self, newSelection: 'QItemSelection', oldSelection: 'QItemSelection') -> None: ...
-    currentColumnChanged: typing.ClassVar[QtCore.pyqtSignal]
-    currentRowChanged: typing.ClassVar[QtCore.pyqtSignal]
-    currentChanged: typing.ClassVar[QtCore.pyqtSignal]
+    currentColumnChanged: typing.ClassVar[pyqtSignal]
+    currentRowChanged: typing.ClassVar[pyqtSignal]
+    currentChanged: typing.ClassVar[pyqtSignal]
     selectionChanged: typing.ClassVar[pyqtSignal]
     def clearCurrentIndex(self) -> None: ...
     def setCurrentIndex(self, index: QModelIndex, command: 'QItemSelectionModel.SelectionFlag') -> None: ...
@@ -4292,22 +3986,6 @@ class QJsonParseError(PyQt6.sip.simplewrapper):
         DocumentTooLarge = ... # type: QJsonParseError.ParseError
         GarbageAtEnd = ... # type: QJsonParseError.ParseError
 
-    NoError = ...  # type: QJsonParseError.ParseError
-    UnterminatedObject = ...  # type: QJsonParseError.ParseError
-    MissingNameSeparator = ...  # type: QJsonParseError.ParseError
-    UnterminatedArray = ...  # type: QJsonParseError.ParseError
-    MissingValueSeparator = ...  # type: QJsonParseError.ParseError
-    IllegalValue = ...  # type: QJsonParseError.ParseError
-    TerminationByNumber = ...  # type: QJsonParseError.ParseError
-    IllegalNumber = ...  # type: QJsonParseError.ParseError
-    IllegalEscapeSequence = ...  # type: QJsonParseError.ParseError
-    IllegalUTF8String = ...  # type: QJsonParseError.ParseError
-    UnterminatedString = ...  # type: QJsonParseError.ParseError
-    MissingObject = ...  # type: QJsonParseError.ParseError
-    DeepNesting = ...  # type: QJsonParseError.ParseError
-    DocumentTooLarge = ...  # type: QJsonParseError.ParseError
-    GarbageAtEnd = ...  # type: QJsonParseError.ParseError
-
     error = ... # type: 'QJsonParseError.ParseError'
     offset = ... # type: int
 
@@ -4365,14 +4043,6 @@ class QJsonValue(PyQt6.sip.simplewrapper):
         Array = ... # type: QJsonValue.Type
         Object = ... # type: QJsonValue.Type
         Undefined = ... # type: QJsonValue.Type
-
-    Null = ...  # type: QJsonValue.Type
-    Bool = ...  # type: QJsonValue.Type
-    Double = ...  # type: QJsonValue.Type
-    String = ...  # type: QJsonValue.Type
-    Array = ...  # type: QJsonValue.Type
-    Object = ...  # type: QJsonValue.Type
-    Undefined = ...  # type: QJsonValue.Type
 
     @typing.overload
     def __init__(self, type: 'QJsonValue.Type' = ...) -> None: ...
@@ -4478,22 +4148,6 @@ class QLibraryInfo(PyQt6.sip.simplewrapper):
         SettingsPath = ... # type: QLibraryInfo.LibraryPath
         QmlImportsPath = ... # type: QLibraryInfo.LibraryPath
 
-    PrefixPath = ...  # type: QLibraryInfo.LibraryLocation
-    DocumentationPath = ...  # type: QLibraryInfo.LibraryLocation
-    HeadersPath = ...  # type: QLibraryInfo.LibraryLocation
-    LibrariesPath = ...  # type: QLibraryInfo.LibraryLocation
-    BinariesPath = ...  # type: QLibraryInfo.LibraryLocation
-    PluginsPath = ...  # type: QLibraryInfo.LibraryLocation
-    DataPath = ...  # type: QLibraryInfo.LibraryLocation
-    TranslationsPath = ...  # type: QLibraryInfo.LibraryLocation
-    SettingsPath = ...  # type: QLibraryInfo.LibraryLocation
-    ExamplesPath = ...  # type: QLibraryInfo.LibraryLocation
-    ImportsPath = ...  # type: QLibraryInfo.LibraryLocation
-    TestsPath = ...  # type: QLibraryInfo.LibraryLocation
-    LibraryExecutablesPath = ...  # type: QLibraryInfo.LibraryLocation
-    Qml2ImportsPath = ...  # type: QLibraryInfo.LibraryLocation
-    ArchDataPath = ...  # type: QLibraryInfo.LibraryLocation
-
     def __init__(self, a0: 'QLibraryInfo') -> None: ...
 
     @staticmethod
@@ -4547,10 +4201,6 @@ class QLineF(PyQt6.sip.simplewrapper):
         NoIntersection = ... # type: QLineF.IntersectionType
         BoundedIntersection = ... # type: QLineF.IntersectionType
         UnboundedIntersection = ... # type: QLineF.IntersectionType
-
-    NoIntersection = ...  # type: QLineF.IntersectType
-    BoundedIntersection = ...  # type: QLineF.IntersectType
-    UnboundedIntersection = ...  # type: QLineF.IntersectType
 
     @typing.overload
     def __init__(self, line: QLine) -> None: ...
@@ -5475,7 +5125,7 @@ class QLocale(PyQt6.sip.simplewrapper):
     @typing.overload
     def toCurrencyString(self, value: float, symbol: str = ..., precision: int = ...) -> str: ...
     @typing.overload
-    def toCurrencyString(self, value: int, symbol: str = ...) -> str: ...
+    def toCurrencyString(self, value: int, symbol: str = ...) -> str: ...  # type: ignore[misc]
     def currencySymbol(self, format: 'QLocale.CurrencySymbolFormat' = ...) -> str: ...
     def toLower(self, str: str) -> str: ...
     def toUpper(self, str: str) -> str: ...
@@ -5558,7 +5208,7 @@ class QLocale(PyQt6.sip.simplewrapper):
     @typing.overload
     def toString(self, dateTime: typing.Union[QDateTime, datetime.datetime], format: 'QLocale.FormatType' = ...) -> str: ...
     @typing.overload
-    def toString(self, i: int) -> str: ...
+    def toString(self, i: int) -> str: ...  # type: ignore[misc]
     def toDouble(self, s: str) -> typing.Tuple[float, bool]: ...
     def toFloat(self, s: str) -> typing.Tuple[float, bool]: ...
     def toULongLong(self, s: str) -> typing.Tuple[int, bool]: ...
@@ -5579,11 +5229,6 @@ class QLockFile(PyQt6.sip.simplewrapper):
         LockFailedError = ... # type: QLockFile.LockError
         PermissionError = ... # type: QLockFile.LockError
         UnknownError = ... # type: QLockFile.LockError
-
-    NoError = ...  # type: QLockFile.LockError
-    LockFailedError = ...  # type: QLockFile.LockError
-    PermissionError = ...  # type: QLockFile.LockError
-    UnknownError = ...  # type: QLockFile.LockError
 
     def __init__(self, fileName: str) -> None: ...
 
@@ -5715,10 +5360,6 @@ class QMetaMethod(PyQt6.sip.simplewrapper):
         Private = ... # type: QMetaMethod.Access
         Protected = ... # type: QMetaMethod.Access
         Public = ... # type: QMetaMethod.Access
-
-    Private = ...  # type: QMetaMethod.Access
-    Protected = ...  # type: QMetaMethod.Access
-    Public = ...  # type: QMetaMethod.Access
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -5986,10 +5627,6 @@ class QMimeDatabase(PyQt6.sip.simplewrapper):
         MatchExtension = ... # type: QMimeDatabase.MatchMode
         MatchContent = ... # type: QMimeDatabase.MatchMode
 
-    MatchDefault = ...  # type: QMimeDatabase.MatchMode
-    MatchExtension = ...  # type: QMimeDatabase.MatchMode
-    MatchContent = ...  # type: QMimeDatabase.MatchMode
-
     def __init__(self) -> None: ...
 
     def allMimeTypes(self) -> typing.List['QMimeType']: ...
@@ -6240,7 +5877,7 @@ class QVariantAnimation(QAbstractAnimation):
     def updateState(self, newState: QAbstractAnimation.State, oldState: QAbstractAnimation.State) -> None: ...
     def updateCurrentTime(self, a0: int) -> None: ...
     def event(self, event: QEvent) -> bool: ...
-    valueChanged: typing.ClassVar[QtCore.pyqtSignal]
+    valueChanged: typing.ClassVar[pyqtSignal]
     def setEasingCurve(self, easing: typing.Union[QEasingCurve, QEasingCurve.Type]) -> None: ...
     def easingCurve(self) -> QEasingCurve: ...
     def setDuration(self, msecs: int) -> None: ...
@@ -6386,9 +6023,6 @@ class QProcess(QIODevice):
         NormalExit = ... # type: QProcess.ExitStatus
         CrashExit = ... # type: QProcess.ExitStatus
 
-    NormalExit = ...  # type: QProcess.ExitStatus
-    CrashExit = ...  # type: QProcess.ExitStatus
-
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
 
     def processId(self) -> int: ...
@@ -6502,8 +6136,8 @@ class QRandomGenerator(PyQt6.sip.simplewrapper):
     def bounded(self, highest: float) -> float: ...
     @typing.overload
     def bounded(self, lowest: int, highest: int) -> int: ...
-    @typing.overload  # type: ignore[misc]
-    def bounded(self, highest: int) -> int: ...
+    @typing.overload  
+    def bounded(self, highest: int) -> int: ...  # type: ignore[misc]
     def generateDouble(self) -> float: ...
     def generate64(self) -> int: ...
     def generate(self) -> int: ...
@@ -6514,9 +6148,6 @@ class QReadWriteLock(PyQt6.sip.simplewrapper):
     class RecursionMode(enum.Enum):
         NonRecursive = ... # type: QReadWriteLock.RecursionMode
         Recursive = ... # type: QReadWriteLock.RecursionMode
-
-    NonRecursive = ...  # type: QReadWriteLock.RecursionMode
-    Recursive = ...  # type: QReadWriteLock.RecursionMode
 
     def __init__(self, recursionMode: 'QReadWriteLock.RecursionMode' = ...) -> None: ...
 
@@ -6863,10 +6494,6 @@ class QResource(PyQt6.sip.simplewrapper):
         ZlibCompression = ... # type: QResource.Compression
         ZstdCompression = ... # type: QResource.Compression
 
-    NoCompression = ...  # type: QResource.Compression
-    ZlibCompression = ...  # type: QResource.Compression
-    ZstdCompression = ...  # type: QResource.Compression
-
     def __init__(self, fileName: str = ..., locale: QLocale = ...) -> None: ...
 
     def uncompressedData(self) -> QByteArray: ...
@@ -6957,7 +6584,7 @@ class QSequentialAnimationGroup(QAnimationGroup):
     def updateState(self, newState: QAbstractAnimation.State, oldState: QAbstractAnimation.State) -> None: ...
     def updateCurrentTime(self, a0: int) -> None: ...
     def event(self, event: QEvent) -> bool: ...
-    currentAnimationChanged: typing.ClassVar[QtCore.pyqtSignal]
+    currentAnimationChanged: typing.ClassVar[pyqtSignal]
     def duration(self) -> int: ...
     def currentAnimation(self) -> QAbstractAnimation: ...
     def insertPause(self, index: int, msecs: int) -> QPauseAnimation: ...
@@ -6979,10 +6606,6 @@ class QSettings(QObject):
         NoError = ... # type: QSettings.Status
         AccessError = ... # type: QSettings.Status
         FormatError = ... # type: QSettings.Status
-
-    NoError = ...  # type: QSettings.Status
-    AccessError = ...  # type: QSettings.Status
-    FormatError = ...  # type: QSettings.Status
 
     @typing.overload
     def __init__(self, organization: str, application: str = ..., parent: typing.Optional[QObject] = ...) -> None: ...
@@ -7049,9 +6672,6 @@ class QSharedMemory(QObject):
     class AccessMode(enum.Enum):
         ReadOnly = ... # type: QSharedMemory.AccessMode
         ReadWrite = ... # type: QSharedMemory.AccessMode
-
-    ReadOnly = ...  # type: QSharedMemory.AccessMode
-    ReadWrite = ...  # type: QSharedMemory.AccessMode
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
@@ -7466,7 +7086,7 @@ class QStringListModel(QAbstractListModel):
     def insertRows(self, row: int, count: int, parent: QModelIndex = ...) -> bool: ...
     def flags(self, index: QModelIndex) -> Qt.ItemFlag: ...
     def setData(self, index: QModelIndex, value: typing.Any, role: int = ...) -> bool: ...
-    def data(self, index: QModelIndex, role: int = ...) -> typing.Any: ...  # type: ignore[override]
+    def data(self, index: QModelIndex, role: int = ...) -> typing.Any: ...
     def rowCount(self, parent: QModelIndex = ...) -> int: ...
 
 
@@ -7523,9 +7143,6 @@ class QSystemSemaphore(PyQt6.sip.simplewrapper):
     class AccessMode(enum.Enum):
         Open = ... # type: QSystemSemaphore.AccessMode
         Create = ... # type: QSystemSemaphore.AccessMode
-
-    Open = ...  # type: QSystemSemaphore.AccessMode
-    Create = ...  # type: QSystemSemaphore.AccessMode
 
     def __init__(self, key: str, initialValue: int = ..., mode: 'QSystemSemaphore.AccessMode' = ...) -> None: ...
 
@@ -7704,15 +7321,6 @@ class QThread(QObject):
         TimeCriticalPriority = ... # type: QThread.Priority
         InheritPriority = ... # type: QThread.Priority
 
-    IdlePriority = ...  # type: QThread.Priority
-    LowestPriority = ...  # type: QThread.Priority
-    LowPriority = ...  # type: QThread.Priority
-    NormalPriority = ...  # type: QThread.Priority
-    HighPriority = ...  # type: QThread.Priority
-    HighestPriority = ...  # type: QThread.Priority
-    TimeCriticalPriority = ...  # type: QThread.Priority
-    InheritPriority = ...  # type: QThread.Priority
-
     def __init__(self, parent: typing.Optional[QObject] = ...) -> None: ...
 
     def loopLevel(self) -> int: ...
@@ -7804,10 +7412,10 @@ class QTimeLine(QObject):
     def setEasingCurve(self, curve: typing.Union[QEasingCurve, QEasingCurve.Type]) -> None: ...
     def easingCurve(self) -> QEasingCurve: ...
     def timerEvent(self, event: QTimerEvent) -> None: ...
-    valueChanged: typing.ClassVar[QtCore.pyqtSignal]
-    stateChanged: typing.ClassVar[QtCore.pyqtSignal]
-    frameChanged: typing.ClassVar[QtCore.pyqtSignal]
-    finished: typing.ClassVar[QtCore.pyqtSignal]
+    valueChanged: typing.ClassVar[pyqtSignal]
+    stateChanged: typing.ClassVar[pyqtSignal]
+    frameChanged: typing.ClassVar[pyqtSignal]
+    finished: typing.ClassVar[pyqtSignal]
     def toggleDirection(self) -> None: ...
     def stop(self) -> None: ...
     def start(self) -> None: ...
@@ -8176,12 +7784,6 @@ class QUuid(PyQt6.sip.simplewrapper):
         Microsoft = ... # type: QUuid.Variant
         Reserved = ... # type: QUuid.Variant
 
-    VarUnknown = ...  # type: QUuid.Variant
-    NCS = ...  # type: QUuid.Variant
-    DCE = ...  # type: QUuid.Variant
-    Microsoft = ...  # type: QUuid.Variant
-    Reserved = ...  # type: QUuid.Variant
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -8220,66 +7822,6 @@ class QUuid(PyQt6.sip.simplewrapper):
 
 
 class QVariant(PyQt6.sip.simplewrapper):
-
-    Invalid = ...  # type: QVariant.Type
-    Bool = ...  # type: QVariant.Type
-    Int = ...  # type: QVariant.Type
-    UInt = ...  # type: QVariant.Type
-    LongLong = ...  # type: QVariant.Type
-    ULongLong = ...  # type: QVariant.Type
-    Double = ...  # type: QVariant.Type
-    Char = ...  # type: QVariant.Type
-    Map = ...  # type: QVariant.Type
-    List = ...  # type: QVariant.Type
-    String = ...  # type: QVariant.Type
-    StringList = ...  # type: QVariant.Type
-    ByteArray = ...  # type: QVariant.Type
-    BitArray = ...  # type: QVariant.Type
-    Date = ...  # type: QVariant.Type
-    Time = ...  # type: QVariant.Type
-    DateTime = ...  # type: QVariant.Type
-    Url = ...  # type: QVariant.Type
-    Locale = ...  # type: QVariant.Type
-    Rect = ...  # type: QVariant.Type
-    RectF = ...  # type: QVariant.Type
-    Size = ...  # type: QVariant.Type
-    SizeF = ...  # type: QVariant.Type
-    Line = ...  # type: QVariant.Type
-    LineF = ...  # type: QVariant.Type
-    Point = ...  # type: QVariant.Type
-    PointF = ...  # type: QVariant.Type
-    RegExp = ...  # type: QVariant.Type
-    Font = ...  # type: QVariant.Type
-    Pixmap = ...  # type: QVariant.Type
-    Brush = ...  # type: QVariant.Type
-    Color = ...  # type: QVariant.Type
-    Palette = ...  # type: QVariant.Type
-    Icon = ...  # type: QVariant.Type
-    Image = ...  # type: QVariant.Type
-    Polygon = ...  # type: QVariant.Type
-    Region = ...  # type: QVariant.Type
-    Bitmap = ...  # type: QVariant.Type
-    Cursor = ...  # type: QVariant.Type
-    SizePolicy = ...  # type: QVariant.Type
-    KeySequence = ...  # type: QVariant.Type
-    Pen = ...  # type: QVariant.Type
-    TextLength = ...  # type: QVariant.Type
-    TextFormat = ...  # type: QVariant.Type
-    Matrix = ...  # type: QVariant.Type
-    Transform = ...  # type: QVariant.Type
-    Hash = ...  # type: QVariant.Type
-    Matrix4x4 = ...  # type: QVariant.Type
-    Vector2D = ...  # type: QVariant.Type
-    Vector3D = ...  # type: QVariant.Type
-    Vector4D = ...  # type: QVariant.Type
-    Quaternion = ...  # type: QVariant.Type
-    EasingCurve = ...  # type: QVariant.Type
-    Uuid = ...  # type: QVariant.Type
-    ModelIndex = ...  # type: QVariant.Type
-    PolygonF = ...  # type: QVariant.Type
-    RegularExpression = ...  # type: QVariant.Type
-    PersistentModelIndex = ...  # type: QVariant.Type
-    UserType = ...  # type: QVariant.Type
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -8468,18 +8010,6 @@ class QXmlStreamReader(PyQt6.sip.simplewrapper):
         EntityReference = ... # type: QXmlStreamReader.TokenType
         ProcessingInstruction = ... # type: QXmlStreamReader.TokenType
 
-    NoToken = ...  # type: QXmlStreamReader.TokenType
-    Invalid = ...  # type: QXmlStreamReader.TokenType
-    StartDocument = ...  # type: QXmlStreamReader.TokenType
-    EndDocument = ...  # type: QXmlStreamReader.TokenType
-    StartElement = ...  # type: QXmlStreamReader.TokenType
-    EndElement = ...  # type: QXmlStreamReader.TokenType
-    Characters = ...  # type: QXmlStreamReader.TokenType
-    Comment = ...  # type: QXmlStreamReader.TokenType
-    DTD = ...  # type: QXmlStreamReader.TokenType
-    EntityReference = ...  # type: QXmlStreamReader.TokenType
-    ProcessingInstruction = ...  # type: QXmlStreamReader.TokenType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -8663,196 +8193,6 @@ class QXmlStreamAttributes(PyQt6.sip.simplewrapper):
 
 class QMutexLocker(PyQt6.sip.simplewrapper):
 
-    WordSize = ...  # type: QSysInfo.Sizes
-
-    if sys.platform == "win32":
-        class WinVersion(int):
-            WV_10_0 = ...   # type: int
-            WV_2000 = ...   # type: int
-            WV_2003 = ...   # type: int
-            WV_32s = ...   # type: int
-            WV_4_0 = ...   # type: int
-            WV_5_0 = ...   # type: int
-            WV_5_1 = ...   # type: int
-            WV_5_2 = ...   # type: int
-            WV_6_0 = ...   # type: int
-            WV_6_1 = ...   # type: int
-            WV_6_2 = ...   # type: int
-            WV_6_3 = ...   # type: int
-            WV_95 = ...   # type: int
-            WV_98 = ...   # type: int
-            WV_CE = ...   # type: int
-            WV_CENET = ...   # type: int
-            WV_CE_5 = ...   # type: int
-            WV_CE_6 = ...   # type: int
-            WV_CE_based = ...   # type: int
-            WV_DOS_based = ...   # type: int
-            WV_Me = ...   # type: int
-            WV_NT = ...   # type: int
-            WV_NT_based = ...   # type: int
-            WV_VISTA = ...   # type: int
-            WV_WINDOWS10 = ...   # type: int
-            WV_WINDOWS7 = ...   # type: int
-            WV_WINDOWS8 = ...   # type: int
-            WV_WINDOWS8_1 = ...   # type: int
-            WV_XP = ...   # type: int
-
-        WindowsVersion = ... # type: QSysInfo.WinVersion
-
-        WV_10_0 = ...   # type: int
-        WV_2000 = ...   # type: int
-        WV_2003 = ...   # type: int
-        WV_32s = ...   # type: int
-        WV_4_0 = ...   # type: int
-        WV_5_0 = ...   # type: int
-        WV_5_1 = ...   # type: int
-        WV_5_2 = ...   # type: int
-        WV_6_0 = ...   # type: int
-        WV_6_1 = ...   # type: int
-        WV_6_2 = ...   # type: int
-        WV_6_3 = ...   # type: int
-        WV_95 = ...   # type: int
-        WV_98 = ...   # type: int
-        WV_CE = ...   # type: int
-        WV_CENET = ...   # type: int
-        WV_CE_5 = ...   # type: int
-        WV_CE_6 = ...   # type: int
-        WV_CE_based = ...   # type: int
-        WV_DOS_based = ...   # type: int
-        WV_Me = ...   # type: int
-        WV_NT = ...   # type: int
-        WV_NT_based = ...   # type: int
-        WV_VISTA = ...   # type: int
-        WV_WINDOWS10 = ...   # type: int
-        WV_WINDOWS7 = ...   # type: int
-        WV_WINDOWS8 = ...   # type: int
-        WV_WINDOWS8_1 = ...   # type: int
-        WV_XP = ...   # type: int
-
-        @staticmethod
-        def windowsVersion() -> 'QSysInfo.WinVersion': ...
-
-    if sys.platform == "darwin":
-        class MacVersion(int):
-            MV_10_0 = ...  # type: int
-            MV_10_1 = ...  # type: int
-            MV_10_10 = ...  # type: int
-            MV_10_11 = ...  # type: int
-            MV_10_12 = ...  # type: int
-            MV_10_2 = ...  # type: int
-            MV_10_3 = ...  # type: int
-            MV_10_4 = ...  # type: int
-            MV_10_5 = ...  # type: int
-            MV_10_6 = ...  # type: int
-            MV_10_7 = ...  # type: int
-            MV_10_8 = ...  # type: int
-            MV_10_9 = ...  # type: int
-            MV_9 = ...  # type: int
-            MV_CHEETAH = ...  # type: int
-            MV_ELCAPITAN = ...  # type: int
-            MV_IOS = ...  # type: int
-            MV_IOS_10_0 = ...  # type: int
-            MV_IOS_4_3 = ...  # type: int
-            MV_IOS_5_0 = ...  # type: int
-            MV_IOS_5_1 = ...  # type: int
-            MV_IOS_6_0 = ...  # type: int
-            MV_IOS_6_1 = ...  # type: int
-            MV_IOS_7_0 = ...  # type: int
-            MV_IOS_7_1 = ...  # type: int
-            MV_IOS_8_0 = ...  # type: int
-            MV_IOS_8_1 = ...  # type: int
-            MV_IOS_8_2 = ...  # type: int
-            MV_IOS_8_3 = ...  # type: int
-            MV_IOS_8_4 = ...  # type: int
-            MV_IOS_9_0 = ...  # type: int
-            MV_IOS_9_1 = ...  # type: int
-            MV_IOS_9_2 = ...  # type: int
-            MV_IOS_9_3 = ...  # type: int
-            MV_JAGUAR = ...  # type: int
-            MV_LEOPARD = ...  # type: int
-            MV_LION = ...  # type: int
-            MV_MAVERICKS = ...  # type: int
-            MV_MOUNTAINLION = ...  # type: int
-            MV_PANTHER = ...  # type: int
-            MV_PUMA = ...  # type: int
-            MV_SIERRA = ...  # type: int
-            MV_SNOWLEOPARD = ...  # type: int
-            MV_TIGER = ...  # type: int
-            MV_TVOS = ...  # type: int
-            MV_TVOS_10_0 = ...  # type: int
-            MV_TVOS_9_0 = ...  # type: int
-            MV_TVOS_9_1 = ...  # type: int
-            MV_TVOS_9_2 = ...  # type: int
-            MV_Unknown = ...  # type: int
-            MV_WATCHOS = ...  # type: int
-            MV_WATCHOS_2_0 = ...  # type: int
-            MV_WATCHOS_2_1 = ...  # type: int
-            MV_WATCHOS_2_2 = ...  # type: int
-            MV_WATCHOS_3_0 = ...  # type: int
-            MV_YOSEMITE = ...  # type: int
-
-        MV_10_0 = ...  # type: int
-        MV_10_1 = ...  # type: int
-        MV_10_10 = ...  # type: int
-        MV_10_11 = ...  # type: int
-        MV_10_12 = ...  # type: int
-        MV_10_2 = ...  # type: int
-        MV_10_3 = ...  # type: int
-        MV_10_4 = ...  # type: int
-        MV_10_5 = ...  # type: int
-        MV_10_6 = ...  # type: int
-        MV_10_7 = ...  # type: int
-        MV_10_8 = ...  # type: int
-        MV_10_9 = ...  # type: int
-        MV_9 = ...  # type: int
-        MV_CHEETAH = ...  # type: int
-        MV_ELCAPITAN = ...  # type: int
-        MV_IOS = ...  # type: int
-        MV_IOS_10_0 = ...  # type: int
-        MV_IOS_4_3 = ...  # type: int
-        MV_IOS_5_0 = ...  # type: int
-        MV_IOS_5_1 = ...  # type: int
-        MV_IOS_6_0 = ...  # type: int
-        MV_IOS_6_1 = ...  # type: int
-        MV_IOS_7_0 = ...  # type: int
-        MV_IOS_7_1 = ...  # type: int
-        MV_IOS_8_0 = ...  # type: int
-        MV_IOS_8_1 = ...  # type: int
-        MV_IOS_8_2 = ...  # type: int
-        MV_IOS_8_3 = ...  # type: int
-        MV_IOS_8_4 = ...  # type: int
-        MV_IOS_9_0 = ...  # type: int
-        MV_IOS_9_1 = ...  # type: int
-        MV_IOS_9_2 = ...  # type: int
-        MV_IOS_9_3 = ...  # type: int
-        MV_JAGUAR = ...  # type: int
-        MV_LEOPARD = ...  # type: int
-        MV_LION = ...  # type: int
-        MV_MAVERICKS = ...  # type: int
-        MV_MOUNTAINLION = ...  # type: int
-        MV_PANTHER = ...  # type: int
-        MV_PUMA = ...  # type: int
-        MV_SIERRA = ...  # type: int
-        MV_SNOWLEOPARD = ...  # type: int
-        MV_TIGER = ...  # type: int
-        MV_TVOS = ...  # type: int
-        MV_TVOS_10_0 = ...  # type: int
-        MV_TVOS_9_0 = ...  # type: int
-        MV_TVOS_9_1 = ...  # type: int
-        MV_TVOS_9_2 = ...  # type: int
-        MV_Unknown = ...  # type: int
-        MV_WATCHOS = ...  # type: int
-        MV_WATCHOS_2_0 = ...  # type: int
-        MV_WATCHOS_2_1 = ...  # type: int
-        MV_WATCHOS_2_2 = ...  # type: int
-        MV_WATCHOS_3_0 = ...  # type: int
-        MV_YOSEMITE = ...  # type: int
-
-        MacintoshVersion = ... # type: QSysInfo.MacVersion
-
-        @staticmethod
-        def macVersion() -> 'QSysInfo.MacVersion': ...
-
     @typing.overload
     def __init__(self, mutex: QMutex) -> None: ...
     @typing.overload
@@ -8899,7 +8239,7 @@ def Q_RETURN_ARG(type: typing.Any) -> QGenericReturnArgument: ...
 def Q_ARG(type: typing.Any, data: typing.Any) -> QGenericArgument: ...
 def QT_TRANSLATE_NOOP(a0: str, a1: str) -> str: ...
 def QT_TR_NOOP(a0: str) -> str: ...
-def pyqtSlot(*types: typing.Any, name: str = ..., result: typing.Union[str, T] = ..., revision: int = ...) -> typing.Callable[[FuncT], FuncT]: ...
+def pyqtSlot(*types: typing.Any, name: str = ..., result: typing.Union[str, T] = ..., revision: int = ...) -> typing.Callable[[FuncT[TFromFuncT]], FuncT[TFromFuncT]]: ...
 def pyqtEnum(a0: enum.Enum = ...) -> None: ...
 def pyqtClassInfo(a0: str, a1: str) -> None: ...
 def qFloatDistance(a: float, b: float) -> int: ...
