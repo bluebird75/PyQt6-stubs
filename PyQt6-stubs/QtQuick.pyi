@@ -28,9 +28,7 @@ import PyQt6.sip
 from PyQt6 import QtQml
 from PyQt6 import QtGui
 from PyQt6 import QtCore
-
-# Support for QDate, QDateTime and QTime.
-import datetime
+from PyQt6 import QtOpenGL
 
 # Convenient type aliases.
 PYQT_SLOT = typing.Union[typing.Callable[..., None], QtCore.pyqtBoundSignal]
@@ -265,11 +263,6 @@ class QQuickFramebufferObject(QQuickItem):
 
     class Renderer(PyQt6.sip.wrapper):
 
-        try:
-            from PyQt6.QtOpenGL import QOpenGLFramebufferObject
-        except ImportError:
-            pass
-
         @typing.overload
         def __init__(self) -> None: ...
         @typing.overload
@@ -277,9 +270,9 @@ class QQuickFramebufferObject(QQuickItem):
 
         def invalidateFramebufferObject(self) -> None: ...
         def update(self) -> None: ...
-        def framebufferObject(self) -> QOpenGLFramebufferObject: ...
+        def framebufferObject(self) -> 'QtOpenGL.QOpenGLFramebufferObject': ...
         def synchronize(self, a0: 'QQuickFramebufferObject') -> None: ...
-        def createFramebufferObject(self, size: QtCore.QSize) -> QOpenGLFramebufferObject: ...
+        def createFramebufferObject(self, size: QtCore.QSize) -> 'QtOpenGL.QOpenGLFramebufferObject': ...
         def render(self) -> None: ...
 
     def __init__(self, parent: typing.Optional[QQuickItem] = ...) -> None: ...
@@ -587,9 +580,6 @@ class QQuickView(QQuickWindow):
     class ResizeMode(enum.Enum):
         SizeViewToRootObject = ... # type: QQuickView.ResizeMode
         SizeRootObjectToView = ... # type: QQuickView.ResizeMode
-
-    SizeViewToRootObject = ...  # type: QQuickView.ResizeMode
-    SizeRootObjectToView = ...  # type: QQuickView.ResizeMode
 
     @typing.overload
     def __init__(self, parent: typing.Optional[QtGui.QWindow] = ...) -> None: ...
