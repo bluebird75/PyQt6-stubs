@@ -73,9 +73,6 @@ class QAbstractRayCaster(Qt3DCore.QComponent):
         Continuous = ... # type: QAbstractRayCaster.RunMode
         SingleShot = ... # type: QAbstractRayCaster.RunMode
 
-    Continuous = ...  # type: QAbstractRayCaster.RunMode
-    SingleShot = ...  # type: QAbstractRayCaster.RunMode
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def filterModeChanged(self, filterMode: 'QAbstractRayCaster.FilterMode') -> None: ...
@@ -89,6 +86,7 @@ class QAbstractRayCaster(Qt3DCore.QComponent):
     def hits(self) -> typing.List['QRayCasterHit']: ...
     def filterMode(self) -> 'QAbstractRayCaster.FilterMode': ...
     def runMode(self) -> 'QAbstractRayCaster.RunMode': ...
+
 
 class QAbstractTexture(Qt3DCore.QNode):
 
@@ -249,11 +247,6 @@ class QAbstractTexture(Qt3DCore.QNode):
         Ready = ... # type: QAbstractTexture.Status
         Error = ... # type: QAbstractTexture.Status
 
-    None_ = ...  # type: QAbstractTexture.Status
-    Loading = ...  # type: QAbstractTexture.Status
-    Ready = ...  # type: QAbstractTexture.Status
-    Error = ...  # type: QAbstractTexture.Status
-
     @typing.overload
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
     @typing.overload
@@ -314,6 +307,7 @@ class QAbstractTexture(Qt3DCore.QNode):
     def format(self) -> 'QAbstractTexture.TextureFormat': ...
     def target(self) -> 'QAbstractTexture.Target': ...
 
+
 class QAbstractTextureImage(Qt3DCore.QNode):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -330,11 +324,14 @@ class QAbstractTextureImage(Qt3DCore.QNode):
     def layer(self) -> int: ...
     def mipLevel(self) -> int: ...
 
+
 class QRenderState(Qt3DCore.QNode): ...
+
 
 class QAlphaCoverage('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QAlphaTest('QRenderState'):
 
@@ -347,15 +344,6 @@ class QAlphaTest('QRenderState'):
         GreaterOrEqual = ... # type: QAlphaTest.AlphaFunction
         Greater = ... # type: QAlphaTest.AlphaFunction
         NotEqual = ... # type: QAlphaTest.AlphaFunction
-
-    Never = ...  # type: QAlphaTest.AlphaFunction
-    Always = ...  # type: QAlphaTest.AlphaFunction
-    Less = ...  # type: QAlphaTest.AlphaFunction
-    LessOrEqual = ...  # type: QAlphaTest.AlphaFunction
-    Equal = ...  # type: QAlphaTest.AlphaFunction
-    GreaterOrEqual = ...  # type: QAlphaTest.AlphaFunction
-    Greater = ...  # type: QAlphaTest.AlphaFunction
-    NotEqual = ...  # type: QAlphaTest.AlphaFunction
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -376,17 +364,12 @@ class QBlendEquation('QRenderState'):
         Min = ... # type: QBlendEquation.BlendFunction
         Max = ... # type: QBlendEquation.BlendFunction
 
-    Add = ...  # type: QBlendEquation.BlendFunction
-    Subtract = ...  # type: QBlendEquation.BlendFunction
-    ReverseSubtract = ...  # type: QBlendEquation.BlendFunction
-    Min = ...  # type: QBlendEquation.BlendFunction
-    Max = ...  # type: QBlendEquation.BlendFunction
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     blendFunctionChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setBlendFunction(self, blendFunction: 'QBlendEquation.BlendFunction') -> None: ...
     def blendFunction(self) -> 'QBlendEquation.BlendFunction': ...
+
 
 class QBlendEquationArguments('QRenderState'):
 
@@ -412,27 +395,6 @@ class QBlendEquationArguments('QRenderState'):
         OneMinusSource1Color0 = ... # type: QBlendEquationArguments.Blending
         OneMinusSource1Color = ... # type: QBlendEquationArguments.Blending
 
-    Zero = ...  # type: QBlendEquationArguments.Blending
-    One = ...  # type: QBlendEquationArguments.Blending
-    SourceColor = ...  # type: QBlendEquationArguments.Blending
-    SourceAlpha = ...  # type: QBlendEquationArguments.Blending
-    Source1Alpha = ...  # type: QBlendEquationArguments.Blending
-    Source1Color = ...  # type: QBlendEquationArguments.Blending
-    DestinationColor = ...  # type: QBlendEquationArguments.Blending
-    DestinationAlpha = ...  # type: QBlendEquationArguments.Blending
-    SourceAlphaSaturate = ...  # type: QBlendEquationArguments.Blending
-    ConstantColor = ...  # type: QBlendEquationArguments.Blending
-    ConstantAlpha = ...  # type: QBlendEquationArguments.Blending
-    OneMinusSourceColor = ...  # type: QBlendEquationArguments.Blending
-    OneMinusSourceAlpha = ...  # type: QBlendEquationArguments.Blending
-    OneMinusDestinationAlpha = ...  # type: QBlendEquationArguments.Blending
-    OneMinusDestinationColor = ...  # type: QBlendEquationArguments.Blending
-    OneMinusConstantColor = ...  # type: QBlendEquationArguments.Blending
-    OneMinusConstantAlpha = ...  # type: QBlendEquationArguments.Blending
-    OneMinusSource1Alpha = ...  # type: QBlendEquationArguments.Blending
-    OneMinusSource1Color0 = ...  # type: QBlendEquationArguments.Blending
-    OneMinusSource1Color = ...  # type: QBlendEquationArguments.Blending
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     bufferIndexChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -455,20 +417,19 @@ class QBlendEquationArguments('QRenderState'):
     def destinationRgb(self) -> 'QBlendEquationArguments.Blending': ...
     def sourceRgb(self) -> 'QBlendEquationArguments.Blending': ...
 
+
 class QFrameGraphNode(Qt3DCore.QNode):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def parentFrameGraphNode(self) -> 'QFrameGraphNode': ...
 
+
 class QBlitFramebuffer('QFrameGraphNode'):
 
     class InterpolationMethod(enum.Enum):
         Nearest = ... # type: QBlitFramebuffer.InterpolationMethod
         Linear = ... # type: QBlitFramebuffer.InterpolationMethod
-
-    Nearest = ...  # type: QBlitFramebuffer.InterpolationMethod
-    Linear = ...  # type: QBlitFramebuffer.InterpolationMethod
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -578,6 +539,7 @@ class QCamera(Qt3DCore.QEntity):
     def transform(self) -> Qt3DCore.QTransform: ...
     def lens(self) -> 'QCameraLens': ...
 
+
 class QCameraLens(Qt3DCore.QComponent):
 
     class ProjectionType(enum.Enum):
@@ -585,11 +547,6 @@ class QCameraLens(Qt3DCore.QComponent):
         PerspectiveProjection = ... # type: QCameraLens.ProjectionType
         FrustumProjection = ... # type: QCameraLens.ProjectionType
         CustomProjection = ... # type: QCameraLens.ProjectionType
-
-    OrthographicProjection = ...  # type: QCameraLens.ProjectionType
-    PerspectiveProjection = ...  # type: QCameraLens.ProjectionType
-    FrustumProjection = ...  # type: QCameraLens.ProjectionType
-    CustomProjection = ...  # type: QCameraLens.ProjectionType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -633,6 +590,7 @@ class QCameraLens(Qt3DCore.QComponent):
     def nearPlane(self) -> float: ...
     def projectionType(self) -> 'QCameraLens.ProjectionType': ...
 
+
 class QCameraSelector('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -640,6 +598,7 @@ class QCameraSelector('QFrameGraphNode'):
     cameraChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setCamera(self, camera: Qt3DCore.QEntity) -> None: ...
     def camera(self) -> Qt3DCore.QEntity: ...
+
 
 class QClearBuffers('QFrameGraphNode'):
 
@@ -671,6 +630,7 @@ class QClearBuffers('QFrameGraphNode'):
     def clearColor(self) -> QtGui.QColor: ...
     def buffers(self) -> 'QClearBuffers.BufferType': ...
 
+
 class QClipPlane('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -685,14 +645,12 @@ class QClipPlane('QRenderState'):
     def normal(self) -> QtGui.QVector3D: ...
     def planeIndex(self) -> int: ...
 
+
 class QComputeCommand(Qt3DCore.QComponent):
 
     class RunType(enum.Enum):
         Continuous = ... # type: QComputeCommand.RunType
         Manual = ... # type: QComputeCommand.RunType
-
-    Continuous = ...  # type: QComputeCommand.RunType
-    Manual = ...  # type: QComputeCommand.RunType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -713,6 +671,7 @@ class QComputeCommand(Qt3DCore.QComponent):
     def workGroupY(self) -> int: ...
     def workGroupX(self) -> int: ...
 
+
 class QColorMask('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -730,6 +689,7 @@ class QColorMask('QRenderState'):
     def isGreenMasked(self) -> bool: ...
     def isRedMasked(self) -> bool: ...
 
+
 class QCullFace('QRenderState'):
 
     class CullingMode(enum.Enum):
@@ -738,16 +698,12 @@ class QCullFace('QRenderState'):
         Back = ... # type: QCullFace.CullingMode
         FrontAndBack = ... # type: QCullFace.CullingMode
 
-    NoCulling = ...  # type: QCullFace.CullingMode
-    Front = ...  # type: QCullFace.CullingMode
-    Back = ...  # type: QCullFace.CullingMode
-    FrontAndBack = ...  # type: QCullFace.CullingMode
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     modeChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setMode(self, mode: 'QCullFace.CullingMode') -> None: ...
     def mode(self) -> 'QCullFace.CullingMode': ...
+
 
 class QDepthRange('QRenderState'):
 
@@ -759,6 +715,7 @@ class QDepthRange('QRenderState'):
     def setNearValue(self, value: float) -> None: ...
     def farValue(self) -> float: ...
     def nearValue(self) -> float: ...
+
 
 class QDepthTest('QRenderState'):
 
@@ -772,20 +729,12 @@ class QDepthTest('QRenderState'):
         Greater = ... # type: QDepthTest.DepthFunction
         NotEqual = ... # type: QDepthTest.DepthFunction
 
-    Never = ...  # type: QDepthTest.DepthFunction
-    Always = ...  # type: QDepthTest.DepthFunction
-    Less = ...  # type: QDepthTest.DepthFunction
-    LessOrEqual = ...  # type: QDepthTest.DepthFunction
-    Equal = ...  # type: QDepthTest.DepthFunction
-    GreaterOrEqual = ...  # type: QDepthTest.DepthFunction
-    Greater = ...  # type: QDepthTest.DepthFunction
-    NotEqual = ...  # type: QDepthTest.DepthFunction
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     depthFunctionChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setDepthFunction(self, depthFunction: 'QDepthTest.DepthFunction') -> None: ...
     def depthFunction(self) -> 'QDepthTest.DepthFunction': ...
+
 
 class QDirectionalLight('QAbstractLight'):
 
@@ -794,6 +743,7 @@ class QDirectionalLight('QAbstractLight'):
     worldDirectionChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setWorldDirection(self, worldDirection: QtGui.QVector3D) -> None: ...
     def worldDirection(self) -> QtGui.QVector3D: ...
+
 
 class QDispatchCompute('QFrameGraphNode'):
 
@@ -809,9 +759,11 @@ class QDispatchCompute('QFrameGraphNode'):
     def workGroupY(self) -> int: ...
     def workGroupX(self) -> int: ...
 
+
 class QDithering('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QEffect(Qt3DCore.QNode):
 
@@ -824,6 +776,7 @@ class QEffect(Qt3DCore.QNode):
     def removeParameter(self, parameter: 'QParameter') -> None: ...
     def addParameter(self, parameter: 'QParameter') -> None: ...
 
+
 class QEnvironmentLight(Qt3DCore.QComponent):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -834,6 +787,7 @@ class QEnvironmentLight(Qt3DCore.QComponent):
     def setIrradiance(self, irradiance: 'QAbstractTexture') -> None: ...
     def specular(self) -> 'QAbstractTexture': ...
     def irradiance(self) -> 'QAbstractTexture': ...
+
 
 class QFilterKey(Qt3DCore.QNode):
 
@@ -846,14 +800,12 @@ class QFilterKey(Qt3DCore.QNode):
     def name(self) -> str: ...
     def value(self) -> typing.Any: ...
 
+
 class QFrontFace('QRenderState'):
 
     class WindingDirection(enum.Enum):
         ClockWise = ... # type: QFrontFace.WindingDirection
         CounterClockWise = ... # type: QFrontFace.WindingDirection
-
-    ClockWise = ...  # type: QFrontFace.WindingDirection
-    CounterClockWise = ...  # type: QFrontFace.WindingDirection
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -881,19 +833,6 @@ class QGeometryRenderer(Qt3DCore.QBoundingVolume):
         LineStripAdjacency = ... # type: QGeometryRenderer.PrimitiveType
         TriangleStripAdjacency = ... # type: QGeometryRenderer.PrimitiveType
         Patches = ... # type: QGeometryRenderer.PrimitiveType
-
-    Points = ...  # type: QGeometryRenderer.PrimitiveType
-    Lines = ...  # type: QGeometryRenderer.PrimitiveType
-    LineLoop = ...  # type: QGeometryRenderer.PrimitiveType
-    LineStrip = ...  # type: QGeometryRenderer.PrimitiveType
-    Triangles = ...  # type: QGeometryRenderer.PrimitiveType
-    TriangleStrip = ...  # type: QGeometryRenderer.PrimitiveType
-    TriangleFan = ...  # type: QGeometryRenderer.PrimitiveType
-    LinesAdjacency = ...  # type: QGeometryRenderer.PrimitiveType
-    TrianglesAdjacency = ...  # type: QGeometryRenderer.PrimitiveType
-    LineStripAdjacency = ...  # type: QGeometryRenderer.PrimitiveType
-    TriangleStripAdjacency = ...  # type: QGeometryRenderer.PrimitiveType
-    Patches = ...  # type: QGeometryRenderer.PrimitiveType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -934,6 +873,7 @@ class QGeometryRenderer(Qt3DCore.QBoundingVolume):
     def vertexCount(self) -> int: ...
     def instanceCount(self) -> int: ...
 
+
 class QGraphicsApiFilter(QtCore.QObject):
 
     class OpenGLProfile(enum.Enum):
@@ -947,12 +887,6 @@ class QGraphicsApiFilter(QtCore.QObject):
         Vulkan = ... # type: QGraphicsApiFilter.Api
         DirectX = ... # type: QGraphicsApiFilter.Api
         RHI = ... # type: QGraphicsApiFilter.Api
-
-    OpenGLES = ...  # type: QGraphicsApiFilter.Api
-    OpenGL = ...  # type: QGraphicsApiFilter.Api
-    Vulkan = ...  # type: QGraphicsApiFilter.Api
-    DirectX = ...  # type: QGraphicsApiFilter.Api
-    RHI = ...  # type: QGraphicsApiFilter.Api
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -976,6 +910,7 @@ class QGraphicsApiFilter(QtCore.QObject):
     def profile(self) -> 'QGraphicsApiFilter.OpenGLProfile': ...
     def api(self) -> 'QGraphicsApiFilter.Api': ...
 
+
 class QLayer(Qt3DCore.QComponent):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -984,6 +919,7 @@ class QLayer(Qt3DCore.QComponent):
     def setRecursive(self, recursive: bool) -> None: ...
     def recursive(self) -> bool: ...
 
+
 class QLayerFilter('QFrameGraphNode'):
 
     class FilterMode(enum.Enum):
@@ -991,11 +927,6 @@ class QLayerFilter('QFrameGraphNode'):
         AcceptAllMatchingLayers = ... # type: QLayerFilter.FilterMode
         DiscardAnyMatchingLayers = ... # type: QLayerFilter.FilterMode
         DiscardAllMatchingLayers = ... # type: QLayerFilter.FilterMode
-
-    AcceptAnyMatchingLayers = ...  # type: QLayerFilter.FilterMode
-    AcceptAllMatchingLayers = ...  # type: QLayerFilter.FilterMode
-    DiscardAnyMatchingLayers = ...  # type: QLayerFilter.FilterMode
-    DiscardAllMatchingLayers = ...  # type: QLayerFilter.FilterMode
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1011,9 +942,6 @@ class QLevelOfDetail(Qt3DCore.QComponent):
     class ThresholdType(enum.Enum):
         DistanceToCameraThreshold = ... # type: QLevelOfDetail.ThresholdType
         ProjectedScreenPixelSizeThreshold = ... # type: QLevelOfDetail.ThresholdType
-
-    DistanceToCameraThreshold = ...  # type: QLevelOfDetail.ThresholdType
-    ProjectedScreenPixelSizeThreshold = ...  # type: QLevelOfDetail.ThresholdType
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1046,6 +974,7 @@ class QLevelOfDetailBoundingSphere(PyQt6.sip.simplewrapper):
     def radius(self) -> float: ...
     def center(self) -> QtGui.QVector3D: ...
 
+
 class QLevelOfDetailSwitch('QLevelOfDetail'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1062,6 +991,7 @@ class QLineWidth('QRenderState'):
     def smooth(self) -> bool: ...
     def value(self) -> float: ...
 
+
 class QMaterial(Qt3DCore.QComponent):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1072,6 +1002,7 @@ class QMaterial(Qt3DCore.QComponent):
     def removeParameter(self, parameter: 'QParameter') -> None: ...
     def addParameter(self, parameter: 'QParameter') -> None: ...
     def effect(self) -> 'QEffect': ...
+
 
 class QMemoryBarrier('QFrameGraphNode'):
 
@@ -1099,6 +1030,7 @@ class QMemoryBarrier('QFrameGraphNode'):
     def setWaitOperations(self, operations: 'QMemoryBarrier.Operation') -> None: ...
     def waitOperations(self) -> 'QMemoryBarrier.Operation': ...
 
+
 class QMesh('QGeometryRenderer'):
 
     class Status(enum.Enum):
@@ -1106,11 +1038,6 @@ class QMesh('QGeometryRenderer'):
         Loading = ... # type: QMesh.Status
         Ready = ... # type: QMesh.Status
         Error = ... # type: QMesh.Status
-
-    None_ = ...  # type: QMesh.Status
-    Loading = ...  # type: QMesh.Status
-    Ready = ...  # type: QMesh.Status
-    Error = ...  # type: QMesh.Status
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1123,21 +1050,26 @@ class QMesh('QGeometryRenderer'):
     def meshName(self) -> str: ...
     def source(self) -> QtCore.QUrl: ...
 
+
 class QMultiSampleAntiAliasing('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QNoDepthMask('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QNoDraw('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QNoPicking('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QObjectPicker(Qt3DCore.QComponent):
 
@@ -1163,6 +1095,7 @@ class QObjectPicker(Qt3DCore.QComponent):
     def isDragEnabled(self) -> bool: ...
     def isHoverEnabled(self) -> bool: ...
 
+
 class QPaintedTextureImage('QAbstractTextureImage'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1178,6 +1111,7 @@ class QPaintedTextureImage('QAbstractTextureImage'):
     def size(self) -> QtCore.QSize: ...
     def height(self) -> int: ...
     def width(self) -> int: ...
+
 
 class QParameter(Qt3DCore.QNode):
 
@@ -1195,6 +1129,7 @@ class QParameter(Qt3DCore.QNode):
     def value(self) -> typing.Any: ...
     def name(self) -> str: ...
 
+
 class QPickEvent(QtCore.QObject):
 
     class Modifiers(enum.Enum):
@@ -1211,12 +1146,6 @@ class QPickEvent(QtCore.QObject):
         MiddleButton = ... # type: QPickEvent.Buttons
         BackButton = ... # type: QPickEvent.Buttons
         NoButton = ... # type: QPickEvent.Buttons
-
-    LeftButton = ...  # type: QPickEvent.Buttons
-    RightButton = ...  # type: QPickEvent.Buttons
-    MiddleButton = ...  # type: QPickEvent.Buttons
-    BackButton = ...  # type: QPickEvent.Buttons
-    NoButton = ...  # type: QPickEvent.Buttons
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1263,12 +1192,6 @@ class QPickingSettings(Qt3DCore.QNode):
         PointPicking = ... # type: QPickingSettings.PickMethod
         PrimitivePicking = ... # type: QPickingSettings.PickMethod
 
-    BoundingVolumePicking = ...  # type: QPickingSettings.PickMethod
-    TrianglePicking = ...  # type: QPickingSettings.PickMethod
-    LinePicking = ...  # type: QPickingSettings.PickMethod
-    PointPicking = ...  # type: QPickingSettings.PickMethod
-    PrimitivePicking = ...  # type: QPickingSettings.PickMethod
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     worldSpaceToleranceChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1284,6 +1207,7 @@ class QPickingSettings(Qt3DCore.QNode):
     def pickResultMode(self) -> 'QPickingSettings.PickResultMode': ...
     def pickMethod(self) -> 'QPickingSettings.PickMethod': ...
 
+
 class QPickLineEvent('QPickEvent'):
 
     @typing.overload
@@ -1295,6 +1219,7 @@ class QPickLineEvent('QPickEvent'):
     def vertex1Index(self) -> int: ...
     def edgeIndex(self) -> int: ...
 
+
 class QPickPointEvent('QPickEvent'):
 
     @typing.overload
@@ -1303,6 +1228,7 @@ class QPickPointEvent('QPickEvent'):
     def __init__(self, position: QtCore.QPointF, worldIntersection: QtGui.QVector3D, localIntersection: QtGui.QVector3D, distance: float, pointIndex: int, button: 'QPickEvent.Buttons', buttons: int, modifiers: int) -> None: ...
 
     def pointIndex(self) -> int: ...
+
 
 class QPickTriangleEvent('QPickEvent'):
 
@@ -1319,6 +1245,7 @@ class QPickTriangleEvent('QPickEvent'):
     def vertex1Index(self) -> int: ...
     def triangleIndex(self) -> int: ...
 
+
 class QPointLight('QAbstractLight'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1333,14 +1260,12 @@ class QPointLight('QAbstractLight'):
     def linearAttenuation(self) -> float: ...
     def constantAttenuation(self) -> float: ...
 
+
 class QPointSize('QRenderState'):
 
     class SizeMode(enum.Enum):
         Fixed = ... # type: QPointSize.SizeMode
         Programmable = ... # type: QPointSize.SizeMode
-
-    Fixed = ... # type: QPointSize.SizeMode
-    Programmable = ... # type: QPointSize.SizeMode
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
@@ -1350,6 +1275,7 @@ class QPointSize('QRenderState'):
     def setSizeMode(self, sizeMode: 'QPointSize.SizeMode') -> None: ...
     def value(self) -> float: ...
     def sizeMode(self) -> 'QPointSize.SizeMode': ...
+
 
 class QPolygonOffset('QRenderState'):
 
@@ -1362,6 +1288,7 @@ class QPolygonOffset('QRenderState'):
     def depthSteps(self) -> float: ...
     def scaleFactor(self) -> float: ...
 
+
 class QProximityFilter('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1372,6 +1299,7 @@ class QProximityFilter('QFrameGraphNode'):
     def setEntity(self, entity: Qt3DCore.QEntity) -> None: ...
     def distanceThreshold(self) -> float: ...
     def entity(self) -> Qt3DCore.QEntity: ...
+
 
 class QRasterMode('QRenderState'):
 
@@ -1385,10 +1313,6 @@ class QRasterMode('QRenderState'):
         Lines = ... # type: QRasterMode.RasterMode
         Fill = ... # type: QRasterMode.RasterMode
 
-    Points = ...  # type: QRasterMode.RasterMode
-    Lines = ...  # type: QRasterMode.RasterMode
-    Fill = ...  # type: QRasterMode.RasterMode
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     faceModeChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1397,6 +1321,7 @@ class QRasterMode('QRenderState'):
     def setRasterMode(self, rasterMode: 'QRasterMode.RasterMode') -> None: ...
     def faceMode(self) -> 'QRasterMode.FaceMode': ...
     def rasterMode(self) -> 'QRasterMode.RasterMode': ...
+
 
 class QRayCaster('QAbstractRayCaster'):
 
@@ -1458,6 +1383,7 @@ class QRenderAspect(Qt3DCore.QAbstractAspect):
     @typing.overload
     def __init__(self, submissionType: 'QRenderAspect.SubmissionType', parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
+
 class QRenderCapabilities(QtCore.QObject):
 
     class Profile(enum.Enum):
@@ -1506,12 +1432,14 @@ class QRenderCapabilities(QtCore.QObject):
     def api(self) -> 'QRenderCapabilities.API': ...
     def isValid(self) -> bool: ...
 
+
 class QRenderCaptureReply(QtCore.QObject):
 
     completed: typing.ClassVar[QtCore.pyqtSignal]
     def saveImage(self, fileName: str) -> bool: ...
     def isComplete(self) -> bool: ...
     def image(self) -> QtGui.QImage: ...
+
 
 class QRenderCapture('QFrameGraphNode'):
 
@@ -1523,6 +1451,7 @@ class QRenderCapture('QFrameGraphNode'):
     def requestCapture(self) -> 'QRenderCaptureReply': ...
     @typing.overload
     def requestCapture(self, rect: QtCore.QRect) -> 'QRenderCaptureReply': ...
+
 
 class QRenderPass(Qt3DCore.QNode):
 
@@ -1541,6 +1470,7 @@ class QRenderPass(Qt3DCore.QNode):
     def addFilterKey(self, filterKey: 'QFilterKey') -> None: ...
     def shaderProgram(self) -> 'QShaderProgram': ...
 
+
 class QRenderPassFilter('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1551,6 +1481,7 @@ class QRenderPassFilter('QFrameGraphNode'):
     def removeMatch(self, filterKey: 'QFilterKey') -> None: ...
     def addMatch(self, filterKey: 'QFilterKey') -> None: ...
     def matchAny(self) -> typing.List['QFilterKey']: ...
+
 
 class QRenderSettings(Qt3DCore.QComponent):
 
@@ -1569,6 +1500,7 @@ class QRenderSettings(Qt3DCore.QComponent):
     def activeFrameGraph(self) -> 'QFrameGraphNode': ...
     def pickingSettings(self) -> 'QPickingSettings': ...
 
+
 class QRenderStateSet('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1576,6 +1508,7 @@ class QRenderStateSet('QFrameGraphNode'):
     def renderStates(self) -> typing.List['QRenderState']: ...
     def removeRenderState(self, state: 'QRenderState') -> None: ...
     def addRenderState(self, state: 'QRenderState') -> None: ...
+
 
 class QRenderSurfaceSelector('QFrameGraphNode'):
 
@@ -1591,6 +1524,7 @@ class QRenderSurfaceSelector('QFrameGraphNode'):
     def externalRenderTargetSize(self) -> QtCore.QSize: ...
     def surface(self) -> QtCore.QObject: ...
 
+
 class QRenderTarget(Qt3DCore.QComponent):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1598,6 +1532,7 @@ class QRenderTarget(Qt3DCore.QComponent):
     def outputs(self) -> typing.List['QRenderTargetOutput']: ...
     def removeOutput(self, output: 'QRenderTargetOutput') -> None: ...
     def addOutput(self, output: 'QRenderTargetOutput') -> None: ...
+
 
 class QRenderTargetOutput(Qt3DCore.QNode):
 
@@ -1676,6 +1611,7 @@ class QSceneLoader(Qt3DCore.QComponent):
     def status(self) -> 'QSceneLoader.Status': ...
     def source(self) -> QtCore.QUrl: ...
 
+
 class QScissorTest('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1693,6 +1629,7 @@ class QScissorTest('QRenderState'):
     def bottom(self) -> int: ...
     def left(self) -> int: ...
 
+
 class QScreenRayCaster('QAbstractRayCaster'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1705,9 +1642,11 @@ class QScreenRayCaster('QAbstractRayCaster'):
     def setPosition(self, position: QtCore.QPoint) -> None: ...
     def position(self) -> QtCore.QPoint: ...
 
+
 class QSeamlessCubemap('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QSetFence('QFrameGraphNode'):
 
@@ -1727,12 +1666,14 @@ class PropertyReaderInterface(PyQt6.sip.simplewrapper):
 
     def readProperty(self, v: typing.Any) -> typing.Any: ...
 
+
 class QShaderData(Qt3DCore.QComponent):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def event(self, event: QtCore.QEvent) -> bool: ...
     def propertyReader(self) -> 'PropertyReaderInterface': ...
+
 
 class QShaderImage(Qt3DCore.QNode):
 
@@ -1805,6 +1746,7 @@ class QShaderImage(Qt3DCore.QNode):
     def layered(self) -> bool: ...
     def texture(self) -> 'QAbstractTexture': ...
 
+
 class QShaderProgram(Qt3DCore.QNode):
 
     class Format(enum.Enum):
@@ -1856,6 +1798,7 @@ class QShaderProgram(Qt3DCore.QNode):
     def tessellationControlShaderCode(self) -> QtCore.QByteArray: ...
     def vertexShaderCode(self) -> QtCore.QByteArray: ...
 
+
 class QShaderProgramBuilder(Qt3DCore.QNode):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1897,6 +1840,7 @@ class QShaderProgramBuilder(Qt3DCore.QNode):
     def enabledLayers(self) -> typing.List[str]: ...
     def shaderProgram(self) -> 'QShaderProgram': ...
 
+
 class QSortPolicy('QFrameGraphNode'):
 
     class SortType(enum.Enum):
@@ -1916,6 +1860,7 @@ class QSortPolicy('QFrameGraphNode'):
     def setSortTypes(self, sortTypesInt: typing.Iterable[int]) -> None: ...
     def sortTypesInt(self) -> typing.List[int]: ...
     def sortTypes(self) -> typing.List[QSortPolicy.SortType]: ...
+
 
 class QSpotLight('QAbstractLight'):
 
@@ -1937,6 +1882,7 @@ class QSpotLight('QAbstractLight'):
     def cutOffAngle(self) -> float: ...
     def localDirection(self) -> QtGui.QVector3D: ...
 
+
 class QStencilMask('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -1948,12 +1894,14 @@ class QStencilMask('QRenderState'):
     def backOutputMask(self) -> int: ...
     def frontOutputMask(self) -> int: ...
 
+
 class QStencilOperation('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def back(self) -> 'QStencilOperationArguments': ...
     def front(self) -> 'QStencilOperationArguments': ...
+
 
 class QStencilOperationArguments(QtCore.QObject):
 
@@ -1972,10 +1920,6 @@ class QStencilOperationArguments(QtCore.QObject):
         Back = ... # type: QStencilOperationArguments.FaceMode
         FrontAndBack = ... # type: QStencilOperationArguments.FaceMode
 
-    Front = ...  # type: QStencilOperationArguments.FaceMode
-    Back = ...  # type: QStencilOperationArguments.FaceMode
-    FrontAndBack = ...  # type: QStencilOperationArguments.FaceMode
-
     faceModeChanged: typing.ClassVar[QtCore.pyqtSignal]
     allTestsPassOperationChanged: typing.ClassVar[QtCore.pyqtSignal]
     depthTestFailureOperationChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -1988,12 +1932,14 @@ class QStencilOperationArguments(QtCore.QObject):
     def stencilTestFailureOperation(self) -> 'QStencilOperationArguments.Operation': ...
     def faceMode(self) -> 'QStencilOperationArguments.FaceMode': ...
 
+
 class QStencilTest('QRenderState'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def back(self) -> 'QStencilTestArguments': ...
     def front(self) -> 'QStencilTestArguments': ...
+
 
 class QStencilTestArguments(QtCore.QObject):
 
@@ -2012,10 +1958,6 @@ class QStencilTestArguments(QtCore.QObject):
         Back = ... # type: QStencilTestArguments.StencilFaceMode
         FrontAndBack = ... # type: QStencilTestArguments.StencilFaceMode
 
-    Front = ...  # type: QStencilTestArguments.StencilFaceMode
-    Back = ...  # type: QStencilTestArguments.StencilFaceMode
-    FrontAndBack = ...  # type: QStencilTestArguments.StencilFaceMode
-
     faceModeChanged: typing.ClassVar[QtCore.pyqtSignal]
     referenceValueChanged: typing.ClassVar[QtCore.pyqtSignal]
     stencilFunctionChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -2027,6 +1969,7 @@ class QStencilTestArguments(QtCore.QObject):
     def stencilFunction(self) -> 'QStencilTestArguments.StencilFunction': ...
     def referenceValue(self) -> int: ...
     def comparisonMask(self) -> int: ...
+
 
 class QSubtreeEnabler('QFrameGraphNode'):
 
@@ -2040,6 +1983,7 @@ class QSubtreeEnabler('QFrameGraphNode'):
     def requestUpdate(self) -> None: ...
     def setEnablement(self, enablement: 'QSubtreeEnabler.Enablement') -> None: ...
     def enablement(self) -> 'QSubtreeEnabler.Enablement': ...
+
 
 class QTechnique(Qt3DCore.QNode):
 
@@ -2056,6 +2000,7 @@ class QTechnique(Qt3DCore.QNode):
     def removeFilterKey(self, filterKey: 'QFilterKey') -> None: ...
     def addFilterKey(self, filterKey: 'QFilterKey') -> None: ...
 
+
 class QTechniqueFilter('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -2067,49 +2012,61 @@ class QTechniqueFilter('QFrameGraphNode'):
     def addMatch(self, filterKey: 'QFilterKey') -> None: ...
     def matchAll(self) -> typing.List['QFilterKey']: ...
 
+
 class QTexture1D('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTexture1DArray('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QTexture2D('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTexture2DArray('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QTexture3D('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTextureCubeMap('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QTextureCubeMapArray('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTexture2DMultisample('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QTexture2DMultisampleArray('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTextureRectangle('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
+
 class QTextureBuffer('QAbstractTexture'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
 
 class QTextureLoader('QAbstractTexture'):
 
@@ -2121,6 +2078,7 @@ class QTextureLoader('QAbstractTexture'):
     sourceChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setSource(self, source: QtCore.QUrl) -> None: ...
     def source(self) -> QtCore.QUrl: ...
+
 
 class QSharedGLTexture('QAbstractTexture'):
 
@@ -2257,6 +2215,7 @@ class QTextureImageDataGenerator(Qt3DCore.QAbstractFunctor):
 
     def __call__(self) -> 'QTextureImageData': ...
 
+
 class QTextureWrapMode(QtCore.QObject):
 
     class WrapMode(enum.Enum):
@@ -2280,6 +2239,7 @@ class QTextureWrapMode(QtCore.QObject):
     def y(self) -> 'QTextureWrapMode.WrapMode': ...
     def x(self) -> 'QTextureWrapMode.WrapMode': ...
 
+
 class QViewport('QFrameGraphNode'):
 
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -2290,6 +2250,7 @@ class QViewport('QFrameGraphNode'):
     normalizedRectChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setNormalizedRect(self, normalizedRect: QtCore.QRectF) -> None: ...
     def normalizedRect(self) -> QtCore.QRectF: ...
+
 
 class QWaitFence('QFrameGraphNode'):
 
