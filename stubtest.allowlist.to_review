@@ -24,3 +24,9 @@ PyQt6.Qt3DRender.QTextureImageDataGenerator.__call__
 PyQt6.QAxContainer.QAxBaseObject.__init__
 PyQt6.QAxContainer.QAxBaseWidget.__init__
 PyQt6.Qt3DCore.QAbstractFunctor.__init__
+PyQt6.Qt3DRender.QRenderCapabilities.API.OpenGL
+PyQt6.Qt3DRender.QRenderCapabilities.API.OpenGLES
+PyQt6.Qt3DRender.QRenderCapabilities.API.RHI
+PyQt6.Qt3DRender.QRenderCapabilities.API.Vulkan
+PyQt6.Qt3DRender.QRenderCapabilities.API.DirectX
+PyQt6.Qt3DExtras.setupWindowSurface

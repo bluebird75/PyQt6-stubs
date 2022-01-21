@@ -20,19 +20,13 @@
 # WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 
-import enum
 import typing
-
-import PyQt6.sip
 
 from PyQt6 import QtGui
 from PyQt6 import QtCore
 from PyQt6 import Qt3DRender
 from PyQt6 import Qt3DInput
 from PyQt6 import Qt3DCore
-
-# Support for QDate, QDateTime and QTime.
-import datetime
 
 # Convenient type aliases.
 PYQT_SLOT = typing.Union[typing.Callable[..., None], QtCore.pyqtBoundSignal]
@@ -614,6 +608,16 @@ class QPhongMaterial(Qt3DRender.QMaterial):
     def diffuse(self) -> QtGui.QColor: ...
     def ambient(self) -> QtGui.QColor: ...
 
+
+class QPlaneGeometry(Qt3DCore.QGeometry):
+
+    def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
+
+    def mirroredChanged(self, mirrored: bool) -> None: ...
+    def heightChanged(self, height: float) -> None: ...
+    def widthChanged(self, width: float) -> None: ...
+    def resolutionChanged(self, resolution: QtCore.QSize) -> None: ...
+    def setMirrored(self, mirrored: bool) -> None: ...
     def setHeight(self, height: float) -> None: ...
     def setWidth(self, width: float) -> None: ...
     def setResolution(self, resolution: QtCore.QSize) -> None: ...
