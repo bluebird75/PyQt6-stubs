@@ -1,29 +1,49 @@
 from typing import Dict, List, Set, Tuple
-from collections import defaultdict
-import os, re, pathlib
-from mypy import api as mypy_api
+import re, pathlib, sys, subprocess
 
 reNameNotDefined = re.compile(r'Name "(.+)" is not defined')
 
 importFixed: Set[Tuple[str, str]] = set()
 
-def fix_annotations():
-    annotations: Dict[str, List[int]] = defaultdict(list)
+STUBTEST_COMMAND = [
+    sys.executable,
+    'automation/stubtest.py', 
+    '--allowlist',
+     'stubtest.allowlist',
+     '--allowlist',
+     'stubtest.allowlist.to_review',
+     '--allowlist',
+     'stubtest.allowlist.windows',
+]
 
-    pyqt6_stubs_dir = pathlib.Path(__file__).parent.parent / 'PyQt6-stubs'
+BASE_PATH = pathlib.Path(__file__).parent.parent
+
+
+def fix_stubtest_errors():
+    pyqt6_stubs_dir = BASE_PATH / 'PyQt6-stubs'
     for stub_file in pyqt6_stubs_dir.glob('*.pyi'):
         if str(stub_file).startswith("__"):
             print(f"Ignoring file {stub_file}")
             continue
 
-        fix_annotation_for_file(stub_file, annotations)
+        if stub_file.name != 'QtQuick.pyi':
+            continue
+
+        fix_stubtest_errors_for_file(stub_file)
         print('done')
 
 
-def fix_annotation_for_file(file_to_fix: pathlib.Path, annotations: Dict[str, List[int]]) -> None:
-    '''Run mypy on the stub file and apply some annotations fixes on it.'''
-    print('Looking at %s' % file_to_fix.name)
-    result = mypy_api.run([str(file_to_fix)])[0]
+def fix_stubtest_errors_for_file(file_to_fix: pathlib.Path) -> None:
+    '''Run stubtest on the stub file and apply some fixes on it.'''
+    print('Looking at stubtest results for %s' % file_to_fix.name)
+    try:
+        call_result = subprocess.run(STUBTEST_COMMAND + ['PyQt6.' + file_to_fix.name[:-4]], cwd=BASE_PATH, text=True,
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE, check=False)
+        result = call_result.stdout
+    except subprocess.CalledProcessError:
+        some_errors = True
+
     if result.startswith("Success"):
         return
 
@@ -97,7 +117,7 @@ def fix_annotation_for_file(file_to_fix: pathlib.Path, annotations: Dict[str, Li
 
 
 if __name__ == "__main__":
-    fix_annotations()
+    fix_stubtest_errors()
 
 
 
