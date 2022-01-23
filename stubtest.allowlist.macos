@@ -1,6 +1,3 @@
-# Linux only
-PyQt6.QtX11Extras
-
 # To review
 PyQt6.QtGui.QDrag.cancel
 PyQt6.QtWidgets.QMacCocoaViewContainer

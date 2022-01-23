@@ -10,3 +10,5 @@ PyQt6.Qt3DExtras.QAbstractCameraController.keyboardDevice
 PyQt6.Qt3DExtras.QAbstractCameraController.mouseDevice
 PyQt6.Qt3DRender.QAbstractTextureImage.dataGenerator
 PyQt6.Qt3DRender.QAbstractTextureImage.notifyDataGeneratorChanged
+PyQt6.QAxContainer.QAxBaseObject.__init__
+PyQt6.QAxContainer.QAxBaseWidget.__init__
