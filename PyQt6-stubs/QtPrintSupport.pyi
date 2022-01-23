@@ -20,6 +20,7 @@
 # WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
 
+import sys
 import enum
 import typing
 
@@ -272,6 +273,10 @@ class QPrinter(QtGui.QPagedPaintDevice):
     def setPrinterName(self, a0: str) -> None: ...
     def outputFormat(self) -> 'QPrinter.OutputFormat': ...
     def setOutputFormat(self, format: 'QPrinter.OutputFormat') -> None: ...
+
+    if sys.platform == 'darwin':
+        def setPrinterSelectionOption(self, a0: str) -> None: ...
+        def printerSelectionOption(self) -> str: ...
 
 
 class QPrinterInfo(PyQt6.sip.simplewrapper):
