@@ -6233,11 +6233,6 @@ class QScroller(QtCore.QObject):
         Dragging = ... # type: QScroller.State
         Scrolling = ... # type: QScroller.State
 
-    Inactive = ...  # type: QScroller.State
-    Pressed = ...  # type: QScroller.State
-    Dragging = ...  # type: QScroller.State
-    Scrolling = ...  # type: QScroller.State
-
     scrollerPropertiesChanged: typing.ClassVar[QtCore.pyqtSignal]
     stateChanged: typing.ClassVar[QtCore.pyqtSignal]
     def resendPrepareEvent(self) -> None: ...
@@ -7852,12 +7847,8 @@ class QTabWidget(QWidget):
         West = ... # type: QTabWidget.TabPosition
         East = ... # type: QTabWidget.TabPosition
 
-    North = ...  # type: QTabWidget.TabPosition
-    South = ...  # type: QTabWidget.TabPosition
-    West = ...  # type: QTabWidget.TabPosition
-    East = ...  # type: QTabWidget.TabPosition
-
     def __init__(self, parent: typing.Optional[QWidget] = ...) -> None: ...
+
     def setTabVisible(self, index: int, visible: bool) -> None: ...
     def isTabVisible(self, index: int) -> bool: ...
     def setTabBarAutoHide(self, enabled: bool) -> None: ...
