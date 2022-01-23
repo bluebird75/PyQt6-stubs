@@ -50,9 +50,6 @@ class QQuickWidget(QtWidgets.QWidget):
         SizeViewToRootObject = ... # type: QQuickWidget.ResizeMode
         SizeRootObjectToView = ... # type: QQuickWidget.ResizeMode
 
-    SizeViewToRootObject = ...  # type: QQuickWidget.ResizeMode
-    SizeRootObjectToView = ...  # type: QQuickWidget.ResizeMode
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtWidgets.QWidget] = ...) -> None: ...
     @typing.overload

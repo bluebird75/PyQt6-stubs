@@ -162,21 +162,6 @@ class QSqlDriver(QtCore.QObject):
         FinishQuery = ... # type: QSqlDriver.DriverFeature
         MultipleResultSets = ... # type: QSqlDriver.DriverFeature
 
-    Transactions = ...  # type: QSqlDriver.DriverFeature
-    QuerySize = ...  # type: QSqlDriver.DriverFeature
-    BLOB = ...  # type: QSqlDriver.DriverFeature
-    Unicode = ...  # type: QSqlDriver.DriverFeature
-    PreparedQueries = ...  # type: QSqlDriver.DriverFeature
-    NamedPlaceholders = ...  # type: QSqlDriver.DriverFeature
-    PositionalPlaceholders = ...  # type: QSqlDriver.DriverFeature
-    LastInsertId = ...  # type: QSqlDriver.DriverFeature
-    BatchOperations = ...  # type: QSqlDriver.DriverFeature
-    SimpleLocking = ...  # type: QSqlDriver.DriverFeature
-    LowPrecisionNumbers = ...  # type: QSqlDriver.DriverFeature
-    EventNotifications = ...  # type: QSqlDriver.DriverFeature
-    FinishQuery = ...  # type: QSqlDriver.DriverFeature
-    MultipleResultSets = ...  # type: QSqlDriver.DriverFeature
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     def maximumIdentifierLength(self, type: 'QSqlDriver.IdentifierType') -> int: ...
@@ -220,12 +205,6 @@ class QSqlError(PyQt6.sip.simplewrapper):
         TransactionError = ... # type: QSqlError.ErrorType
         UnknownError = ... # type: QSqlError.ErrorType
 
-    NoError = ...  # type: QSqlError.ErrorType
-    ConnectionError = ...  # type: QSqlError.ErrorType
-    StatementError = ...  # type: QSqlError.ErrorType
-    TransactionError = ...  # type: QSqlError.ErrorType
-    UnknownError = ...  # type: QSqlError.ErrorType
-
     @typing.overload
     def __init__(self, driverText: str = ..., databaseText: str = ..., type: 'QSqlError.ErrorType' = ..., errorCode: str = ...) -> None: ...
     @typing.overload
@@ -246,10 +225,6 @@ class QSqlField(PyQt6.sip.simplewrapper):
         Unknown = ... # type: QSqlField.RequiredStatus
         Optional = ... # type: QSqlField.RequiredStatus
         Required = ... # type: QSqlField.RequiredStatus
-
-    Unknown = ...  # type: QSqlField.RequiredStatus
-    Optional = ...  # type: QSqlField.RequiredStatus
-    Required = ...  # type: QSqlField.RequiredStatus
 
     @typing.overload
     def __init__(self, fieldName: str = ..., type: QtCore.QMetaType = ..., tableName: str = ...) -> None: ...
@@ -360,9 +335,6 @@ class QSqlQuery(PyQt6.sip.simplewrapper):
     class BatchExecutionMode(enum.Enum):
         ValuesAsRows = ... # type: QSqlQuery.BatchExecutionMode
         ValuesAsColumns = ... # type: QSqlQuery.BatchExecutionMode
-
-    ValuesAsRows = ...  # type: QSqlQuery.BatchExecutionMode
-    ValuesAsColumns = ...  # type: QSqlQuery.BatchExecutionMode
 
     @typing.overload
     def __init__(self, db: QSqlDatabase) -> None: ...
@@ -497,10 +469,6 @@ class QSqlTableModel(QSqlQueryModel):
         OnRowChange = ... # type: QSqlTableModel.EditStrategy
         OnManualSubmit = ... # type: QSqlTableModel.EditStrategy
 
-    OnFieldChange = ...  # type: QSqlTableModel.EditStrategy
-    OnRowChange = ...  # type: QSqlTableModel.EditStrategy
-    OnManualSubmit = ...  # type: QSqlTableModel.EditStrategy
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ..., db: QSqlDatabase = ...) -> None: ...
 
     def clearItemData(self, index: QtCore.QModelIndex) -> bool: ...
@@ -562,9 +530,6 @@ class QSqlRelationalTableModel(QSqlTableModel):
         InnerJoin = ... # type: QSqlRelationalTableModel.JoinMode
         LeftJoin = ... # type: QSqlRelationalTableModel.JoinMode
 
-    InnerJoin = ...  # type: QSqlRelationalTableModel.JoinMode
-    LeftJoin = ...  # type: QSqlRelationalTableModel.JoinMode
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ..., db: QSqlDatabase = ...) -> None: ...
 
     def setJoinMode(self, joinMode: 'QSqlRelationalTableModel.JoinMode') -> None: ...
@@ -589,9 +554,6 @@ class QSqlResult(PyQt6.sip.wrapper):
     class BindingSyntax(enum.Enum):
         PositionalBinding = ... # type: QSqlResult.BindingSyntax
         NamedBinding = ... # type: QSqlResult.BindingSyntax
-
-    PositionalBinding = ...  # type: QSqlResult.BindingSyntax
-    NamedBinding = ...  # type: QSqlResult.BindingSyntax
 
     def __init__(self, db: QSqlDriver) -> None: ...
 

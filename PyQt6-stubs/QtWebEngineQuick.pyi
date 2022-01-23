@@ -44,10 +44,6 @@ class QQuickWebEngineProfile(QtCore.QObject):
         DiskHttpCache = ... # type: QQuickWebEngineProfile.HttpCacheType
         NoCache = ... # type: QQuickWebEngineProfile.HttpCacheType
 
-    MemoryHttpCache = ...  # type: QQuickWebEngineProfile.HttpCacheType
-    DiskHttpCache = ...  # type: QQuickWebEngineProfile.HttpCacheType
-    NoCache = ...  # type: QQuickWebEngineProfile.HttpCacheType
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     presentNotification: typing.ClassVar[QtCore.pyqtSignal]

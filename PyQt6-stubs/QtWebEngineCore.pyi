@@ -313,9 +313,6 @@ class QWebEngineHttpRequest(PyQt6.sip.simplewrapper):
         Get = ... # type: QWebEngineHttpRequest.Method
         Post = ... # type: QWebEngineHttpRequest.Method
 
-    Get = ...  # type: QWebEngineHttpRequest.Method
-    Post = ...  # type: QWebEngineHttpRequest.Method
-
     @typing.overload
     def __init__(self, url: QtCore.QUrl = ..., method: 'QWebEngineHttpRequest.Method' = ...) -> None: ...
     @typing.overload
@@ -867,28 +864,6 @@ class QWebEngineUrlRequestInfo(PyQt6.sip.simplewrapper):
         ResourceTypeNavigationPreloadMainFrame = ... # type: QWebEngineUrlRequestInfo.ResourceType
         ResourceTypeNavigationPreloadSubFrame = ... # type: QWebEngineUrlRequestInfo.ResourceType
 
-    ResourceTypeMainFrame = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeSubFrame = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeStylesheet = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeScript = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeImage = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeFontResource = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeSubResource = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeObject = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeMedia = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeWorker = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeSharedWorker = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypePrefetch = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeFavicon = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeXhr = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypePing = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeServiceWorker = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeUnknown = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeCspReport = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypePluginResource = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeNavigationPreloadMainFrame = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-    ResourceTypeNavigationPreloadSubFrame = ...  # type: QWebEngineUrlRequestInfo.ResourceType
-
     def initiator(self) -> QtCore.QUrl: ...
     def setHttpHeader(self, name: QtCore.QByteArray, value: QtCore.QByteArray) -> None: ...
     def redirect(self, url: QtCore.QUrl) -> None: ...
@@ -916,13 +891,6 @@ class QWebEngineUrlRequestJob(QtCore.QObject):
         RequestAborted = ... # type: QWebEngineUrlRequestJob.Error
         RequestDenied = ... # type: QWebEngineUrlRequestJob.Error
         RequestFailed = ... # type: QWebEngineUrlRequestJob.Error
-
-    NoError = ...  # type: QWebEngineUrlRequestJob.Error
-    UrlNotFound = ...  # type: QWebEngineUrlRequestJob.Error
-    UrlInvalid = ...  # type: QWebEngineUrlRequestJob.Error
-    RequestAborted = ...  # type: QWebEngineUrlRequestJob.Error
-    RequestDenied = ...  # type: QWebEngineUrlRequestJob.Error
-    RequestFailed = ...  # type: QWebEngineUrlRequestJob.Error
 
     def requestHeaders(self) -> typing.Dict[QtCore.QByteArray, QtCore.QByteArray]: ...
     def initiator(self) -> QtCore.QUrl: ...

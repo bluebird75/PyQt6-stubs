@@ -163,25 +163,12 @@ class QWebSocketProtocol(PyQt6.sip.simplewrapper):
         Version13 = ... # type: QWebSocketProtocol.Version
         VersionLatest = ... # type: QWebSocketProtocol.Version
 
-    VersionUnknown = ... # type: QWebSocketProtocol.Version
-    Version0 = ... # type: QWebSocketProtocol.Version
-    Version4 = ... # type: QWebSocketProtocol.Version
-    Version5 = ... # type: QWebSocketProtocol.Version
-    Version6 = ... # type: QWebSocketProtocol.Version
-    Version7 = ... # type: QWebSocketProtocol.Version
-    Version8 = ... # type: QWebSocketProtocol.Version
-    Version13 = ... # type: QWebSocketProtocol.Version
-    VersionLatest = ... # type: QWebSocketProtocol.Version
-
 
 class QWebSocketServer(QtCore.QObject):
 
     class SslMode(enum.Enum):
         SecureMode = ... # type: QWebSocketServer.SslMode
         NonSecureMode = ... # type: QWebSocketServer.SslMode
-
-    SecureMode = ...  # type: QWebSocketServer.SslMode
-    NonSecureMode = ...  # type: QWebSocketServer.SslMode
 
     def __init__(self, serverName: str, secureMode: 'QWebSocketServer.SslMode', parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 

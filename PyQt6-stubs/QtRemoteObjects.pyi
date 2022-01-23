@@ -84,12 +84,6 @@ class QRemoteObjectReplica(QtCore.QObject):
         Suspect = ... # type: QRemoteObjectReplica.State
         SignatureMismatch = ... # type: QRemoteObjectReplica.State
 
-    Uninitialized = ...  # type: QRemoteObjectReplica.State
-    Default = ...  # type: QRemoteObjectReplica.State
-    Valid = ...  # type: QRemoteObjectReplica.State
-    Suspect = ...  # type: QRemoteObjectReplica.State
-    SignatureMismatch = ...  # type: QRemoteObjectReplica.State
-
     notified: typing.ClassVar[QtCore.pyqtSignal]
     stateChanged: typing.ClassVar[QtCore.pyqtSignal]
     initialized: typing.ClassVar[QtCore.pyqtSignal]
@@ -128,19 +122,6 @@ class QRemoteObjectNode(QtCore.QObject):
         ProtocolMismatch = ... # type: QRemoteObjectNode.ErrorCode
         ListenFailed = ... # type: QRemoteObjectNode.ErrorCode
 
-    NoError = ...  # type: QRemoteObjectNode.ErrorCode
-    RegistryNotAcquired = ...  # type: QRemoteObjectNode.ErrorCode
-    RegistryAlreadyHosted = ...  # type: QRemoteObjectNode.ErrorCode
-    NodeIsNoServer = ...  # type: QRemoteObjectNode.ErrorCode
-    ServerAlreadyCreated = ...  # type: QRemoteObjectNode.ErrorCode
-    UnintendedRegistryHosting = ...  # type: QRemoteObjectNode.ErrorCode
-    OperationNotValidOnClientNode = ...  # type: QRemoteObjectNode.ErrorCode
-    SourceNotRegistered = ...  # type: QRemoteObjectNode.ErrorCode
-    MissingObjectName = ...  # type: QRemoteObjectNode.ErrorCode
-    HostUrlInvalid = ...  # type: QRemoteObjectNode.ErrorCode
-    ProtocolMismatch = ...  # type: QRemoteObjectNode.ErrorCode
-    ListenFailed = ...  # type: QRemoteObjectNode.ErrorCode
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -173,9 +154,6 @@ class QRemoteObjectHostBase(QRemoteObjectNode):
     class AllowedSchemas(enum.Enum):
         BuiltInSchemasOnly = ... # type: QRemoteObjectHostBase.AllowedSchemas
         AllowExternalRegistration = ... # type: QRemoteObjectHostBase.AllowedSchemas
-
-    BuiltInSchemasOnly = ...  # type: QRemoteObjectHostBase.AllowedSchemas
-    AllowExternalRegistration = ...  # type: QRemoteObjectHostBase.AllowedSchemas
 
     def reverseProxy(self) -> bool: ...
     def proxy(self, registryUrl: QtCore.QUrl, hostUrl: QtCore.QUrl = ...) -> bool: ...
