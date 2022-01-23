@@ -71,8 +71,6 @@ class QAbstractClipAnimator(Qt3DCore.QComponent):
     class Loops(enum.Enum):
         Infinite = ... # type: QAbstractClipAnimator.Loops
 
-    Infinite = ...  # type: QAbstractClipAnimator.Loops
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def normalizedTimeChanged(self, index: float) -> None: ...
@@ -146,10 +144,6 @@ class QAnimationClipLoader('QAbstractAnimationClip'):
         NotReady = ... # type: QAnimationClipLoader.Status
         Ready = ... # type: QAnimationClipLoader.Status
         Error = ... # type: QAnimationClipLoader.Status
-
-    NotReady = ...  # type: QAnimationClipLoader.Status
-    Ready = ...  # type: QAnimationClipLoader.Status
-    Error = ...  # type: QAnimationClipLoader.Status
 
     @typing.overload
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
@@ -312,10 +306,6 @@ class QKeyFrame(PyQt6.sip.simplewrapper):
         LinearInterpolation = ... # type: QKeyFrame.InterpolationType
         BezierInterpolation = ... # type: QKeyFrame.InterpolationType
 
-    ConstantInterpolation = ...  # type: QKeyFrame.InterpolationType
-    LinearInterpolation = ...  # type: QKeyFrame.InterpolationType
-    BezierInterpolation = ...  # type: QKeyFrame.InterpolationType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -340,10 +330,6 @@ class QKeyframeAnimation('QAbstractAnimation'):
         None_ = ... # type: QKeyframeAnimation.RepeatMode
         Constant = ... # type: QKeyframeAnimation.RepeatMode
         Repeat = ... # type: QKeyframeAnimation.RepeatMode
-
-    None_ = ...  # type: QKeyframeAnimation.RepeatMode
-    Constant = ...  # type: QKeyframeAnimation.RepeatMode
-    Repeat = ...  # type: QKeyframeAnimation.RepeatMode
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -389,9 +375,6 @@ class QMorphingAnimation('QAbstractAnimation'):
     class Method(enum.Enum):
         Normalized = ... # type: QMorphingAnimation.Method
         Relative = ... # type: QMorphingAnimation.Method
-
-    Normalized = ...  # type: QMorphingAnimation.Method
-    Relative = ...  # type: QMorphingAnimation.Method
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 

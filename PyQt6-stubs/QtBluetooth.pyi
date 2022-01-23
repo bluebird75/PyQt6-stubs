@@ -807,32 +807,6 @@ class QBluetoothUuid(QtCore.QUuid):
         McapDataChannel = ... # type: QBluetoothUuid.ProtocolUuid
         L2cap = ... # type: QBluetoothUuid.ProtocolUuid
 
-    Sdp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Udp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Rfcomm = ...  # type: QBluetoothUuid.ProtocolUuid
-    Tcp = ...  # type: QBluetoothUuid.ProtocolUuid
-    TcsBin = ...  # type: QBluetoothUuid.ProtocolUuid
-    TcsAt = ...  # type: QBluetoothUuid.ProtocolUuid
-    Att = ...  # type: QBluetoothUuid.ProtocolUuid
-    Obex = ...  # type: QBluetoothUuid.ProtocolUuid
-    Ip = ...  # type: QBluetoothUuid.ProtocolUuid
-    Ftp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Http = ...  # type: QBluetoothUuid.ProtocolUuid
-    Wsp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Bnep = ...  # type: QBluetoothUuid.ProtocolUuid
-    Upnp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Hidp = ...  # type: QBluetoothUuid.ProtocolUuid
-    HardcopyControlChannel = ...  # type: QBluetoothUuid.ProtocolUuid
-    HardcopyDataChannel = ...  # type: QBluetoothUuid.ProtocolUuid
-    HardcopyNotification = ...  # type: QBluetoothUuid.ProtocolUuid
-    Avctp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Avdtp = ...  # type: QBluetoothUuid.ProtocolUuid
-    Cmtp = ...  # type: QBluetoothUuid.ProtocolUuid
-    UdiCPlain = ...  # type: QBluetoothUuid.ProtocolUuid
-    McapControlChannel = ...  # type: QBluetoothUuid.ProtocolUuid
-    McapDataChannel = ...  # type: QBluetoothUuid.ProtocolUuid
-    L2cap = ...  # type: QBluetoothUuid.ProtocolUuid
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -874,10 +848,6 @@ class QLowEnergyAdvertisingData(PyQt6.sip.simplewrapper):
         DiscoverabilityNone = ... # type: QLowEnergyAdvertisingData.Discoverability
         DiscoverabilityLimited = ... # type: QLowEnergyAdvertisingData.Discoverability
         DiscoverabilityGeneral = ... # type: QLowEnergyAdvertisingData.Discoverability
-
-    DiscoverabilityNone = ...  # type: QLowEnergyAdvertisingData.Discoverability
-    DiscoverabilityLimited = ...  # type: QLowEnergyAdvertisingData.Discoverability
-    DiscoverabilityGeneral = ...  # type: QLowEnergyAdvertisingData.Discoverability
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1193,9 +1163,6 @@ class QLowEnergyServiceData(PyQt6.sip.simplewrapper):
     class ServiceType(enum.Enum):
         ServiceTypePrimary = ... # type: QLowEnergyServiceData.ServiceType
         ServiceTypeSecondary = ... # type: QLowEnergyServiceData.ServiceType
-
-    ServiceTypePrimary = ...  # type: QLowEnergyServiceData.ServiceType
-    ServiceTypeSecondary = ...  # type: QLowEnergyServiceData.ServiceType
 
     @typing.overload
     def __init__(self) -> None: ...

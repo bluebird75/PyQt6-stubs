@@ -210,9 +210,6 @@ class QBackendNode(PyQt6.sip.simplewrapper):
         ReadOnly = ... # type: QBackendNode.Mode
         ReadWrite = ... # type: QBackendNode.Mode
 
-    ReadOnly = ...  # type: QBackendNode.Mode
-    ReadWrite = ...  # type: QBackendNode.Mode
-
     def __init__(self, mode: 'QBackendNode.Mode' = ...) -> None: ...
 
     def syncFromFrontEnd(self, frontEnd: 'QNode', firstTime: bool) -> None: ...
@@ -440,10 +437,6 @@ class QSkeletonLoader('QAbstractSkeleton'):
         NotReady = ... # type: QSkeletonLoader.Status
         Ready = ... # type: QSkeletonLoader.Status
         Error = ... # type: QSkeletonLoader.Status
-
-    NotReady = ...  # type: QSkeletonLoader.Status
-    Ready = ...  # type: QSkeletonLoader.Status
-    Error = ...  # type: QSkeletonLoader.Status
 
     @typing.overload
     def __init__(self, parent: typing.Optional['QNode'] = ...) -> None: ...

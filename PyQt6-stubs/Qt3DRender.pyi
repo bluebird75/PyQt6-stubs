@@ -462,9 +462,6 @@ class QCamera(Qt3DCore.QEntity):
         TranslateViewCenter = ... # type: QCamera.CameraTranslationOption
         DontTranslateViewCenter = ... # type: QCamera.CameraTranslationOption
 
-    TranslateViewCenter = ...  # type: QCamera.CameraTranslationOption
-    DontTranslateViewCenter = ...  # type: QCamera.CameraTranslationOption
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def viewEntity(self, entity: Qt3DCore.QEntity) -> None: ...

@@ -103,9 +103,6 @@ class QAxisAccumulator(Qt3DCore.QComponent):
         Velocity = ... # type: QAxisAccumulator.SourceAxisType
         Acceleration = ... # type: QAxisAccumulator.SourceAxisType
 
-    Velocity = ...  # type: QAxisAccumulator.SourceAxisType
-    Acceleration = ...  # type: QAxisAccumulator.SourceAxisType
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def scaleChanged(self, scale: float) -> None: ...
@@ -294,11 +291,6 @@ class QMouseDevice('QAbstractPhysicalDevice'):
         WheelX = ... # type: QMouseDevice.Axis
         WheelY = ... # type: QMouseDevice.Axis
 
-    X = ...  # type: QMouseDevice.Axis
-    Y = ...  # type: QMouseDevice.Axis
-    WheelX = ...  # type: QMouseDevice.Axis
-    WheelY = ...  # type: QMouseDevice.Axis
-
     def __init__(self, parent: typing.Optional[Qt3DCore.QNode] = ...) -> None: ...
 
     def updateAxesContinuouslyChanged(self, updateAxesContinuously: bool) -> None: ...
@@ -331,12 +323,6 @@ class QMouseEvent(QtCore.QObject):
         BackButton = ... # type: QMouseEvent.Buttons
         NoButton = ... # type: QMouseEvent.Buttons
 
-    LeftButton = ...  # type: QMouseEvent.Buttons
-    RightButton = ...  # type: QMouseEvent.Buttons
-    MiddleButton = ...  # type: QMouseEvent.Buttons
-    BackButton = ...  # type: QMouseEvent.Buttons
-    NoButton = ...  # type: QMouseEvent.Buttons
-
     def __init__(self, e: QtGui.QMouseEvent) -> None: ...
 
     def type(self) -> QtCore.QEvent.Type: ...
@@ -365,12 +351,6 @@ class QWheelEvent(QtCore.QObject):
         MiddleButton = ... # type: QWheelEvent.Buttons
         BackButton = ... # type: QWheelEvent.Buttons
         NoButton = ... # type: QWheelEvent.Buttons
-
-    LeftButton = ...  # type: QWheelEvent.Buttons
-    RightButton = ...  # type: QWheelEvent.Buttons
-    MiddleButton = ...  # type: QWheelEvent.Buttons
-    BackButton = ...  # type: QWheelEvent.Buttons
-    NoButton = ...  # type: QWheelEvent.Buttons
 
     def __init__(self, e: QtGui.QWheelEvent) -> None: ...
 
