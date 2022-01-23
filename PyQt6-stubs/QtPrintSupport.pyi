@@ -140,39 +140,6 @@ class QPrintEngine(PyQt6.sip.simplewrapper):
         PPK_QPageLayout = ... # type: QPrintEngine.PrintEnginePropertyKey
         PPK_CustomBase = ... # type: QPrintEngine.PrintEnginePropertyKey
 
-    PPK_CollateCopies = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_ColorMode = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_Creator = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_DocumentName = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_FullPage = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_NumberOfCopies = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_Orientation = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_OutputFileName = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PageOrder = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PageRect = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PageSize = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PaperRect = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PaperSource = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PrinterName = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PrinterProgram = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_Resolution = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_SelectionOption = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_SupportedResolutions = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_WindowsPageSize = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_FontEmbedding = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_Duplex = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PaperSources = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_CustomPaperSize = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PageMargins = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PaperSize = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_CopyCount = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_SupportsMultipleCopies = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_PaperName = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_QPageSize = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_QPageMargins = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_QPageLayout = ...  # type: QPrintEngine.PrintEnginePropertyKey
-    PPK_CustomBase = ...  # type: QPrintEngine.PrintEnginePropertyKey
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -250,10 +217,6 @@ class QPrinter(QtGui.QPagedPaintDevice):
         ScreenResolution = ... # type: QPrinter.PrinterMode
         PrinterResolution = ... # type: QPrinter.PrinterMode
         HighResolution = ... # type: QPrinter.PrinterMode
-
-    ScreenResolution = ...  # type: QPrinter.PrinterMode
-    PrinterResolution = ...  # type: QPrinter.PrinterMode
-    HighResolution = ...  # type: QPrinter.PrinterMode
 
     @typing.overload
     def __init__(self, mode: 'QPrinter.PrinterMode' = ...) -> None: ...
@@ -379,10 +342,6 @@ class QPrintPreviewWidget(QtWidgets.QWidget):
         SinglePageView = ... # type: QPrintPreviewWidget.ViewMode
         FacingPagesView = ... # type: QPrintPreviewWidget.ViewMode
         AllPagesView = ... # type: QPrintPreviewWidget.ViewMode
-
-    SinglePageView = ...  # type: QPrintPreviewWidget.ViewMode
-    FacingPagesView = ...  # type: QPrintPreviewWidget.ViewMode
-    AllPagesView = ...  # type: QPrintPreviewWidget.ViewMode
 
     @typing.overload
     def __init__(self, printer: QPrinter, parent: typing.Optional[QtWidgets.QWidget] = ..., flags: QtCore.Qt.WindowType = ...) -> None: ...

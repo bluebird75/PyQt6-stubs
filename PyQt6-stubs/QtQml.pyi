@@ -238,9 +238,6 @@ class QJSValue(PyQt6.sip.simplewrapper):
         NullValue = ... # type: QJSValue.SpecialValue
         UndefinedValue = ... # type: QJSValue.SpecialValue
 
-    NullValue = ...  # type: QJSValue.SpecialValue
-    UndefinedValue = ...  # type: QJSValue.SpecialValue
-
     @typing.overload
     def __init__(self, value: 'QJSValue.SpecialValue' = ...) -> None: ...
     @typing.overload
@@ -310,11 +307,6 @@ class QQmlAbstractUrlInterceptor(PyQt6.sip.simplewrapper):
         JavaScriptFile = ... # type: QQmlAbstractUrlInterceptor.DataType
         QmldirFile = ... # type: QQmlAbstractUrlInterceptor.DataType
         UrlString = ... # type: QQmlAbstractUrlInterceptor.DataType
-
-    QmlFile = ...  # type: QQmlAbstractUrlInterceptor.DataType
-    JavaScriptFile = ...  # type: QQmlAbstractUrlInterceptor.DataType
-    QmldirFile = ...  # type: QQmlAbstractUrlInterceptor.DataType
-    UrlString = ...  # type: QQmlAbstractUrlInterceptor.DataType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -400,9 +392,6 @@ class QQmlComponent(QtCore.QObject):
     class CompilationMode(enum.Enum):
         PreferSynchronous = ... # type: QQmlComponent.CompilationMode
         Asynchronous = ... # type: QQmlComponent.CompilationMode
-
-    PreferSynchronous = ...  # type: QQmlComponent.CompilationMode
-    Asynchronous = ...  # type: QQmlComponent.CompilationMode
 
     @typing.overload
     def __init__(self, a0: QQmlEngine, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
@@ -582,10 +571,6 @@ class QQmlIncubator(PyQt6.sip.simplewrapper):
         AsynchronousIfNested = ... # type: QQmlIncubator.IncubationMode
         Synchronous = ... # type: QQmlIncubator.IncubationMode
 
-    Asynchronous = ...  # type: QQmlIncubator.IncubationMode
-    AsynchronousIfNested = ...  # type: QQmlIncubator.IncubationMode
-    Synchronous = ...  # type: QQmlIncubator.IncubationMode
-
     def __init__(self, mode: 'QQmlIncubator.IncubationMode' = ...) -> None: ...
 
     def setInitialState(self, a0: QtCore.QObject) -> None: ...
@@ -677,11 +662,6 @@ class QQmlProperty(PyQt6.sip.simplewrapper):
         List = ... # type: QQmlProperty.PropertyTypeCategory
         Object = ... # type: QQmlProperty.PropertyTypeCategory
         Normal = ... # type: QQmlProperty.PropertyTypeCategory
-
-    InvalidCategory = ...  # type: QQmlProperty.PropertyTypeCategory
-    List = ...  # type: QQmlProperty.PropertyTypeCategory
-    Object = ...  # type: QQmlProperty.PropertyTypeCategory
-    Normal = ...  # type: QQmlProperty.PropertyTypeCategory
 
     @typing.overload
     def __init__(self) -> None: ...

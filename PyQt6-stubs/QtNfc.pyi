@@ -96,13 +96,6 @@ class QNdefRecord(PyQt6.sip.simplewrapper):
         ExternalRtd = ... # type: QNdefRecord.TypeNameFormat
         Unknown = ... # type: QNdefRecord.TypeNameFormat
 
-    Empty = ...  # type: QNdefRecord.TypeNameFormat
-    NfcRtd = ...  # type: QNdefRecord.TypeNameFormat
-    Mime = ...  # type: QNdefRecord.TypeNameFormat
-    Uri = ...  # type: QNdefRecord.TypeNameFormat
-    ExternalRtd = ...  # type: QNdefRecord.TypeNameFormat
-    Unknown = ...  # type: QNdefRecord.TypeNameFormat
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -141,11 +134,6 @@ class QNdefNfcSmartPosterRecord(QNdefRecord):
         DoAction = ... # type: QNdefNfcSmartPosterRecord.Action
         SaveAction = ... # type: QNdefNfcSmartPosterRecord.Action
         EditAction = ... # type: QNdefNfcSmartPosterRecord.Action
-
-    UnspecifiedAction = ...  # type: QNdefNfcSmartPosterRecord.Action
-    DoAction = ...  # type: QNdefNfcSmartPosterRecord.Action
-    SaveAction = ...  # type: QNdefNfcSmartPosterRecord.Action
-    EditAction = ...  # type: QNdefNfcSmartPosterRecord.Action
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -205,9 +193,6 @@ class QNdefNfcTextRecord(QNdefRecord):
     class Encoding(enum.Enum):
         Utf8 = ... # type: QNdefNfcTextRecord.Encoding
         Utf16 = ... # type: QNdefNfcTextRecord.Encoding
-
-    Utf8 = ...  # type: QNdefNfcTextRecord.Encoding
-    Utf16 = ...  # type: QNdefNfcTextRecord.Encoding
 
     @typing.overload
     def __init__(self) -> None: ...

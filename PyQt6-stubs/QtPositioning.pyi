@@ -140,12 +140,6 @@ class QGeoShape(PyQt6.sip.wrapper):
         PathType = ... # type: QGeoShape.ShapeType
         PolygonType = ... # type: QGeoShape.ShapeType
 
-    UnknownType = ...  # type: QGeoShape.ShapeType
-    RectangleType = ...  # type: QGeoShape.ShapeType
-    CircleType = ...  # type: QGeoShape.ShapeType
-    PathType = ...  # type: QGeoShape.ShapeType
-    PolygonType = ...  # type: QGeoShape.ShapeType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -196,10 +190,6 @@ class QGeoCoordinate(PyQt6.sip.wrapper):
         InvalidCoordinate = ... # type: QGeoCoordinate.CoordinateType
         Coordinate2D = ... # type: QGeoCoordinate.CoordinateType
         Coordinate3D = ... # type: QGeoCoordinate.CoordinateType
-
-    InvalidCoordinate = ...  # type: QGeoCoordinate.CoordinateType
-    Coordinate2D = ...  # type: QGeoCoordinate.CoordinateType
-    Coordinate3D = ...  # type: QGeoCoordinate.CoordinateType
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -325,13 +315,6 @@ class QGeoPositionInfo(PyQt6.sip.wrapper):
         HorizontalAccuracy = ... # type: QGeoPositionInfo.Attribute
         VerticalAccuracy = ... # type: QGeoPositionInfo.Attribute
 
-    Direction = ...  # type: QGeoPositionInfo.Attribute
-    GroundSpeed = ...  # type: QGeoPositionInfo.Attribute
-    VerticalSpeed = ...  # type: QGeoPositionInfo.Attribute
-    MagneticVariation = ...  # type: QGeoPositionInfo.Attribute
-    HorizontalAccuracy = ...  # type: QGeoPositionInfo.Attribute
-    VerticalAccuracy = ...  # type: QGeoPositionInfo.Attribute
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -456,9 +439,6 @@ class QGeoSatelliteInfo(PyQt6.sip.wrapper):
         Elevation = ... # type: QGeoSatelliteInfo.Attribute
         Azimuth = ... # type: QGeoSatelliteInfo.Attribute
 
-    Elevation = ...  # type: QGeoSatelliteInfo.Attribute
-    Azimuth = ...  # type: QGeoSatelliteInfo.Attribute
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -486,11 +466,6 @@ class QGeoSatelliteInfoSource(QtCore.QObject):
         NoError = ... # type: QGeoSatelliteInfoSource.Error
         UnknownSourceError = ... # type: QGeoSatelliteInfoSource.Error
         UpdateTimeoutError = ... # type: QGeoSatelliteInfoSource.Error
-
-    AccessError = ...  # type: QGeoSatelliteInfoSource.Error
-    ClosedError = ...  # type: QGeoSatelliteInfoSource.Error
-    NoError = ...  # type: QGeoSatelliteInfoSource.Error
-    UnknownSourceError = ...  # type: QGeoSatelliteInfoSource.Error
 
     def __init__(self, parent: QtCore.QObject) -> None: ...
 
@@ -528,9 +503,6 @@ class QNmeaPositionInfoSource(QGeoPositionInfoSource):
     class UpdateMode(enum.Enum):
         RealTimeMode = ... # type: QNmeaPositionInfoSource.UpdateMode
         SimulationMode = ... # type: QNmeaPositionInfoSource.UpdateMode
-
-    RealTimeMode = ...  # type: QNmeaPositionInfoSource.UpdateMode
-    SimulationMode = ...  # type: QNmeaPositionInfoSource.UpdateMode
 
     def __init__(self, updateMode: 'QNmeaPositionInfoSource.UpdateMode', parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
