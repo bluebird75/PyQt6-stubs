@@ -330,15 +330,6 @@ class QDnsLookup(QtCore.QObject):
         ServerRefusedError = ... # type: QDnsLookup.Error
         NotFoundError = ... # type: QDnsLookup.Error
 
-    NoError = ...  # type: QDnsLookup.Error
-    ResolverError = ...  # type: QDnsLookup.Error
-    OperationCancelledError = ...  # type: QDnsLookup.Error
-    InvalidRequestError = ...  # type: QDnsLookup.Error
-    InvalidReplyError = ...  # type: QDnsLookup.Error
-    ServerFailureError = ...  # type: QDnsLookup.Error
-    ServerRefusedError = ...  # type: QDnsLookup.Error
-    NotFoundError = ...  # type: QDnsLookup.Error
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -443,10 +434,6 @@ class QHostInfo(PyQt6.sip.simplewrapper):
         HostNotFound = ... # type: QHostInfo.HostInfoError
         UnknownError = ... # type: QHostInfo.HostInfoError
 
-    NoError = ...  # type: QHostInfo.HostInfoError
-    HostNotFound = ...  # type: QHostInfo.HostInfoError
-    UnknownError = ...  # type: QHostInfo.HostInfoError
-
     @typing.overload
     def __init__(self, id: int = ...) -> None: ...
     @typing.overload
@@ -539,11 +526,6 @@ class QHttpMultiPart(QtCore.QObject):
         FormDataType = ... # type: QHttpMultiPart.ContentType
         AlternativeType = ... # type: QHttpMultiPart.ContentType
 
-    MixedType = ...  # type: QHttpMultiPart.ContentType
-    RelatedType = ...  # type: QHttpMultiPart.ContentType
-    FormDataType = ...  # type: QHttpMultiPart.ContentType
-    AlternativeType = ...  # type: QHttpMultiPart.ContentType
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -615,18 +597,6 @@ class QLocalSocket(QtCore.QIODevice):
         OperationError = ... # type: QLocalSocket.LocalSocketError
         UnknownSocketError = ... # type: QLocalSocket.LocalSocketError
 
-    ConnectionRefusedError = ...  # type: QLocalSocket.LocalSocketError
-    PeerClosedError = ...  # type: QLocalSocket.LocalSocketError
-    ServerNotFoundError = ...  # type: QLocalSocket.LocalSocketError
-    SocketAccessError = ...  # type: QLocalSocket.LocalSocketError
-    SocketResourceError = ...  # type: QLocalSocket.LocalSocketError
-    SocketTimeoutError = ...  # type: QLocalSocket.LocalSocketError
-    DatagramTooLargeError = ...  # type: QLocalSocket.LocalSocketError
-    ConnectionError = ...  # type: QLocalSocket.LocalSocketError
-    UnsupportedSocketOperationError = ...  # type: QLocalSocket.LocalSocketError
-    OperationError = ...  # type: QLocalSocket.LocalSocketError
-    UnknownSocketError = ...  # type: QLocalSocket.LocalSocketError
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     def socketOptions(self) -> 'QLocalSocket.SocketOption': ...
@@ -676,13 +646,6 @@ class QNetworkAccessManager(QtCore.QObject):
         PostOperation = ... # type: QNetworkAccessManager.Operation
         DeleteOperation = ... # type: QNetworkAccessManager.Operation
         CustomOperation = ... # type: QNetworkAccessManager.Operation
-
-    HeadOperation = ...  # type: QNetworkAccessManager.Operation
-    GetOperation = ...  # type: QNetworkAccessManager.Operation
-    PutOperation = ...  # type: QNetworkAccessManager.Operation
-    PostOperation = ...  # type: QNetworkAccessManager.Operation
-    DeleteOperation = ...  # type: QNetworkAccessManager.Operation
-    CustomOperation = ...  # type: QNetworkAccessManager.Operation
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -756,9 +719,6 @@ class QNetworkCookie(PyQt6.sip.simplewrapper):
     class RawForm(enum.Enum):
         NameAndValueOnly = ... # type: QNetworkCookie.RawForm
         Full = ... # type: QNetworkCookie.RawForm
-
-    NameAndValueOnly = ...  # type: QNetworkCookie.RawForm
-    Full = ...  # type: QNetworkCookie.RawForm
 
     @typing.overload
     def __init__(self, name: QtCore.QByteArray = ..., value: QtCore.QByteArray = ...) -> None: ...
@@ -889,10 +849,6 @@ class QNetworkAddressEntry(PyQt6.sip.simplewrapper):
         DnsEligibilityUnknown = ... # type: QNetworkAddressEntry.DnsEligibilityStatus
         DnsIneligible = ... # type: QNetworkAddressEntry.DnsEligibilityStatus
         DnsEligible = ... # type: QNetworkAddressEntry.DnsEligibilityStatus
-
-    DnsEligibilityUnknown = ...  # type: QNetworkAddressEntry.DnsEligibilityStatus
-    DnsIneligible = ...  # type: QNetworkAddressEntry.DnsEligibilityStatus
-    DnsEligible = ...  # type: QNetworkAddressEntry.DnsEligibilityStatus
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1038,13 +994,6 @@ class QNetworkProxyQuery(PyQt6.sip.simplewrapper):
         SctpSocket = ... # type: QNetworkProxyQuery.QueryType
         SctpServer = ... # type: QNetworkProxyQuery.QueryType
 
-    TcpSocket = ...  # type: QNetworkProxyQuery.QueryType
-    UdpSocket = ...  # type: QNetworkProxyQuery.QueryType
-    TcpServer = ...  # type: QNetworkProxyQuery.QueryType
-    UrlRequest = ...  # type: QNetworkProxyQuery.QueryType
-    SctpSocket = ...  # type: QNetworkProxyQuery.QueryType
-    SctpServer = ...  # type: QNetworkProxyQuery.QueryType
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -1128,41 +1077,6 @@ class QNetworkReply(QtCore.QIODevice):
         UnknownServerError = ... # type: QNetworkReply.NetworkError
         TooManyRedirectsError = ... # type: QNetworkReply.NetworkError
         InsecureRedirectError = ... # type: QNetworkReply.NetworkError
-
-    NoError = ...  # type: QNetworkReply.NetworkError
-    ConnectionRefusedError = ...  # type: QNetworkReply.NetworkError
-    RemoteHostClosedError = ...  # type: QNetworkReply.NetworkError
-    HostNotFoundError = ...  # type: QNetworkReply.NetworkError
-    TimeoutError = ...  # type: QNetworkReply.NetworkError
-    OperationCanceledError = ...  # type: QNetworkReply.NetworkError
-    SslHandshakeFailedError = ...  # type: QNetworkReply.NetworkError
-    UnknownNetworkError = ...  # type: QNetworkReply.NetworkError
-    ProxyConnectionRefusedError = ...  # type: QNetworkReply.NetworkError
-    ProxyConnectionClosedError = ...  # type: QNetworkReply.NetworkError
-    ProxyNotFoundError = ...  # type: QNetworkReply.NetworkError
-    ProxyTimeoutError = ...  # type: QNetworkReply.NetworkError
-    ProxyAuthenticationRequiredError = ...  # type: QNetworkReply.NetworkError
-    UnknownProxyError = ...  # type: QNetworkReply.NetworkError
-    ContentAccessDenied = ...  # type: QNetworkReply.NetworkError
-    ContentOperationNotPermittedError = ...  # type: QNetworkReply.NetworkError
-    ContentNotFoundError = ...  # type: QNetworkReply.NetworkError
-    AuthenticationRequiredError = ...  # type: QNetworkReply.NetworkError
-    UnknownContentError = ...  # type: QNetworkReply.NetworkError
-    ProtocolUnknownError = ...  # type: QNetworkReply.NetworkError
-    ProtocolInvalidOperationError = ...  # type: QNetworkReply.NetworkError
-    ProtocolFailure = ...  # type: QNetworkReply.NetworkError
-    ContentReSendError = ...  # type: QNetworkReply.NetworkError
-    TemporaryNetworkFailureError = ...  # type: QNetworkReply.NetworkError
-    NetworkSessionFailedError = ...  # type: QNetworkReply.NetworkError
-    BackgroundRequestNotAllowedError = ...  # type: QNetworkReply.NetworkError
-    ContentConflictError = ...  # type: QNetworkReply.NetworkError
-    ContentGoneError = ...  # type: QNetworkReply.NetworkError
-    InternalServerError = ...  # type: QNetworkReply.NetworkError
-    OperationNotImplementedError = ...  # type: QNetworkReply.NetworkError
-    ServiceUnavailableError = ...  # type: QNetworkReply.NetworkError
-    UnknownServerError = ...  # type: QNetworkReply.NetworkError
-    TooManyRedirectsError = ...  # type: QNetworkReply.NetworkError
-    InsecureRedirectError = ...  # type: QNetworkReply.NetworkError
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -1280,20 +1194,6 @@ class QNetworkRequest(PyQt6.sip.simplewrapper):
         ETagHeader = ... # type: QNetworkRequest.KnownHeaders
         IfMatchHeader = ... # type: QNetworkRequest.KnownHeaders
         IfNoneMatchHeader = ... # type: QNetworkRequest.KnownHeaders
-
-    ContentTypeHeader = ...  # type: QNetworkRequest.KnownHeaders
-    ContentLengthHeader = ...  # type: QNetworkRequest.KnownHeaders
-    LocationHeader = ...  # type: QNetworkRequest.KnownHeaders
-    LastModifiedHeader = ...  # type: QNetworkRequest.KnownHeaders
-    CookieHeader = ...  # type: QNetworkRequest.KnownHeaders
-    SetCookieHeader = ...  # type: QNetworkRequest.KnownHeaders
-    ContentDispositionHeader = ...  # type: QNetworkRequest.KnownHeaders
-    UserAgentHeader = ...  # type: QNetworkRequest.KnownHeaders
-    ServerHeader = ...  # type: QNetworkRequest.KnownHeaders
-    IfModifiedSinceHeader = ...  # type: QNetworkRequest.KnownHeaders
-    ETagHeader = ...  # type: QNetworkRequest.KnownHeaders
-    IfMatchHeader = ...  # type: QNetworkRequest.KnownHeaders
-    IfNoneMatchHeader = ...  # type: QNetworkRequest.KnownHeaders
 
     @typing.overload
     def __init__(self, url: QtCore.QUrl) -> None: ...
@@ -1479,16 +1379,6 @@ class QSslCertificate(PyQt6.sip.simplewrapper):
         SerialNumber = ... # type: QSslCertificate.SubjectInfo
         EmailAddress = ... # type: QSslCertificate.SubjectInfo
 
-    Organization = ...  # type: QSslCertificate.SubjectInfo
-    CommonName = ...  # type: QSslCertificate.SubjectInfo
-    LocalityName = ...  # type: QSslCertificate.SubjectInfo
-    OrganizationalUnitName = ...  # type: QSslCertificate.SubjectInfo
-    CountryName = ...  # type: QSslCertificate.SubjectInfo
-    StateOrProvinceName = ...  # type: QSslCertificate.SubjectInfo
-    DistinguishedNameQualifier = ...  # type: QSslCertificate.SubjectInfo
-    SerialNumber = ...  # type: QSslCertificate.SubjectInfo
-    EmailAddress = ...  # type: QSslCertificate.SubjectInfo
-
     @typing.overload
     def __init__(self, device: QtCore.QIODevice, format: QSsl.EncodingFormat = ...) -> None: ...
     @typing.overload
@@ -1583,10 +1473,6 @@ class QSslConfiguration(PyQt6.sip.simplewrapper):
         NextProtocolNegotiationNegotiated = ... # type: QSslConfiguration.NextProtocolNegotiationStatus
         NextProtocolNegotiationUnsupported = ... # type: QSslConfiguration.NextProtocolNegotiationStatus
 
-    NextProtocolNegotiationNone = ...  # type: QSslConfiguration.NextProtocolNegotiationStatus
-    NextProtocolNegotiationNegotiated = ...  # type: QSslConfiguration.NextProtocolNegotiationStatus
-    NextProtocolNegotiationUnsupported = ...  # type: QSslConfiguration.NextProtocolNegotiationStatus
-
     NextProtocolHttp1_1 = ... # type: bytes
 
     @typing.overload
@@ -1667,10 +1553,6 @@ class QSslDiffieHellmanParameters(PyQt6.sip.simplewrapper):
         NoError = ... # type: QSslDiffieHellmanParameters.Error
         InvalidInputDataError = ... # type: QSslDiffieHellmanParameters.Error
         UnsafeParametersError = ... # type: QSslDiffieHellmanParameters.Error
-
-    NoError = ...  # type: QSslDiffieHellmanParameters.Error
-    InvalidInputDataError = ...  # type: QSslDiffieHellmanParameters.Error
-    UnsafeParametersError = ...  # type: QSslDiffieHellmanParameters.Error
 
     @typing.overload
     def __init__(self) -> None: ...
@@ -1753,45 +1635,6 @@ class QSslError(PyQt6.sip.simplewrapper):
         OcspResponseExpired = ... # type: QSslError.SslError
         OcspStatusUnknown = ... # type: QSslError.SslError
 
-    UnspecifiedError = ...  # type: QSslError.SslError
-    NoError = ...  # type: QSslError.SslError
-    UnableToGetIssuerCertificate = ...  # type: QSslError.SslError
-    UnableToDecryptCertificateSignature = ...  # type: QSslError.SslError
-    UnableToDecodeIssuerPublicKey = ...  # type: QSslError.SslError
-    CertificateSignatureFailed = ...  # type: QSslError.SslError
-    CertificateNotYetValid = ...  # type: QSslError.SslError
-    CertificateExpired = ...  # type: QSslError.SslError
-    InvalidNotBeforeField = ...  # type: QSslError.SslError
-    InvalidNotAfterField = ...  # type: QSslError.SslError
-    SelfSignedCertificate = ...  # type: QSslError.SslError
-    SelfSignedCertificateInChain = ...  # type: QSslError.SslError
-    UnableToGetLocalIssuerCertificate = ...  # type: QSslError.SslError
-    UnableToVerifyFirstCertificate = ...  # type: QSslError.SslError
-    CertificateRevoked = ...  # type: QSslError.SslError
-    InvalidCaCertificate = ...  # type: QSslError.SslError
-    PathLengthExceeded = ...  # type: QSslError.SslError
-    InvalidPurpose = ...  # type: QSslError.SslError
-    CertificateUntrusted = ...  # type: QSslError.SslError
-    CertificateRejected = ...  # type: QSslError.SslError
-    SubjectIssuerMismatch = ...  # type: QSslError.SslError
-    AuthorityIssuerSerialNumberMismatch = ...  # type: QSslError.SslError
-    NoPeerCertificate = ...  # type: QSslError.SslError
-    HostNameMismatch = ...  # type: QSslError.SslError
-    NoSslSupport = ...  # type: QSslError.SslError
-    CertificateBlacklisted = ...  # type: QSslError.SslError
-    CertificateStatusUnknown = ...  # type: QSslError.SslError
-    OcspNoResponseFound = ...  # type: QSslError.SslError
-    OcspMalformedRequest = ...  # type: QSslError.SslError
-    OcspMalformedResponse = ...  # type: QSslError.SslError
-    OcspInternalError = ...  # type: QSslError.SslError
-    OcspTryLater = ...  # type: QSslError.SslError
-    OcspSigRequred = ...  # type: QSslError.SslError
-    OcspUnauthorized = ...  # type: QSslError.SslError
-    OcspResponseCannotBeTrusted = ...  # type: QSslError.SslError
-    OcspResponseCertIdUnknown = ...  # type: QSslError.SslError
-    OcspResponseExpired = ...  # type: QSslError.SslError
-    OcspStatusUnknown = ...  # type: QSslError.SslError
-
     @typing.overload
     def __init__(self) -> None: ...
     @typing.overload
@@ -1866,10 +1709,6 @@ class QSslSocket(QTcpSocket):
         UnencryptedMode = ... # type: QSslSocket.SslMode
         SslClientMode = ... # type: QSslSocket.SslMode
         SslServerMode = ... # type: QSslSocket.SslMode
-
-    UnencryptedMode = ...  # type: QSslSocket.SslMode
-    SslClientMode = ...  # type: QSslSocket.SslMode
-    SslServerMode = ...  # type: QSslSocket.SslMode
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 

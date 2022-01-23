@@ -237,32 +237,6 @@ class Q3DCamera(Q3DObject):
         CameraPresetBehindBelow = ... # type: Q3DCamera.CameraPreset
         CameraPresetDirectlyBelow = ... # type: Q3DCamera.CameraPreset
 
-    CameraPresetNone = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetFrontLow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetFront = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetFrontHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetLeftLow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetLeft = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetLeftHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetRightLow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetRight = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetRightHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetBehindLow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetBehind = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetBehindHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetIsometricLeft = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetIsometricLeftHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetIsometricRight = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetIsometricRightHigh = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetDirectlyAbove = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetDirectlyAboveCW45 = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetDirectlyAboveCCW45 = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetFrontBelow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetLeftBelow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetRightBelow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetBehindBelow = ...  # type: Q3DCamera.CameraPreset
-    CameraPresetDirectlyBelow = ...  # type: Q3DCamera.CameraPreset
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     targetChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -301,10 +275,6 @@ class QAbstract3DInputHandler(QtCore.QObject):
         InputViewNone = ... # type: QAbstract3DInputHandler.InputView
         InputViewOnPrimary = ... # type: QAbstract3DInputHandler.InputView
         InputViewOnSecondary = ... # type: QAbstract3DInputHandler.InputView
-
-    InputViewNone = ...  # type: QAbstract3DInputHandler.InputView
-    InputViewOnPrimary = ...  # type: QAbstract3DInputHandler.InputView
-    InputViewOnSecondary = ...  # type: QAbstract3DInputHandler.InputView
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -464,10 +434,6 @@ class Q3DTheme(QtCore.QObject):
         ColorStyleObjectGradient = ... # type: Q3DTheme.ColorStyle
         ColorStyleRangeGradient = ... # type: Q3DTheme.ColorStyle
 
-    ColorStyleUniform = ...  # type: Q3DTheme.ColorStyle
-    ColorStyleObjectGradient = ...  # type: Q3DTheme.ColorStyle
-    ColorStyleRangeGradient = ...  # type: Q3DTheme.ColorStyle
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -553,10 +519,6 @@ class QAbstract3DAxis(QtCore.QObject):
         AxisOrientationY = ... # type: QAbstract3DAxis.AxisOrientation
         AxisOrientationZ = ... # type: QAbstract3DAxis.AxisOrientation
 
-    AxisOrientationNone = ...  # type: QAbstract3DAxis.AxisOrientation
-    AxisOrientationX = ...  # type: QAbstract3DAxis.AxisOrientation
-    AxisOrientationY = ...  # type: QAbstract3DAxis.AxisOrientation
-    AxisOrientationZ = ...  # type: QAbstract3DAxis.AxisOrientation
 
     titleFixedChanged: typing.ClassVar[QtCore.pyqtSignal]
     titleVisibilityChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -610,10 +572,6 @@ class QAbstract3DSeries(QtCore.QObject):
         SeriesTypeScatter = ... # type: QAbstract3DSeries.SeriesType
         SeriesTypeSurface = ... # type: QAbstract3DSeries.SeriesType
 
-    SeriesTypeNone = ...  # type: QAbstract3DSeries.SeriesType
-    SeriesTypeBar = ...  # type: QAbstract3DSeries.SeriesType
-    SeriesTypeScatter = ...  # type: QAbstract3DSeries.SeriesType
-    SeriesTypeSurface = ...  # type: QAbstract3DSeries.SeriesType
 
     itemLabelVisibilityChanged: typing.ClassVar[QtCore.pyqtSignal]
     itemLabelChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -672,11 +630,6 @@ class QAbstractDataProxy(QtCore.QObject):
         DataTypeBar = ... # type: QAbstractDataProxy.DataType
         DataTypeScatter = ... # type: QAbstractDataProxy.DataType
         DataTypeSurface = ... # type: QAbstractDataProxy.DataType
-
-    DataTypeNone = ...  # type: QAbstractDataProxy.DataType
-    DataTypeBar = ...  # type: QAbstractDataProxy.DataType
-    DataTypeScatter = ...  # type: QAbstractDataProxy.DataType
-    DataTypeSurface = ...  # type: QAbstractDataProxy.DataType
 
     def type(self) -> 'QAbstractDataProxy.DataType': ...
 
@@ -1001,11 +954,6 @@ class QItemModelBarDataProxy(QBarDataProxy):
         MMBAverage = ... # type: QItemModelBarDataProxy.MultiMatchBehavior
         MMBCumulative = ... # type: QItemModelBarDataProxy.MultiMatchBehavior
 
-    MMBFirst = ...  # type: QItemModelBarDataProxy.MultiMatchBehavior
-    MMBLast = ...  # type: QItemModelBarDataProxy.MultiMatchBehavior
-    MMBAverage = ...  # type: QItemModelBarDataProxy.MultiMatchBehavior
-    MMBCumulative = ...  # type: QItemModelBarDataProxy.MultiMatchBehavior
-
     @typing.overload
     def __init__(self, itemModel: QtCore.QAbstractItemModel, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -1168,11 +1116,6 @@ class QItemModelSurfaceDataProxy(QSurfaceDataProxy):
         MMBLast = ... # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
         MMBAverage = ... # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
         MMBCumulativeY = ... # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
-
-    MMBFirst = ...  # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
-    MMBLast = ...  # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
-    MMBAverage = ...  # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
-    MMBCumulativeY = ...  # type: QItemModelSurfaceDataProxy.MultiMatchBehavior
 
     @typing.overload
     def __init__(self, itemModel: QtCore.QAbstractItemModel, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...

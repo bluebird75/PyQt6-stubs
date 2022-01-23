@@ -1048,9 +1048,6 @@ class QClipboard(QtCore.QObject):
         Selection = ... # type: QClipboard.Mode
         FindBuffer = ... # type: QClipboard.Mode
 
-    Clipboard = ...  # type: QClipboard.Mode
-    Selection = ...  # type: QClipboard.Mode
-    FindBuffer = ...  # type: QClipboard.Mode
 
     selectionChanged: typing.ClassVar[QtCore.pyqtSignal]
     findBufferChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -3010,9 +3007,7 @@ class QInputMethod(QtCore.QObject):
         Click = ... # type: QInputMethod.Action
         ContextMenu = ... # type: QInputMethod.Action
 
-    Click = ...  # type: QInputMethod.Action
-    ContextMenu = ...  # type: QInputMethod.Action
-
+ 
     inputItemClipRectangleChanged: typing.ClassVar[QtCore.pyqtSignal]
     anchorRectangleChanged: typing.ClassVar[QtCore.pyqtSignal]
     def inputItemClipRectangle(self) -> QtCore.QRectF: ...

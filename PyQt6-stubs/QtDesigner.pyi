@@ -213,27 +213,6 @@ class QDesignerFormWindowManagerInterface(QtCore.QObject):
         DefaultPreviewAction = ... # type: QDesignerFormWindowManagerInterface.Action
         FormWindowSettingsDialogAction = ... # type: QDesignerFormWindowManagerInterface.Action
 
-    CutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    CopyAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    PasteAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    DeleteAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    SelectAllAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    LowerAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    RaiseAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    UndoAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    RedoAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    HorizontalLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    VerticalLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    SplitHorizontalAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    SplitVerticalAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    GridLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    FormLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    BreakLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    AdjustSizeAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    SimplifyLayoutAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    DefaultPreviewAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-    FormWindowSettingsDialogAction = ...  # type: QDesignerFormWindowManagerInterface.Action
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     def showPluginDialog(self) -> None: ...

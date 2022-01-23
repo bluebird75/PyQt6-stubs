@@ -104,11 +104,6 @@ class QDBus(PyQt6.sip.simplewrapper):
         BlockWithGui = ... # type: QDBus.CallMode
         AutoDetect = ... # type: QDBus.CallMode
 
-    NoBlock = ... # type: QDBus.CallMode
-    Block = ... # type: QDBus.CallMode
-    BlockWithGui = ... # type: QDBus.CallMode
-    AutoDetect = ... # type: QDBus.CallMode
-
 
 class QDBusConnection(PyQt6.sip.simplewrapper):
 
@@ -216,10 +211,6 @@ class QDBusConnectionInterface(QDBusAbstractInterface):
         QueueService = ... # type: QDBusConnectionInterface.ServiceQueueOptions
         ReplaceExistingService = ... # type: QDBusConnectionInterface.ServiceQueueOptions
 
-    DontQueueService = ...  # type: QDBusConnectionInterface.ServiceQueueOptions
-    QueueService = ...  # type: QDBusConnectionInterface.ServiceQueueOptions
-    ReplaceExistingService = ...  # type: QDBusConnectionInterface.ServiceQueueOptions
-
     def disconnectNotify(self, a0: QtCore.QMetaMethod) -> None: ...
     def connectNotify(self, a0: QtCore.QMetaMethod) -> None: ...
     callWithCallbackFailed: typing.ClassVar[QtCore.pyqtSignal]
@@ -268,35 +259,6 @@ class QDBusError(PyQt6.sip.simplewrapper):
         InvalidMember = ... # type: QDBusError.ErrorType
         UnknownProperty = ... # type: QDBusError.ErrorType
         PropertyReadOnly = ... # type: QDBusError.ErrorType
-
-    NoError = ...  # type: QDBusError.ErrorType
-    Other = ...  # type: QDBusError.ErrorType
-    Failed = ...  # type: QDBusError.ErrorType
-    NoMemory = ...  # type: QDBusError.ErrorType
-    ServiceUnknown = ...  # type: QDBusError.ErrorType
-    NoReply = ...  # type: QDBusError.ErrorType
-    BadAddress = ...  # type: QDBusError.ErrorType
-    NotSupported = ...  # type: QDBusError.ErrorType
-    LimitsExceeded = ...  # type: QDBusError.ErrorType
-    AccessDenied = ...  # type: QDBusError.ErrorType
-    NoServer = ...  # type: QDBusError.ErrorType
-    Timeout = ...  # type: QDBusError.ErrorType
-    NoNetwork = ...  # type: QDBusError.ErrorType
-    AddressInUse = ...  # type: QDBusError.ErrorType
-    Disconnected = ...  # type: QDBusError.ErrorType
-    InvalidArgs = ...  # type: QDBusError.ErrorType
-    UnknownMethod = ...  # type: QDBusError.ErrorType
-    TimedOut = ...  # type: QDBusError.ErrorType
-    InvalidSignature = ...  # type: QDBusError.ErrorType
-    UnknownInterface = ...  # type: QDBusError.ErrorType
-    InternalError = ...  # type: QDBusError.ErrorType
-    UnknownObject = ...  # type: QDBusError.ErrorType
-    InvalidService = ...  # type: QDBusError.ErrorType
-    InvalidObjectPath = ...  # type: QDBusError.ErrorType
-    InvalidInterface = ...  # type: QDBusError.ErrorType
-    InvalidMember = ...  # type: QDBusError.ErrorType
-    UnknownProperty = ...  # type: QDBusError.ErrorType
-    PropertyReadOnly = ...  # type: QDBusError.ErrorType
 
     def __init__(self, other: 'QDBusError') -> None: ...
 
@@ -366,12 +328,6 @@ class QDBusMessage(PyQt6.sip.simplewrapper):
         ReplyMessage = ... # type: QDBusMessage.MessageType
         ErrorMessage = ... # type: QDBusMessage.MessageType
         SignalMessage = ... # type: QDBusMessage.MessageType
-
-    InvalidMessage = ...  # type: QDBusMessage.MessageType
-    MethodCallMessage = ...  # type: QDBusMessage.MessageType
-    ReplyMessage = ...  # type: QDBusMessage.MessageType
-    ErrorMessage = ...  # type: QDBusMessage.MessageType
-    SignalMessage = ...  # type: QDBusMessage.MessageType
 
     @typing.overload
     def __init__(self) -> None: ...

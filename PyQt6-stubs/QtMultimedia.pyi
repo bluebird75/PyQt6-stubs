@@ -56,12 +56,6 @@ class QAudio(PyQt6.sip.simplewrapper):
         UnderrunError = ... # type: QAudio.Error
         FatalError = ... # type: QAudio.Error
 
-    NoError = ...  # type: QAudio.Error
-    OpenError = ...  # type: QAudio.Error
-    IOError = ...  # type: QAudio.Error
-    UnderrunError = ...  # type: QAudio.Error
-    FatalError = ...  # type: QAudio.Error
-
     def convertVolume(self, volume: float, from_: 'QAudio.VolumeScale', to: 'QAudio.VolumeScale') -> float: ...
 
 

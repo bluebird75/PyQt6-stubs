@@ -156,19 +156,6 @@ class QAbstractSeries(QtCore.QObject):
         SeriesTypeBoxPlot = ... # type: QAbstractSeries.SeriesType
         SeriesTypeCandlestick = ... # type: QAbstractSeries.SeriesType
 
-    SeriesTypeLine = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeArea = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeStackedBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypePercentBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypePie = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeScatter = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeSpline = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeHorizontalBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeHorizontalStackedBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeHorizontalPercentBar = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeBoxPlot = ...  # type: QAbstractSeries.SeriesType
-    SeriesTypeCandlestick = ...  # type: QAbstractSeries.SeriesType
 
     useOpenGLChanged: typing.ClassVar[QtCore.pyqtSignal]
     def useOpenGL(self) -> bool: ...
@@ -198,11 +185,6 @@ class QAbstractBarSeries(QAbstractSeries):
         LabelsInsideEnd = ... # type: QAbstractBarSeries.LabelsPosition
         LabelsInsideBase = ... # type: QAbstractBarSeries.LabelsPosition
         LabelsOutsideEnd = ... # type: QAbstractBarSeries.LabelsPosition
-
-    LabelsCenter = ...  # type: QAbstractBarSeries.LabelsPosition
-    LabelsInsideEnd = ...  # type: QAbstractBarSeries.LabelsPosition
-    LabelsInsideBase = ...  # type: QAbstractBarSeries.LabelsPosition
-    LabelsOutsideEnd = ...  # type: QAbstractBarSeries.LabelsPosition
 
     labelsPrecisionChanged: typing.ClassVar[QtCore.pyqtSignal]
     def labelsPrecision(self) -> int: ...
@@ -251,12 +233,6 @@ class QLegendMarker(QtCore.QObject):
         LegendMarkerTypeBoxPlot = ... # type: QLegendMarker.LegendMarkerType
         LegendMarkerTypeCandlestick = ... # type: QLegendMarker.LegendMarkerType
 
-    LegendMarkerTypeArea = ...  # type: QLegendMarker.LegendMarkerType
-    LegendMarkerTypeBar = ...  # type: QLegendMarker.LegendMarkerType
-    LegendMarkerTypePie = ...  # type: QLegendMarker.LegendMarkerType
-    LegendMarkerTypeXY = ...  # type: QLegendMarker.LegendMarkerType
-    LegendMarkerTypeBoxPlot = ...  # type: QLegendMarker.LegendMarkerType
-    LegendMarkerTypeCandlestick = ...  # type: QLegendMarker.LegendMarkerType
 
     shapeChanged: typing.ClassVar[QtCore.pyqtSignal]
     def setShape(self, shape: 'QLegend.MarkerShape') -> None: ...
@@ -503,12 +479,6 @@ class QBoxSet(QtCore.QObject):
         UpperQuartile = ... # type: QBoxSet.ValuePositions
         UpperExtreme = ... # type: QBoxSet.ValuePositions
 
-    LowerExtreme = ...  # type: QBoxSet.ValuePositions
-    LowerQuartile = ...  # type: QBoxSet.ValuePositions
-    Median = ...  # type: QBoxSet.ValuePositions
-    UpperQuartile = ...  # type: QBoxSet.ValuePositions
-    UpperExtreme = ...  # type: QBoxSet.ValuePositions
-
     @typing.overload
     def __init__(self, label: str = ..., parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -675,9 +645,6 @@ class QValueAxis(QAbstractAxis):
         TicksDynamic = ... # type: QValueAxis.TickType
         TicksFixed = ... # type: QValueAxis.TickType
 
-    TicksDynamic = ...  # type: QValueAxis.TickType
-    TicksFixed = ...  # type: QValueAxis.TickType
-
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
     tickTypeChanged: typing.ClassVar[QtCore.pyqtSignal]
@@ -715,9 +682,6 @@ class QCategoryAxis(QValueAxis):
     class AxisLabelsPosition(enum.Enum):
         AxisLabelsPositionCenter = ... # type: QCategoryAxis.AxisLabelsPosition
         AxisLabelsPositionOnValue = ... # type: QCategoryAxis.AxisLabelsPosition
-
-    AxisLabelsPositionCenter = ...  # type: QCategoryAxis.AxisLabelsPosition
-    AxisLabelsPositionOnValue = ...  # type: QCategoryAxis.AxisLabelsPosition
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
@@ -1317,11 +1281,6 @@ class QPieSlice(QtCore.QObject):
         LabelInsideTangential = ... # type: QPieSlice.LabelPosition
         LabelInsideNormal = ... # type: QPieSlice.LabelPosition
 
-    LabelOutside = ...  # type: QPieSlice.LabelPosition
-    LabelInsideHorizontal = ...  # type: QPieSlice.LabelPosition
-    LabelInsideTangential = ...  # type: QPieSlice.LabelPosition
-    LabelInsideNormal = ...  # type: QPieSlice.LabelPosition
-
     @typing.overload
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
     @typing.overload
@@ -1405,9 +1364,6 @@ class QScatterSeries(QXYSeries):
         MarkerShapeTriangle = ... # type: QScatterSeries.MarkerShape
         MarkerShapeStar = ... # type: QScatterSeries.MarkerShape
         MarkerShapePentagon = ... # type: QScatterSeries.MarkerShape
-
-    MarkerShapeCircle = ...  # type: QScatterSeries.MarkerShape
-    MarkerShapeRectangle = ...  # type: QScatterSeries.MarkerShape
 
     def __init__(self, parent: typing.Optional[QtCore.QObject] = ...) -> None: ...
 
