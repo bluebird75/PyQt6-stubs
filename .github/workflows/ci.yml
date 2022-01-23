@@ -11,7 +11,7 @@ on:
       - "*"
 
 jobs:
-  test:
+  test-platforms:
     name: ${{ matrix.os.name }} ${{ matrix.python.name }}
     runs-on: ${{ matrix.os.runs-on }}
     strategy:
@@ -21,6 +21,12 @@ jobs:
           - name: Windows
             runs-on: windows-latest
             tox: windows
+          - name: Linux
+            runs-on: ubuntu-latest
+            tox: linux
+          - name: macOS
+            runs-on: macos-latest
+            tox: macos
         python:
           - name: CPython 3.6
             tox: py36
@@ -45,7 +51,7 @@ jobs:
     name: All
     runs-on: ubuntu-latest
     needs:
-      - test
+      - test-platforms
     steps:
       - name: This
         shell: python
