@@ -13,8 +13,8 @@ PyQt6.QtDesigner.QAbstractFormBuilder.__init__
 PyQt6.QtDesigner.QFormBuilder.__init__
 PyQt6.QtGui.QImageIOHandler.__init__
 PyQt6.QtGui.QPaintDevice.__init__
-PyQt6.QtQuick.QQuickImageResponse.__init__
 PyQt6.QtQml.QQmlIncubationController.__init__
+PyQt6.QtQuick.QQuickImageResponse.__init__
 PyQt6.QtQuick.QQuickTextureFactory.__init__
 PyQt6.QtQuick.QSGClipNode.__init__
 PyQt6.QtQuick.QSGDynamicTexture.__init__
