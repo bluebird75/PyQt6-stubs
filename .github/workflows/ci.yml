@@ -39,6 +39,13 @@ jobs:
           python-version: '${{ matrix.python.action }}.0-alpha - ${{ matrix.python.action }}.X'
           architecture: x64
       - uses: twisted/python-info-action@v1.0.1
+      - name: Install Linux Qt6 dependencies
+        if: matrix.os.name == 'Linux'
+        run: |
+          sudo apt-get update --yes
+          sudo apt-get install --yes libgl1
+          # Required to stubtest QtMultimedia
+          sudo apt-get install --yes libpulse-mainloop-glib0
       - name: Install
         run: |
           pip install --upgrade pip setuptools wheel
