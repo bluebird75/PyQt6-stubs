@@ -21,9 +21,9 @@ jobs:
           - name: Windows
             runs-on: windows-latest
             tox: windows
-          - name: Linux
-            runs-on: ubuntu-latest
-            tox: linux
+          #- name: Linux
+          #  runs-on: ubuntu-latest
+          #  tox: linux
           - name: macOS
             runs-on: macos-latest
             tox: macos
