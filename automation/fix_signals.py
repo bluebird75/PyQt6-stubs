@@ -13,8 +13,8 @@ BASE_PATH = pathlib.Path(__file__).parent.parent
 
 def fix_signals():
     pyqt6_stubs_dir = BASE_PATH / 'PyQt6-stubs'
-    for stub_file in pyqt6_stubs_dir.glob('QtCore.pyi'):
-        if str(stub_file).startswith("__"):
+    for stub_file in pyqt6_stubs_dir.glob('*.pyi'):
+        if str(stub_file.name).startswith("__"):
             print(f"Ignoring file {stub_file}")
             continue
 
@@ -23,6 +23,7 @@ def fix_signals():
 
 
 def fix_signals_for_file(file_to_fix: pathlib.Path) -> None:
+    print('Fixing signals for %s' % file_to_fix.name)
     with open(file_to_fix, "r", encoding="utf-8") as fhandle:
         stub_tree = MetadataWrapper(parse_module(fhandle.read()))
 
